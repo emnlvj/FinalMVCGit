@@ -1,0 +1,87 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model SubjectWithPreRequisitesViewModel
+
+<h2>Subject and Prerequisite Details</h2>
+<hr />
+
+<!-- Form to search by SubjCode -->
+<form method="get" asp-action="SubjectList">
+    <div class="form-group">
+        <label for="subjCode">Enter Subject Code</label>
+        <input type="text" id="subjCode" name="subjCode" class="form-control" placeholder="Enter Subject Code" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (Model.Subject != null)
+{
+    <h3>Subject Details</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Subject Code</th>
+            <td>@Model.Subject.SubjCode</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>@Model.Subject.Descript</td>
+        </tr>
+        <tr>
+            <th>Units</th>
+            <td>@Model.Subject.Units</td>
+        </tr>
+        <tr>
+            <th>Offering</th>
+            <td>@Model.Subject.Offering</td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td>@Model.Subject.CatCourse</td>
+        </tr>
+        <tr>
+            <th>Course Code</th>
+            <td>@Model.Subject.CourseCode</td>
+        </tr>
+        <tr>
+            <th>Curriculum Year</th>
+            <td>@Model.Subject.CurrYear</td>
+        </tr>
+    </table>
+
+    <h3>Prerequisites</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>PreRequisite Code</th>
+                <th>PreRequisite Description</th>
+                <th>PreRequisite Units</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.PreRequisites != null && Model.PreRequisites.Count > 0)
+            {
+                foreach (var prerequisite in Model.PreRequisites)
+                {
+                    <tr>
+                        <td>@prerequisite.PreSubjCode</td>
+                        <td>@prerequisite.PreDescript</td>
+                        <td>@prerequisite.PreUnits</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3" class="text-danger">No prerequisites found for this subject.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (ViewBag.ErrorMessage != null)
+{
+    <p class="text-danger">@ViewBag.ErrorMessage</p>
+}

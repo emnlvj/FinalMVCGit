@@ -1,0 +1,155 @@
+﻿@{
+    var urlList = Url.Action("StudentList", "Student");
+    var urlPriv = Url.Action("Privacy", "Home");
+    var urlAdd = Url.Action("AddStudent", "Student");
+    var urlEdit = Url.Action("EditStudent", "Student");
+    var urlDel = Url.Action("DeleteStudent", "Student");
+    var urlListSub = Url.Action("SubjectList", "Subject");
+    var urlAddSub = Url.Action("AddSubject", "Subject");
+}
+
+<style>
+    .search-section {
+        padding: 40px 0;
+        background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    }
+
+    .text-white {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+    .text-white-50 {
+        font-size: 1rem;
+    }
+
+    form {
+        margin-top: 10px;
+    }
+
+    .category {
+        text-align: center;
+        color: white;
+    }
+
+    .icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .icon-categories p {
+        margin-top: 10px;
+    }
+    
+    select:hover {
+        background-color: lightcoral;
+    }
+
+    
+    select:focus {
+        background-color: lightcoral;
+        border-color: red;
+    }
+</style>
+
+
+<section class="search-section">
+	<div class="container text-center">
+        <a><img src="~/images/newtransharv.png" /></a>
+        <p class="text-white-50">OVER 1,980+ ENROLLEES</p>
+
+        <!-- Search Form -->
+        <form class="row g-3 justify-content-center">
+            <div class="col-md-4 dropdown">
+                <a role="button" class="btn dropdown-toggle" style="background-color:#8B0000; color: white; border: none; width: 100%; border-radius: 0;"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                onmouseover="this.style.backgroundColor='#FF0000';"
+                onmouseout="this.style.backgroundColor='#8B0000';">Student</a>
+                <div class="dropdown-menu">
+                    <a href="@urlList" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Student List</a>
+                    <a href="@urlAdd" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Add Student</a>
+                    <a href="@urlEdit" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Edit Student</a>
+                    <a href="@urlDel" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Delete Student</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a role="button" class="btn dropdown-toggle" style="background-color:#8B0000; color: white; border: none; width: 100%; border-radius: 0;"
+                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                   onmouseover="this.style.backgroundColor='#FF0000';"
+                   onmouseout="this.style.backgroundColor='#8B0000';">Subject</a>
+                <div class="dropdown-menu">
+                    <a href="@urlListSub" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Subject List</a>
+                    <a href="@urlAddSub" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Add Subject</a>
+                    <a href="@urlEdit" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Edit Subject</a>
+                    <a href="@urlDel" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Delete Subject</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a href="@urlPriv" class="btn" style="background-color:#8B0000; color: white; border: none; width: 100%; border-radius: 0;"
+                        onmouseover="this.style.backgroundColor='#FF0000';"
+                        onmouseout="this.style.backgroundColor='#8B0000';">
+                    Privacy
+                </a>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-brown" style="background-color: #8B4513;color: white; border: none; border-radius: 0; font-size:10px" onmouseover="this.style.backgroundColor='#6F4C3E';"
+                        onmouseout="this.style.backgroundColor='#8B4513';">
+                    Enroll Now
+                </button>
+            </div>
+        </form>
+
+        
+        <div class="row icon-categories justify-content-center mt-4" style="padding: 20px: 0">
+            <div class="col-md-3">
+                <div class="category">
+                    
+                    <a class="link-underline-opacity-10-hover" href="#">Report Copyright Infrigment</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="category">
+                   
+                    <a class="link-underline-opacity-10-hover" href="#">Privacy Statement</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="category">
+                    
+                    <a class="link-underline-opacity-10-hover" href="#">Contact Harvard</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="category">
+                  
+                    <a class="link-underline-opacity-10-hover" href="#">Report Security Issue</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="category">
+                    
+                    <a class="link-underline-opacity-10-hover" href="#">Get In Touch</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="category">
+
+                    <a class="link-underline-opacity-10-hover" href="#">Maps & Directions</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="category">
+
+                    <a class="link-underline-opacity-10-hover" href="#">Accessibility</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="category hover-text" >
+
+                    <a class="link-underline-opacity-10-hover" href="#">Trademark Notice</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
