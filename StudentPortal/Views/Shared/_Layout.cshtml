@@ -42,17 +42,27 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subject</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item text-light" asp-controller="Subject" asp-action="SubjectList"><i class="bi bi-card-list"></i>   Subject List</a>
+                                <a class="dropdown-item text-light" asp-controller="Subject" asp-action="SubjectList"><i class="bi bi-card-list"></i>   Subject Summary</a>
                                 <a class="dropdown-item text-light" asp-controller="Subject" asp-action="AddSubject"><i class="bi bi-file-plus"></i>   Add Subject</a>
                                 <a class="dropdown-item text-light" asp-controller="Subject" asp-action="EditSubject"><i class="bi bi-pencil-square"></i>   Edit Subject</a>
                                 <a class="dropdown-item text-light" asp-controller="Subject" asp-action="DeleteSubject"><i class="bi bi-trash"></i>   Delete Subject</a>
-                                <a class="dropdown-item text-light" asp-controller="PreReq" asp-action="PreReqAdd"><i class="bi bi-file-plus"></i>   Add Pre-Requisite</a>
+                                <a class="dropdown-item text-light" asp-controller="Subject" asp-action="SubjectSummary"><i class="bi bi-card-checklist"></i>  Subject List</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Separated link</a>
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pre-Requisite</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item text-light" asp-controller="PreReq" asp-action="PreReqAdd"><i class="bi bi-file-plus"></i>   Add Pre-Requisite</a>
+                                <a class="dropdown-item text-light" asp-controller="PreReq" asp-action="PreReqList"><i class="bi bi-card-checklist"></i>  Pre-Requisite List</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </li>
+                        
                     </ul>
-                    <form class="d-flex" asp-controller="Student" asp-action="StudentList" method="get">
+                    <form class="d-flex align-content-sm-end" asp-controller="Student" asp-action="StudentList" method="get">
                         <input class="form-control me-sm-2" type="search" name="searchTerm" placeholder="Search" value="@ViewBag.SearchTerm">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
                     </form>

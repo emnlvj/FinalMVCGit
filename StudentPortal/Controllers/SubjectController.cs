@@ -42,8 +42,17 @@ namespace StudentPortal.Controllers
 
             return View(viewModel);
         }
-       
-        public IActionResult AddSubject()
+        public IActionResult SubjectSummary()
+        {
+            var subject = _studb.SubjectInfo
+                .Include(pr => pr.PreRequisite)
+                .ToList();
+
+            return View(subject);
+            
+        }
+
+            public IActionResult AddSubject()
         {
 
             return View();
@@ -68,8 +77,95 @@ namespace StudentPortal.Controllers
 
         }
 
-      
+        public IActionResult EditSubject(string? subjcode)
+        {
+            if (subjcode == null)
+            {
 
-        
+                return View();
+            }
+            Subject? subfind = _studb.SubjectInfo.Find(subjcode);
+            if (subfind == null)
+            {
+                return View();
+            }
+            return View(subfind);
+        }
+
+
+        [HttpPost]
+        public IActionResult EditSubject(Subject? subjectobj)
+        {
+            if (subjectobj == null || string.IsNullOrEmpty(subjectobj.SubjCode))
+            {
+                ViewBag.Message = "Subject not found";
+                return View(subjectobj);  // Return the view with the original object
+            }
+
+            if (ModelState.IsValid)
+            {
+                // Retrieve the subject from the database
+                var subjectToUpdate = _studb.SubjectInfo.Find(subjectobj.SubjCode);
+
+                if (subjectToUpdate != null)
+                {
+                    // Update the fields
+                    subjectToUpdate.Descript = subjectobj.Descript;
+                    subjectToUpdate.Units = subjectobj.Units;
+                    subjectToUpdate.Offering = subjectobj.Offering;
+                    subjectToUpdate.CatCourse = subjectobj.CatCourse;
+                    subjectToUpdate.CourseCode = subjectobj.CourseCode;
+                    subjectToUpdate.CurrYear = subjectobj.CurrYear;
+
+                    // Save changes to the database
+                    _studb.SubjectInfo.Update(subjectToUpdate);
+                    _studb.SaveChanges();
+
+                    return RedirectToAction("SubjectSummary");
+                }
+                else
+                {
+                    ViewBag.Message = "Subject not found in the database.";
+                }
+            }
+
+            return View(subjectobj);
+        }
+
+        public IActionResult DeleteSubject(string? subjcode)
+        {
+            if (subjcode == null)
+            {
+
+                return View();
+            }
+            Subject? subfind = _studb.SubjectInfo.Find(subjcode);
+            if (subfind == null)
+            {
+                return View();
+            }
+            return View(subfind);
+        }
+
+        [HttpPost,ActionName("DeleteSubject")]
+        public IActionResult DeleteSubjectPOST(string? subjcode)
+        {
+            Subject? subobj = _studb.SubjectInfo.Find(subjcode);
+            if (subobj == null)
+            {
+                ViewBag.Message = "Student not found";
+                return RedirectToAction("Index");
+            }
+
+
+            _studb.SubjectInfo.Remove(subobj);
+            _studb.SaveChanges();
+            return RedirectToAction("SubjectSummary");
+
+            
+        }
+
+
+
     }
 }

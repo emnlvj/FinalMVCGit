@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mis\\Desktop\\StudentPortal\\StudentPortal\\StudentPortal.csproj": {}
+    "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\StudentPortal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mis\\Desktop\\StudentPortal\\StudentPortal\\StudentPortal.csproj": {
+    "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\StudentPortal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mis\\Desktop\\StudentPortal\\StudentPortal\\StudentPortal.csproj",
+        "projectUniqueName": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\StudentPortal.csproj",
         "projectName": "StudentPortal",
-        "projectPath": "C:\\Users\\mis\\Desktop\\StudentPortal\\StudentPortal\\StudentPortal.csproj",
+        "projectPath": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\StudentPortal.csproj",
         "packagesPath": "C:\\Users\\mis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mis\\Desktop\\StudentPortal\\StudentPortal\\obj\\",
+        "outputPath": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mis\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Google.Cloud.RecaptchaEnterprise.V1": {
+              "target": "Package",
+              "version": "[2.15.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.8, )"
@@ -58,6 +62,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             }
           },
           "imports": [

@@ -3,3 +3,35 @@
 *@
 @{
 }
+@model List<PreRequisite>
+
+<table class="table table-hover table-bordered" >
+    <thead>
+        <tr>
+            <th scope="col">Pre-Requistie Code</th>
+            <th scope="col">Description</th>
+            <th scope="col">Units</th>
+            <th scope="col">Subject Code</th>
+        </tr>
+    </thead>
+    <tbody class="table-danger @(Model.Count == 0 ? "table-light" : "")">
+        @if (Model.Count == 0)
+        {
+            <tr>
+                <td colspan="12" class="text-start text-danger">No Student Listed.</td>
+            </tr>
+        }
+        else{
+            foreach (var obj in Model)
+            {
+                <tr>
+                    <td>@obj.PreSubjCode</td>
+                    <td>@obj.PreDescript</td>
+                    <td>@obj.PreUnits</td>
+                    <td>@obj.SubjCode</td>
+                </tr>
+            }
+        
+        }
+    </tbody>
+</table>

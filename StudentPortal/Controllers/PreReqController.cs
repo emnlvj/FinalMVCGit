@@ -37,42 +37,37 @@ namespace StudentPortal.Controllers
             {
                 try
                 {
-                    // Check if the subject code exists in the Subject table
+
                     if (!_studb.SubjectInfo.Any(s => s.SubjCode == prerequisite.SubjCode))
                     {
                         ModelState.AddModelError("SubjCode", "The Subject Code does not exist.");
                         return View(prerequisite);
                     }
-
-                    // Check if the prerequisite Subject is valid
-
-
-                    // If everything is valid, create a new instance
-                    var newPrerequisite = new PreRequisite
-                    {
-                        PreSubjCode = ViewBag.PreSubjCode ?? prerequisite.PreSubjCode,
-                        PreDescript = ViewBag.PreDescript ??prerequisite.PreDescript,
-                        PreUnits = ViewBag.PreUnits ?? prerequisite.PreUnits,
-                        SubjCode = ViewBag.SubjectCode ?? prerequisite.SubjCode
-
-                    };
-
-                    // Add to the database and save
-                    _studb.PreSubjectInfo.Add(newPrerequisite);
+                    _studb.PreSubjectInfo.Add(prerequisite);
                     _studb.SaveChanges();
 
                     return RedirectToAction("PreReqList"); // Redirect to list
                 }
                 catch (IOException ex)
                 {
-                    // Log the exception (optional)
-                    // For example: _logger.LogError(ex, "An error occurred while saving the prerequisite.");
-
                     ModelState.AddModelError("", "An error occurred while processing your request. Please try again.");
                     return View(prerequisite);
                 }
             }
+            if (!ModelState.IsValid) {
+                if (!_studb.SubjectInfo.Any(s => s.SubjCode == prerequisite.SubjCode))
+                {
+                    ModelState.AddModelError("SubjCode", "The Subject Code does not exist.");
+                    return View(prerequisite);
+                }
 
-            return View();        }
+                
+                _studb.PreSubjectInfo.Add(prerequisite);
+                _studb.SaveChanges();
+
+                return RedirectToAction("PreReqList");
+            }
+            return View();       
+        }
     }
 }

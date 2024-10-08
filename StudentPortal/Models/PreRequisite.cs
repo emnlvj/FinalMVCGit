@@ -17,7 +17,7 @@ namespace StudentPortal.Models
         [Range(0, 3)] 
         public int PreUnits { get; set;}
         [Required]
-        [StringLength(10, ErrorMessage = "Subject Code cannot be longer than 10 characters.")]
+        [StringLength(50, ErrorMessage = "Subject Code cannot be longer than 10 characters.")]
         [ForeignKey("Subject")]
 
         public string SubjCode { get; set; }

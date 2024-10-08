@@ -1,17 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StudentPortal.Data;
 using StudentPortal.Models;
+using System.Net;
+
 
 namespace StudentPortal.Controllers
 {
 	public class StudentController : Controller
 	{
 		private readonly StudentEntryDbContext _studb;
+        
         public StudentController(StudentEntryDbContext studdb)
         {
-			_studb = studdb;
+            _studb = studdb;
         }
         public IActionResult StudentList(string searchTerm)
 		{
@@ -41,6 +45,8 @@ namespace StudentPortal.Controllers
         [HttpPost]
         public IActionResult AddStudent(Student studobj)
         {
+           
+
             using (var transaction = _studb.Database.BeginTransaction())
             {
                 
@@ -83,7 +89,6 @@ namespace StudentPortal.Controllers
         
         public IActionResult EditStudent(Student? studobj)
         {
-            
             using (var transaction = _studb.Database.BeginTransaction())
             {
               
@@ -135,6 +140,7 @@ namespace StudentPortal.Controllers
 
         [HttpPost, ActionName("DeleteStudent")]
 
+      
         public IActionResult DeleteStudentPOST(int? id)
         {
             Student? studobj = _studb.StudentInfo.Find(id);
@@ -143,35 +149,55 @@ namespace StudentPortal.Controllers
                 ViewBag.Message = "Student not found";
                 return RedirectToAction("Index");
             }
-           
+
             using (var transaction = _studb.Database.BeginTransaction())
             {
-             
+                try
+                {
+                    // Store the deleted student's count
                     int deletedStudentCount = studobj.count;
-                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo ON");
 
+                    // Remove the student object from the database
                     _studb.StudentInfo.Remove(studobj);
                     _studb.SaveChanges();
 
-                var studentsToUpdate = _studb.StudentInfo.Where(s => s.count > deletedStudentCount).ToList();
+                    // Find all students with a count greater than the deleted student's count
+                    var studentsToUpdate = _studb.StudentInfo.Where(s => s.count > deletedStudentCount).ToList();
 
-                foreach (var student in studentsToUpdate)
-                {
-                    student.count -= 1;
-                    _studb.StudentInfo.Update(studobj);
-                }
+                    // Adjust the count for the remaining students
+                    foreach (var student in studentsToUpdate)
+                    {
+                        student.count -= 1;
+                        _studb.StudentInfo.Update(student); // Update the correct student
+                    }
 
+                    // Save changes for updated students
+                    _studb.SaveChanges();
 
-                _studb.SaveChanges();
-
-                _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo OFF");
-
+                    // Commit the transaction if all operations succeed
                     transaction.Commit();
                     return RedirectToAction("StudentList");
-                
-                
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    // Handle concurrency conflict
+                    ViewBag.Message = "Concurrency conflict detected. The data may have changed or been deleted.";
+                    transaction.Rollback();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    // Handle any other errors
+                    ViewBag.Message = "An error occurred while deleting the student.";
+                    transaction.Rollback();
+                    return RedirectToAction("Index");
+                }
             }
-
         }
+
+        
+
+
+
     }
 }

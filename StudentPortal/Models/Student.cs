@@ -18,7 +18,7 @@ namespace StudentPortal.Models
 		public string LName { get; set; }
 		public string MName { get; set; }
 
-		[Range(1,100)]
+		[Range(10,50, ErrorMessage = "Enter valid age")]
 		public int Age { get; set; }
 
 		public string Course { get; set; }

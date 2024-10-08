@@ -1,71 +1,212 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+
+
+
 @model Student
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-<style>
-
-    
-</style>
-
-<form class="row g-3" method="post">
-    <div><h2 class="text-black">Add Student</h2></div>
+<script src="https://www.google.com/recaptcha/api.js?render=your_site_key"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<form class="row g-3" method="post" id="addStudentForm">
+    <div>
+        <h2 class="text-black">Add Student</h2>
+    </div>
     <hr class="text-black">
     <div class="col-md-6 border-danger-subtle">
         <label asp-for="Id" class="form-label">Student ID</label>
-        <input asp-for="Id" type="text" class="form-control">
-        <span asp-validation-for="Id" class="text-danger"></span>
+        <input asp-for="Id" class="form-control" id="studentId" maxlength="15" />
+        <span asp-validation-for="Id" class="text-danger" id="idError"></span>
+        <span class="validation-icon" id="idIcon"></span>
     </div>
     <div class="col-md-4">
         <label asp-for="FName" class="form-label">First Name</label>
-        <input asp-for="FName" type="text" class="form-control" placeholder="First Name">
-        <span asp-validation-for="FName" class="text-danger"></span>
+        <input asp-for="FName" type="text" class="form-control" placeholder="First Name" id="firstName" maxlength="50" />
+        <span asp-validation-for="FName" class="text-danger" id="fNameError"></span>
+        <span class="validation-icon" id="fNameIcon"></span>
     </div>
     <div class="col-md-4">
         <label asp-for="LName" class="form-label">Last Name</label>
-        <input asp-for="LName" class="form-control" placeholder="Last Name">
-        <span asp-validation-for="LName" class="text-danger"></span>
+        <input asp-for="LName" class="form-control" placeholder="Last Name" id="lastName" maxlength="50" />
+        <span asp-validation-for="LName" class="text-danger" id="lNameError"></span>
+        <span class="validation-icon" id="lNameIcon"></span>
     </div>
     <div class="col-md-4">
         <label asp-for="MName" class="form-label">Middle Name</label>
-        <input asp-for="MName" type="text" class="form-control" placeholder="Middle Name">
-        <span asp-validation-for="MName" class="text-danger"></span>
+        <input asp-for="MName" type="text" class="form-control" placeholder="Middle Name" id="middleName" maxlength="50" />
+        <span asp-validation-for="MName" class="text-danger" id="mNameError"></span>
+        <span class="validation-icon" id="mNameIcon"></span>
     </div>
     <div class="col-md-2">
         <label asp-for="Age" class="form-label">Age</label>
-        <input asp-for="Age" type="text" class="form-control">
-        <span asp-validation-for="Age" class="text-danger"></span>
+        <input asp-for="Age" type="text" class="form-control" id="age" maxlength="2" />
+        <span asp-validation-for="Age" class="text-danger" id="ageError"></span>
+        <span class="validation-icon" id="ageIcon"></span>
     </div>
     <div class="col-md-4">
         <label asp-for="Course" class="form-label">Course</label>
-        <select asp-for="Course" class="form-select text-black-50">
-            <option selected>Choose course...</option>
-            <option>BSIT</option>
-            <option>BSCE</option>
-            <option>BSA</option>
-            <option>BSN</option>
-        </select>
-        <span asp-validation-for="Course" class="text-danger"></span>
+        <input asp-for="Course" type="text" class="form-control" id="course" maxlength="8" />
+        <span asp-validation-for="Course" class="text-danger" id="courseError"></span>
+        <span class="validation-icon" id="courseIcon"></span>
     </div>
     <div class="col-md-3">
         <label asp-for="Section" class="form-label">Section</label>
-        <input asp-for="Section" type="text" class="form-control">
-        <span asp-validation-for="Section" class="text-danger"></span>
+        <input asp-for="Section" type="text" class="form-control" id="section" maxlength="10" />
+        <span asp-validation-for="Section" class="text-danger" id="sectionError"></span>
+        <span class="validation-icon" id="sectionIcon"></span>
     </div>
     <div class="col-md-3">
         <label asp-for="Year" class="form-label">Year Level</label>
-        <input asp-for="Year" type="text" class="form-control">
-        <span asp-validation-for="Year" class="text-danger"></span>
-   </div>
+        <input asp-for="Year" type="text" class="form-control" id="year" maxlength="1" />
+        <span asp-validation-for="Year" class="text-danger" id="yearError"></span>
+        <span class="validation-icon" id="yearIcon"></span>
+    </div>
+
     <div class="col-12">
-        <button type="submit" class="btn" style="background-color: #8B0000;color: white; border: none; border-radius: 0; font-size:10px" onmouseover="this.style.backgroundColor='#FF0000';"
+        <button type="submit" class="btn" style="background-color: #8B0000;color: white; border: none; border-radius: 0; font-size:10px; width:10%" onmouseover="this.style.backgroundColor='#FF0000';"
                 onmouseout="this.style.backgroundColor='#8B4513';">
-            <i class="bi bi-arrow-down-right-circle"></i>    Submit
+            <i class="bi bi-arrow-down-right-circle"></i> Submit
+        </button>
+        <button type="button" class="btn" style="background-color: #8B0000;color: white; border: none; border-radius: 0; font-size:10px; width:10%; margin-left: 2%;" id="clearBtn">
+            <i class="bi bi-x-circle"></i> Clear
         </button>
     </div>
 </form>
 
-        
+<script>
+    // Function to display error messages and icons
+    function displayError(element, message, isValid) {
+        const errorElement = document.getElementById(element);
+        const iconElement = document.getElementById(element + 'Icon');
+
+        errorElement.textContent = message;
+        if (isValid) {
+            iconElement.innerHTML = '<span style="color: green;">&#10004;</span>'; // Check icon
+        } else {
+            iconElement.innerHTML = '<span style="color: red;">&#10006;</span>'; // Cross icon
+        }
+    }
+
+    // Clear error messages
+    function clearErrors() {
+        const errorElements = ['idError', 'fNameError', 'lNameError', 'mNameError', 'ageError', 'courseError', 'sectionError', 'yearError'];
+        errorElements.forEach(el => displayError(el, '', false));
+        const iconElements = ['idIcon', 'fNameIcon', 'lNameIcon', 'mNameIcon', 'ageIcon', 'courseIcon', 'sectionIcon', 'yearIcon'];
+        iconElements.forEach(el => document.getElementById(el).innerHTML = '');
+    }
+
+    document.getElementById('studentId').addEventListener('input', function (e) {
+        const value = e.target.value;
+        // Allow only valid Student ID input
+        const isValid = /^(0|[1-9]\d{0,14})?$/.test(value);
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('idError', isValid ? '' : 'Enter a valid number.', isValid);
+    });
+
+    document.getElementById('firstName').addEventListener('input', function (e) {
+        const value = e.target.value.toUpperCase();
+        // Allow only uppercase letters
+        const isValid = /^[A-Z ]*$/.test(value);
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('fNameError', isValid ? '' : 'Invalid input. Letters only.', isValid);
+    });
+
+    document.getElementById('lastName').addEventListener('input', function (e) {
+        const value = e.target.value.toUpperCase();
+        // Allow only uppercase letters
+        const isValid = /^[A-Z ]*$/.test(value);
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('lNameError', isValid ? '' : 'Invalid input. Letters only.', isValid);
+    });
+
+    document.getElementById('middleName').addEventListener('input', function (e) {
+        const value = e.target.value.toUpperCase();
+        // Allow only uppercase letters
+        const isValid = /^[A-Z ]*$/.test(value);
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('mNameError', isValid ? '' : 'Invalid input. Letters only.', isValid);
+    });
+
+    document.getElementById('course').addEventListener('input', function (e) {
+        const value = e.target.value.toUpperCase();
+        // Allow only uppercase letters and limit to 8 characters
+        const isValid = /^[A-Z]*$/.test(value) && value.length <= 8;
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('courseError', isValid ? '' : 'Invalid input. Letters only, max 8.', isValid);
+    });
+
+    document.getElementById('section').addEventListener('input', function (e) {
+        const value = e.target.value.toUpperCase();
+        // Allow uppercase letters and numbers, limit to 10 characters
+        const isValid = /^[A-Z0-9]*$/.test(value) && value.length <= 10;
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('sectionError', isValid ? '' : 'Invalid input. Letters and numbers only, max 10.', isValid);
+    });
+
+    // Real-time validation for Age and Year fields
+    document.getElementById('age').addEventListener('input', function (e) {
+        const value = e.target.value;
+        // Allow only numbers and limit to 1-50
+        const isValid = /^[0-9]*$/.test(value) && (parseInt(value) > 0 && parseInt(value) <= 50);
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('ageError', isValid ? '' : 'Please input a valid age (1-50).', isValid);
+    });
+
+    document.getElementById('year').addEventListener('input', function (e) {
+        const value = e.target.value;
+        // Allow only numbers between 1 and 5
+        const isValid = /^[1-5]$/.test(value);
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('yearError', isValid ? '' : 'Please input a valid year level (1-5).', isValid);
+    });
+
+    // Handle form submission
+    document.getElementById('addStudentForm').addEventListener('submit', function (e) {
+        clearErrors(); // Clear previous errors
+
+        let isValid = true;
+
+        // Validate Age
+        const ageValue = document.getElementById('age').value;
+        if (!/^(0|[1-9][0-9]?)$/.test(ageValue) || ageValue < 1 || ageValue > 50) {
+            isValid = false;
+            displayError('ageError', 'Please input a valid age (1-50).', false);
+        } else {
+            displayError('ageError', '', true);
+        }
+
+        // Validate Year Level
+        const yearValue = document.getElementById('year').value;
+        if (!/^[1-5]$/.test(yearValue)) {
+            isValid = false;
+            displayError('yearError', 'Please input a valid year level (1-5).', false);
+        } else {
+            displayError('yearError', '', true);
+        }
+
+        // Prevent form submission if any validation fails
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+
+    // Clear button functionality
+    document.getElementById('clearBtn').addEventListener('click', function () {
+        document.getElementById('studentId').value = '';
+        document.getElementById('firstName').value = '';
+        document.getElementById('lastName').value = '';
+        document.getElementById('middleName').value = '';
+        document.getElementById('age').value = '';
+        document.getElementById('course').value = '';
+        document.getElementById('section').value = '';
+        document.getElementById('year').value = '';
+
+        clearErrors(); // Clear all error messages
+    });
+</script>
+
+<style>
+    .validation-icon {
+        display: inline-block;
+        margin-left: 5px;
+        font-size: 1.2em;
+    }
+</style>
