@@ -56,9 +56,14 @@
             <span asp-validation-for="MName" class="text-danger"></span>
         </div>
         <div class="col-md-2">
-            <label asp-for="Age" class="form-label">Age</label>
-            <input asp-for="Age" type="text" class="form-control">
-            <span asp-validation-for="Age" class="text-danger"></span>
+            <label asp-for="Status" class="form-label">Status</label>
+            <select asp-for="Status" class="form-select">
+                <option selected>Choose status...</option>
+                <option>Active</option>
+                <option>Inactive</option>
+
+            </select>
+            <span asp-validation-for="Status" class="text-danger"></span>
         </div>
         <div class="col-md-4">
             <label asp-for="Course" class="form-label">Course</label>
@@ -72,9 +77,19 @@
             <span asp-validation-for="Course" class="text-danger"></span>
         </div>
         <div class="col-md-3">
-            <label asp-for="Section" class="form-label">Section</label>
-            <input asp-for="Section" type="text" class="form-control">
-            <span asp-validation-for="Section" class="text-danger"></span>
+            <label asp-for="Remarks" class="form-label">Remarks</label>
+            <select asp-for="Remarks" class="form-select text-black-50">
+                <option selected>Choose course...</option>
+                <option>OLD STUDENT</option>
+                <option>NEW STUDENT</option>
+                <option>SHIFTEE</option>
+                <option>TRANSFEREE</option>
+                <option>RETURNEE</option>
+                <option>CROSS-ENROLLEE</option>
+                <option>SHIFTEE</option>
+
+            </select>
+            <span asp-validation-for="Remarks" class="text-danger"></span>
         </div>
         <div class="col-md-3">
             <label asp-for="Year" class="form-label">Year Level</label>
@@ -89,3 +104,116 @@
         </div>
     </form>
 }
+
+<script>
+    // Function to display error messages and icons
+    function displayError(element, message, isValid) {
+        const errorElement = document.getElementById(element);
+        const iconElement = document.getElementById(element + 'Icon');
+
+        errorElement.textContent = message;
+        if (isValid) {
+            iconElement.innerHTML = '<span style="color: green;">&#10004;</span>'; // Check icon
+        } else {
+            iconElement.innerHTML = '<span style="color: red;">&#10006;</span>'; // Cross icon
+        }
+    }
+
+    // Clear error messages
+    function clearErrors() {
+        const errorElements = ['idError', 'fNameError', 'lNameError', 'mNameError',  'courseError',  'yearError'];
+        errorElements.forEach(el => displayError(el, '', false));
+        const iconElements = ['idIcon', 'fNameIcon', 'lNameIcon', 'mNameIcon',  'courseIcon', 'yearIcon'];
+        iconElements.forEach(el => document.getElementById(el).innerHTML = '');
+    }
+
+    document.getElementById('studentId').addEventListener('input', function (e) {
+        const value = e.target.value;
+        // Allow only valid Student ID input
+        const isValid = /^(0|[1-9]\d{0,14})?$/.test(value);
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('idError', isValid ? '' : 'Enter a valid number.', isValid);
+    });
+
+    document.getElementById('firstName').addEventListener('input', function (e) {
+        const value = e.target.value.toUpperCase();
+        // Allow only uppercase letters
+        const isValid = /^[A-Z ]*$/.test(value);
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('fNameError', isValid ? '' : 'Invalid input. Letters only.', isValid);
+    });
+
+    document.getElementById('lastName').addEventListener('input', function (e) {
+        const value = e.target.value.toUpperCase();
+        // Allow only uppercase letters
+        const isValid = /^[A-Z ]*$/.test(value);
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('lNameError', isValid ? '' : 'Invalid input. Letters only.', isValid);
+    });
+
+    document.getElementById('middleName').addEventListener('input', function (e) {
+        const value = e.target.value.toUpperCase();
+        // Allow only uppercase letters
+        const isValid = /^[A-Z ]*$/.test(value);
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('mNameError', isValid ? '' : 'Invalid input. Letters only.', isValid);
+    });
+
+    document.getElementById('course').addEventListener('input', function (e) {
+        const value = e.target.value.toUpperCase();
+        // Allow only uppercase letters and limit to 8 characters
+        const isValid = /^[A-Z]*$/.test(value) && value.length <= 8;
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('courseError', isValid ? '' : 'Invalid input. Letters only, max 8.', isValid);
+    });
+
+    
+
+    
+
+    document.getElementById('year').addEventListener('input', function (e) {
+        const value = e.target.value;
+        // Allow only numbers between 1 and 5
+        const isValid = /^[1-5]$/.test(value);
+        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
+        displayError('yearError', isValid ? '' : 'Please input a valid year level (1-5).', isValid);
+    });
+
+    // Handle form submission
+    document.getElementById('addStudentForm').addEventListener('submit', function (e) {
+        clearErrors(); // Clear previous errors
+
+        let isValid = true;
+
+        // Validate Age
+        
+
+        // Validate Year Level
+        const yearValue = document.getElementById('year').value;
+        if (!/^[1-5]$/.test(yearValue)) {
+            isValid = false;
+            displayError('yearError', 'Please input a valid year level (1-5).', false);
+        } else {
+            displayError('yearError', '', true);
+        }
+
+        // Prevent form submission if any validation fails
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+
+    // Clear button functionality
+    document.getElementById('clearBtn').addEventListener('click', function () {
+        document.getElementById('studentId').value = '';
+        document.getElementById('firstName').value = '';
+        document.getElementById('lastName').value = '';
+        document.getElementById('middleName').value = '';
+        
+        document.getElementById('course').value = '';
+        
+        document.getElementById('year').value = '';
+
+        clearErrors(); // Clear all error messages
+    });
+</script>

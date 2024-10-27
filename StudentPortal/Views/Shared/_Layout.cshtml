@@ -56,16 +56,24 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item text-light" asp-controller="PreReq" asp-action="PreReqAdd"><i class="bi bi-file-plus"></i>   Add Pre-Requisite</a>
                                 <a class="dropdown-item text-light" asp-controller="PreReq" asp-action="PreReqList"><i class="bi bi-card-checklist"></i>  Pre-Requisite List</a>
+                                
                                 <div class="dropdown-divider"></div>
+
                                 <a class="dropdown-item" href="#">Separated link</a>
                             </div>
                         </li>
-                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Schedule</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item text-light" asp-controller="Schedule" asp-action="ScheduleList"><i class="bi bi-card-checklist"></i>   Schedule List</a>
+                                
+
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </li>
                     </ul>
-                    <form class="d-flex align-content-sm-end" asp-controller="Student" asp-action="StudentList" method="get">
-                        <input class="form-control me-sm-2" type="search" name="searchTerm" placeholder="Search" value="@ViewBag.SearchTerm">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </nav>
@@ -81,6 +89,7 @@
             &copy; 2024 - StudentPortal | Made by Victor Emmanuel Jacaba - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -18,6 +18,11 @@
         <input asp-for="SubjCode" type="text" class="form-control">
         <span asp-validation-for="SubjCode" class="text-danger"></span>
     </div>
+    <div class="col-md-4">
+        <label asp-for="CourseCode" class="form-label">Course Code</label>
+        <input asp-for="CourseCode" type="text" class="form-control">
+        <span asp-validation-for="CourseCode" class="text-danger"></span>
+    </div>
     <div class="col-md-8">
         <label asp-for="Descript" class="form-label">Description</label>
         <input asp-for="Descript" type="text" class="form-control" placeholder="Subject Description">
@@ -43,11 +48,6 @@
         <label asp-for="CatCourse" class="form-label">Category</label>
         <input asp-for="CatCourse" type="text" class="form-control">
         <span asp-validation-for="CatCourse" class="text-danger"></span>
-    </div>
-    <div class="col-md-4">
-        <label asp-for="CourseCode" class="form-label">Course Code</label>
-        <input asp-for="CourseCode" type="text" class="form-control">
-        <span asp-validation-for="CourseCode" class="text-danger"></span>
     </div>
     <div class="col-md-3">
         <label asp-for="CurrYear" class="form-label">Curriculum</label>

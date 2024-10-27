@@ -67,7 +67,7 @@ namespace StudentPortal.Controllers
 
                 _studb.SubjectInfo.Add(studsub);
                 _studb.SaveChanges();
-                return RedirectToAction("SubjectList");
+                return RedirectToAction("SubjectSummary");
 
 
             }

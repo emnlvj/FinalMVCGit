@@ -36,22 +36,40 @@
         <span class="validation-icon" id="mNameIcon"></span>
     </div>
     <div class="col-md-2">
-        <label asp-for="Age" class="form-label">Age</label>
-        <input asp-for="Age" type="text" class="form-control" id="age" maxlength="2" />
-        <span asp-validation-for="Age" class="text-danger" id="ageError"></span>
-        <span class="validation-icon" id="ageIcon"></span>
+        <label asp-for="Status" class="form-label">Status</label>
+        <select asp-for="Status" class="form-select">
+            <option selected>Choose status...</option>
+            <option>Active</option>
+            <option>Inactive</option>
+            
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
     </div>
     <div class="col-md-4">
         <label asp-for="Course" class="form-label">Course</label>
-        <input asp-for="Course" type="text" class="form-control" id="course" maxlength="8" />
-        <span asp-validation-for="Course" class="text-danger" id="courseError"></span>
-        <span class="validation-icon" id="courseIcon"></span>
+        <select asp-for="Course" class="form-select">
+            <option selected>Choose course...</option>
+            <option>BSIT</option>
+            <option>BSCE</option>
+            <option>BSA</option>
+            <option>BSN</option>
+        </select>
+        <span asp-validation-for="Course" class="text-danger"></span>
     </div>
     <div class="col-md-3">
-        <label asp-for="Section" class="form-label">Section</label>
-        <input asp-for="Section" type="text" class="form-control" id="section" maxlength="10" />
-        <span asp-validation-for="Section" class="text-danger" id="sectionError"></span>
-        <span class="validation-icon" id="sectionIcon"></span>
+        <label asp-for="Remarks" class="form-label">Remarks</label>
+        <select asp-for="Remarks" class="form-select text-black-50">
+            <option selected>Choose remarks...</option>
+            <option>OLD STUDENT</option>
+            <option>NEW STUDENT</option>
+            <option>SHIFTEE</option>
+            <option>TRANSFEREE</option>
+            <option>RETURNEE</option>
+            <option>CROSS-ENROLLEE</option>
+            <option>SHIFTEE</option>
+
+        </select>
+        <span asp-validation-for="Remarks" class="text-danger"></span>
     </div>
     <div class="col-md-3">
         <label asp-for="Year" class="form-label">Year Level</label>
@@ -87,9 +105,9 @@
 
     // Clear error messages
     function clearErrors() {
-        const errorElements = ['idError', 'fNameError', 'lNameError', 'mNameError', 'ageError', 'courseError', 'sectionError', 'yearError'];
+        const errorElements = ['idError', 'fNameError', 'lNameError', 'mNameError', 'courseError',  'yearError'];
         errorElements.forEach(el => displayError(el, '', false));
-        const iconElements = ['idIcon', 'fNameIcon', 'lNameIcon', 'mNameIcon', 'ageIcon', 'courseIcon', 'sectionIcon', 'yearIcon'];
+        const iconElements = ['idIcon', 'fNameIcon', 'lNameIcon', 'mNameIcon',  'courseIcon',  'yearIcon'];
         iconElements.forEach(el => document.getElementById(el).innerHTML = '');
     }
 
@@ -133,22 +151,10 @@
         displayError('courseError', isValid ? '' : 'Invalid input. Letters only, max 8.', isValid);
     });
 
-    document.getElementById('section').addEventListener('input', function (e) {
-        const value = e.target.value.toUpperCase();
-        // Allow uppercase letters and numbers, limit to 10 characters
-        const isValid = /^[A-Z0-9]*$/.test(value) && value.length <= 10;
-        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
-        displayError('sectionError', isValid ? '' : 'Invalid input. Letters and numbers only, max 10.', isValid);
-    });
+    
 
     // Real-time validation for Age and Year fields
-    document.getElementById('age').addEventListener('input', function (e) {
-        const value = e.target.value;
-        // Allow only numbers and limit to 1-50
-        const isValid = /^[0-9]*$/.test(value) && (parseInt(value) > 0 && parseInt(value) <= 50);
-        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
-        displayError('ageError', isValid ? '' : 'Please input a valid age (1-50).', isValid);
-    });
+    
 
     document.getElementById('year').addEventListener('input', function (e) {
         const value = e.target.value;
@@ -165,13 +171,7 @@
         let isValid = true;
 
         // Validate Age
-        const ageValue = document.getElementById('age').value;
-        if (!/^(0|[1-9][0-9]?)$/.test(ageValue) || ageValue < 1 || ageValue > 50) {
-            isValid = false;
-            displayError('ageError', 'Please input a valid age (1-50).', false);
-        } else {
-            displayError('ageError', '', true);
-        }
+        
 
         // Validate Year Level
         const yearValue = document.getElementById('year').value;
@@ -194,9 +194,9 @@
         document.getElementById('firstName').value = '';
         document.getElementById('lastName').value = '';
         document.getElementById('middleName').value = '';
-        document.getElementById('age').value = '';
+        
         document.getElementById('course').value = '';
-        document.getElementById('section').value = '';
+        
         document.getElementById('year').value = '';
 
         clearErrors(); // Clear all error messages
