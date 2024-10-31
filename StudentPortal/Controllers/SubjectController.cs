@@ -60,21 +60,13 @@ namespace StudentPortal.Controllers
         [HttpPost]
         public IActionResult AddSubject(Subject studsub)
         {
-
-
-            if (ModelState.IsValid)
-            {
+            
 
                 _studb.SubjectInfo.Add(studsub);
                 _studb.SaveChanges();
                 return RedirectToAction("SubjectSummary");
 
-
-            }
-
-            return View(studsub);
-
-
+            
         }
 
         public IActionResult EditSubject(string? subjcode)
@@ -114,7 +106,7 @@ namespace StudentPortal.Controllers
                     subjectToUpdate.Units = subjectobj.Units;
                     subjectToUpdate.Offering = subjectobj.Offering;
                     subjectToUpdate.CatCourse = subjectobj.CatCourse;
-                    subjectToUpdate.CourseCode = subjectobj.CourseCode;
+                    subjectToUpdate.EdpCode = subjectobj.EdpCode;
                     subjectToUpdate.CurrYear = subjectobj.CurrYear;
 
                     // Save changes to the database

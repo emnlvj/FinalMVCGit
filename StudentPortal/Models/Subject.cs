@@ -17,7 +17,7 @@ namespace StudentPortal.Models
         
         public string Descript {  get; set; }
 
-        [Range(0, 3,  ErrorMessage = "Enter valid units (0-4)")]
+        [Range(0, 4,  ErrorMessage = "Enter valid units (0-4)")]
         public int Units { get; set; }
         [StringLength(20, ErrorMessage = "Subject Code cannot be longer than 20 characters.")]
         public string Offering { get; set; }
@@ -27,12 +27,6 @@ namespace StudentPortal.Models
         
         [StringLength(9, ErrorMessage = "Subject Code cannot be longer than 9 characters.")]
         public string CurrYear { get; set; }
-        public int CourseCode { get; set; }
-
-        
-        
-        [ForeignKey("Schedule")]
-
         public int EdpCode { get; set; }
         public Schedule Schedule { get; set; }
         public ICollection<PreRequisite> PreRequisite { get; set; } = new List<PreRequisite>();

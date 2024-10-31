@@ -12,8 +12,8 @@ using StudentPortal.Data;
 namespace StudentPortal.Migrations
 {
     [DbContext(typeof(StudentEntryDbContext))]
-    [Migration("20241023155959_ChangedMigrationSchedule")]
-    partial class ChangedMigrationSchedule
+    [Migration("20241031202050_TryandCatch")]
+    partial class TryandCatch
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,15 +68,19 @@ namespace StudentPortal.Migrations
 
             modelBuilder.Entity("StudentPortal.Models.Schedule", b =>
                 {
-                    b.Property<int>("EdpCode")
+                    b.Property<int>("SubEdpCode")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EdpCode"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SubEdpCode"));
 
                     b.Property<string>("AMPM")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubjCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("curryear")
                         .IsRequired()
@@ -103,18 +107,22 @@ namespace StudentPortal.Migrations
                     b.Property<TimeOnly>("starttime")
                         .HasColumnType("time");
 
-                    b.HasKey("EdpCode");
+                    b.HasKey("SubEdpCode");
+
+                    b.HasIndex("SubjCode")
+                        .IsUnique();
 
                     b.ToTable("ScheduleInfo");
 
                     b.HasData(
                         new
                         {
-                            EdpCode = 99876,
+                            SubEdpCode = 99876,
                             AMPM = "AM",
+                            SubjCode = "IMDBSYS31",
                             curryear = "2023-2024",
                             days = "MWF",
-                            description = "Research Computer",
+                            description = "Information Management Database System",
                             endtime = new TimeOnly(12, 30, 0),
                             roomnum = 206,
                             section = "3F",
@@ -122,11 +130,12 @@ namespace StudentPortal.Migrations
                         },
                         new
                         {
-                            EdpCode = 99910,
+                            SubEdpCode = 99910,
                             AMPM = "PM",
+                            SubjCode = "IT-FREKYI1",
                             curryear = "2023-2024",
                             days = "TTH",
-                            description = "Information Management Database System",
+                            description = "FREE ELECTIVE KNOW YOUR INDUSTRY",
                             endtime = new TimeOnly(2, 30, 0),
                             roomnum = 206,
                             section = "3F",
@@ -214,9 +223,6 @@ namespace StudentPortal.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<int>("CourseCode")
-                        .HasColumnType("int");
-
                     b.Property<string>("CurrYear")
                         .IsRequired()
                         .HasMaxLength(9)
@@ -240,9 +246,6 @@ namespace StudentPortal.Migrations
 
                     b.HasKey("SubjCode");
 
-                    b.HasIndex("EdpCode")
-                        .IsUnique();
-
                     b.ToTable("SubjectInfo");
 
                     b.HasData(
@@ -250,7 +253,6 @@ namespace StudentPortal.Migrations
                         {
                             SubjCode = "IMDBSYS31",
                             CatCourse = "BSIT",
-                            CourseCode = 99854,
                             CurrYear = "2024-2025",
                             Descript = "Information Management Database System",
                             EdpCode = 99876,
@@ -261,7 +263,6 @@ namespace StudentPortal.Migrations
                         {
                             SubjCode = "IT-FREKYI1",
                             CatCourse = "BSIT",
-                            CourseCode = 99886,
                             CurrYear = "2024-2025",
                             Descript = "FREE ELECTIVE KNOW YOUR INDUSTRY 1",
                             EdpCode = 99910,
@@ -281,26 +282,23 @@ namespace StudentPortal.Migrations
                     b.Navigation("Subject");
                 });
 
-            modelBuilder.Entity("StudentPortal.Models.Subject", b =>
+            modelBuilder.Entity("StudentPortal.Models.Schedule", b =>
                 {
-                    b.HasOne("StudentPortal.Models.Schedule", "Schedule")
-                        .WithOne("Subject")
-                        .HasForeignKey("StudentPortal.Models.Subject", "EdpCode")
+                    b.HasOne("StudentPortal.Models.Subject", "Subject")
+                        .WithOne("Schedule")
+                        .HasForeignKey("StudentPortal.Models.Schedule", "SubjCode")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Schedule");
-                });
-
-            modelBuilder.Entity("StudentPortal.Models.Schedule", b =>
-                {
-                    b.Navigation("Subject")
-                        .IsRequired();
+                    b.Navigation("Subject");
                 });
 
             modelBuilder.Entity("StudentPortal.Models.Subject", b =>
                 {
                     b.Navigation("PreRequisite");
+
+                    b.Navigation("Schedule")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -8,31 +8,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace StudentPortal.Migrations
 {
     /// <inheritdoc />
-    public partial class ChangedMigrationSchedule : Migration
+    public partial class TryandCatch : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "ScheduleInfo",
-                columns: table => new
-                {
-                    EdpCode = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    starttime = table.Column<TimeOnly>(type: "time", nullable: false),
-                    endtime = table.Column<TimeOnly>(type: "time", nullable: false),
-                    section = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    roomnum = table.Column<int>(type: "int", nullable: false),
-                    curryear = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AMPM = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    days = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ScheduleInfo", x => x.EdpCode);
-                });
-
             migrationBuilder.CreateTable(
                 name: "StudentInfo",
                 columns: table => new
@@ -63,18 +43,11 @@ namespace StudentPortal.Migrations
                     Offering = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     CatCourse = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     CurrYear = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
-                    CourseCode = table.Column<int>(type: "int", nullable: false),
                     EdpCode = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SubjectInfo", x => x.SubjCode);
-                    table.ForeignKey(
-                        name: "FK_SubjectInfo_ScheduleInfo_EdpCode",
-                        column: x => x.EdpCode,
-                        principalTable: "ScheduleInfo",
-                        principalColumn: "EdpCode",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -97,13 +70,31 @@ namespace StudentPortal.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "ScheduleInfo",
-                columns: new[] { "EdpCode", "AMPM", "curryear", "days", "description", "endtime", "roomnum", "section", "starttime" },
-                values: new object[,]
+            migrationBuilder.CreateTable(
+                name: "ScheduleInfo",
+                columns: table => new
                 {
-                    { 99876, "AM", "2023-2024", "MWF", "Research Computer", new TimeOnly(12, 30, 0), 206, "3F", new TimeOnly(11, 30, 0) },
-                    { 99910, "PM", "2023-2024", "TTH", "Information Management Database System", new TimeOnly(2, 30, 0), 206, "3F", new TimeOnly(1, 30, 0) }
+                    SubEdpCode = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    starttime = table.Column<TimeOnly>(type: "time", nullable: false),
+                    endtime = table.Column<TimeOnly>(type: "time", nullable: false),
+                    section = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    roomnum = table.Column<int>(type: "int", nullable: false),
+                    curryear = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AMPM = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    days = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SubjCode = table.Column<string>(type: "nvarchar(20)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ScheduleInfo", x => x.SubEdpCode);
+                    table.ForeignKey(
+                        name: "FK_ScheduleInfo_SubjectInfo_SubjCode",
+                        column: x => x.SubjCode,
+                        principalTable: "SubjectInfo",
+                        principalColumn: "SubjCode",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -117,11 +108,11 @@ namespace StudentPortal.Migrations
 
             migrationBuilder.InsertData(
                 table: "SubjectInfo",
-                columns: new[] { "SubjCode", "CatCourse", "CourseCode", "CurrYear", "Descript", "EdpCode", "Offering", "Units" },
+                columns: new[] { "SubjCode", "CatCourse", "CurrYear", "Descript", "EdpCode", "Offering", "Units" },
                 values: new object[,]
                 {
-                    { "IMDBSYS31", "BSIT", 99854, "2024-2025", "Information Management Database System", 99876, "Summer", 3 },
-                    { "IT-FREKYI1", "BSIT", 99886, "2024-2025", "FREE ELECTIVE KNOW YOUR INDUSTRY 1", 99910, "First Semester", 2 }
+                    { "IMDBSYS31", "BSIT", "2024-2025", "Information Management Database System", 99876, "Summer", 3 },
+                    { "IT-FREKYI1", "BSIT", "2024-2025", "FREE ELECTIVE KNOW YOUR INDUSTRY 1", 99910, "First Semester", 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -133,15 +124,24 @@ namespace StudentPortal.Migrations
                     { "IT-FREKYI2", "FREE ELECTIVE KNOW YOUR INDUSTRY 2", 2, "IT-FREKYI1" }
                 });
 
+            migrationBuilder.InsertData(
+                table: "ScheduleInfo",
+                columns: new[] { "SubEdpCode", "AMPM", "SubjCode", "curryear", "days", "description", "endtime", "roomnum", "section", "starttime" },
+                values: new object[,]
+                {
+                    { 99876, "AM", "IMDBSYS31", "2023-2024", "MWF", "Information Management Database System", new TimeOnly(12, 30, 0), 206, "3F", new TimeOnly(11, 30, 0) },
+                    { 99910, "PM", "IT-FREKYI1", "2023-2024", "TTH", "FREE ELECTIVE KNOW YOUR INDUSTRY", new TimeOnly(2, 30, 0), 206, "3F", new TimeOnly(1, 30, 0) }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_PreSubjectInfo_SubjCode",
                 table: "PreSubjectInfo",
                 column: "SubjCode");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SubjectInfo_EdpCode",
-                table: "SubjectInfo",
-                column: "EdpCode",
+                name: "IX_ScheduleInfo_SubjCode",
+                table: "ScheduleInfo",
+                column: "SubjCode",
                 unique: true);
         }
 
@@ -152,13 +152,13 @@ namespace StudentPortal.Migrations
                 name: "PreSubjectInfo");
 
             migrationBuilder.DropTable(
+                name: "ScheduleInfo");
+
+            migrationBuilder.DropTable(
                 name: "StudentInfo");
 
             migrationBuilder.DropTable(
                 name: "SubjectInfo");
-
-            migrationBuilder.DropTable(
-                name: "ScheduleInfo");
         }
     }
 }
