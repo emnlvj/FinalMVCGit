@@ -238,6 +238,10 @@ namespace StudentPortal.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<string>("PreCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Units")
                         .HasColumnType("int");
 
@@ -254,6 +258,7 @@ namespace StudentPortal.Migrations
                             Descript = "Information Management Database System",
                             EdpCode = 99876,
                             Offering = "Summer",
+                            PreCode = "IMDBSYS3",
                             Units = 3
                         },
                         new
@@ -264,6 +269,7 @@ namespace StudentPortal.Migrations
                             Descript = "FREE ELECTIVE KNOW YOUR INDUSTRY 1",
                             EdpCode = 99910,
                             Offering = "First Semester",
+                            PreCode = "IT_FREKYI3",
                             Units = 2
                         });
                 });

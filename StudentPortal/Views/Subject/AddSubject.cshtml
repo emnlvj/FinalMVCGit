@@ -5,12 +5,11 @@
 }
 @model Subject
 
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
 
-<form class="row g-3" method="post">
+<form class="row g-3 " method="post">
     <div><h2 class="text-black">Add Subject</h2></div>
     <hr class="text-black">
     <div class="col-md-4 border-danger-subtle">
@@ -56,6 +55,13 @@
         <input asp-for="EdpCode" type="text" class="form-control">
         <span asp-validation-for="EdpCode" class="text-danger"></span>
     </div>
+
+    <div class="col-md-4">
+        <label asp-for="PreCode" class="form-label">PreCode</label>
+        <input asp-for="PreCode" type="text" class="form-control" placeholder="(If there's any)')">
+        <span asp-validation-for="PreCode" class="text-danger"></span>
+    </div>
+
     
     <div class="col-12">
         <button type="submit" style="background-color: #8B0000;color: white; border: none; border-radius: 0; font-size:10px" 
@@ -67,3 +73,4 @@
     </div>
 </form>
 <!-- Replace the variables below. -->
+

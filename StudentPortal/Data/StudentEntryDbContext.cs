@@ -38,6 +38,7 @@ namespace StudentPortal.Data
                     Offering = "Summer",
                     CatCourse = "BSIT",
                     EdpCode = 99876, // Note: Must match EDPCode in future Schedule
+                    PreCode = "IMDBSYS3",
                     CurrYear = "2024-2025"
                 },
                 new Subject
@@ -48,6 +49,7 @@ namespace StudentPortal.Data
                     Offering = "First Semester",
                     CatCourse = "BSIT",
                     EdpCode = 99910, // Note: Must match EDPCode in future Schedule
+                    PreCode = "IT_FREKYI3",
                     CurrYear = "2024-2025"
                 }
             );

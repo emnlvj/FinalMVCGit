@@ -61,11 +61,13 @@ namespace StudentPortal.Controllers
         public IActionResult AddSubject(Subject studsub)
         {
             
+                  
+              
 
-                _studb.SubjectInfo.Add(studsub);
+            _studb.SubjectInfo.Add(studsub);
                 _studb.SaveChanges();
                 return RedirectToAction("SubjectSummary");
-
+            
             
         }
 
@@ -94,10 +96,13 @@ namespace StudentPortal.Controllers
                 return View(subjectobj);  // Return the view with the original object
             }
 
-            if (ModelState.IsValid)
-            {
+
+            // Retrieve the subject from the database
+            
                 // Retrieve the subject from the database
-                var subjectToUpdate = _studb.SubjectInfo.Find(subjectobj.SubjCode);
+                var subjectToUpdate = _studb.SubjectInfo
+                    .Include(s => s.PreRequisite) // Include prerequisites to update them
+                    .FirstOrDefault(s => s.SubjCode == subjectobj.SubjCode);
 
                 if (subjectToUpdate != null)
                 {
@@ -108,9 +113,36 @@ namespace StudentPortal.Controllers
                     subjectToUpdate.CatCourse = subjectobj.CatCourse;
                     subjectToUpdate.EdpCode = subjectobj.EdpCode;
                     subjectToUpdate.CurrYear = subjectobj.CurrYear;
+                    subjectToUpdate.PreCode = subjectobj.PreCode;
+                    // Update the prerequisite subjects
+                    var prerequisites = _studb.PreSubjectInfo.Where(e => e.SubjCode == subjectToUpdate.SubjCode).ToList();
+                    
+                    foreach (var updatepre in prerequisites)
+                    {
+                        // Optionally create a new prerequisite if you're changing PreSubjCode
+                        // Remove the old prerequisite
+                        _studb.PreSubjectInfo.Remove(updatepre);
+                        _studb.SaveChanges();
+                    }
 
-                    // Save changes to the database
+                // Save changes to delete the old prerequisites
+                    foreach (var updatepre in prerequisites)
+                    {
+                    var newPrerequisite = new PreRequisite
+                    {
+                        PreSubjCode = subjectobj.PreCode,
+                        PreDescript = updatepre.PreDescript,
+                        PreUnits = updatepre.PreUnits,
+                        SubjCode = subjectobj.SubjCode
+                    };
+                    _studb.PreSubjectInfo.Add(newPrerequisite); // Add the new prerequisite
+                    _studb.SaveChanges();
+                }
+                
+
                     _studb.SubjectInfo.Update(subjectToUpdate);
+
+                    // Save all changes to the database
                     _studb.SaveChanges();
 
                     return RedirectToAction("SubjectSummary");
@@ -119,7 +151,9 @@ namespace StudentPortal.Controllers
                 {
                     ViewBag.Message = "Subject not found in the database.";
                 }
-            }
+            
+
+
 
             return View(subjectobj);
         }

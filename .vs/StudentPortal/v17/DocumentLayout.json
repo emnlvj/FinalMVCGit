@@ -3,92 +3,138 @@
   "WorkspaceRootPath": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\schedulewithsubjectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\schedulewithsubjectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\controllers\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\controllers\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031210310_NewMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StudentPortal\\Migrations\\20241031210310_NewMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\schedule\\addschedule.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\schedule\\addschedule.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\prerequisite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\prerequisite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\data\\studententrydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\data\\studententrydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031202050_TryandCatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StudentPortal\\Migrations\\20241031202050_TryandCatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\subject\\editsubject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\subject\\editsubject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\student\\addstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\student\\addstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\subject\\deletesubject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\subject\\deletesubject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\prereq\\prereqadd.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\prereq\\prereqadd.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\student\\editstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\student\\editstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\prerequisite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\prerequisite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241102222206_SucessReflect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StudentPortal\\Migrations\\20241102222206_SucessReflect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\controllers\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\controllers\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\data\\studententrydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\data\\studententrydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\subject\\addsubject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\subject\\addsubject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\subject\\subjectsummary.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\subject\\subjectsummary.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\subject\\subjectlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\subject\\subjectlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241102211217_ReflectChangedValues.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StudentPortal\\Migrations\\20241102211217_ReflectChangedValues.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\subject\\coreq.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\subject\\coreq.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\controllers\\prereqcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\controllers\\prereqcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\subject\\editsubject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\subject\\editsubject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\schedulewithsubjectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\schedulewithsubjectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\subjectwithprerequisitesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\subjectwithprerequisitesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\student\\studentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\student\\studentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\schedule\\addschedule.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\schedule\\addschedule.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\schedule\\editschedule.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\schedule\\editschedule.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241102174027_FixedTry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StudentPortal\\Migrations\\20241102174027_FixedTry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mis\\AppData\\Local\\Temp\\.vsdbgsrc\\de3c475d5d8ddfef73a8b47138c6692ac88195c0c2d9ee08c7dab15e957ac8b7\\ResourceInvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mis\\AppData\\Local\\Temp\\.vsdbgsrc\\89212dcd2f3257a3e3eec5938d09a0833888ece5c501afa26d6bce46396c248c\\ControllerActionInvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\student\\deletestudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\student\\deletestudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\subject\\deletesubject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\subject\\deletesubject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\student\\editstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\student\\editstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031181913_LetThisBeFinal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -107,22 +153,6 @@
       "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\schedule\\schedulelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\subject\\addsubject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\subject\\addsubject.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\subject\\coreq.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\subject\\coreq.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\subject\\subjectlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\subject\\subjectlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\subject\\subjectsummary.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\subject\\subjectsummary.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -139,14 +169,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StudentPortal\\Migrations\\20241031165808_NewNanaman.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\student\\deletestudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\student\\deletestudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\models\\subjectwithprerequisitesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\models\\subjectwithprerequisitesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031143941_NewMotherShit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StudentPortal\\Migrations\\20241031143941_NewMotherShit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -155,16 +177,8 @@
       "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\images\\newtransharv.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\student\\studentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\student\\studentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241023155817_UpdateChanged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StudentPortal\\Migrations\\20241023155817_UpdateChanged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|solutionrelative:studentportal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BD2B853-3083-49C9-BBDC-5D15FEB2922B}|StudentPortal\\StudentPortal.csproj|c:\\users\\mis\\documents\\github\\finalmvcgit\\studentportal\\views\\prereq\\prereqlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -226,7 +240,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -234,72 +248,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "StudentEntryDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Data\\StudentEntryDbContext.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Data\\StudentEntryDbContext.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Data\\StudentEntryDbContext.cs",
-              "RelativeToolTip": "StudentPortal\\Data\\StudentEntryDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADsAAAAsAAAA",
+              "DocumentIndex": 5,
+              "Title": "20241102222206_SucessReflect.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241102222206_SucessReflect.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241102222206_SucessReflect.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241102222206_SucessReflect.cs",
+              "RelativeToolTip": "StudentPortal\\Migrations\\20241102222206_SucessReflect.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T14:37:22.957Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ScheduleController.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\ScheduleController.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Controllers\\ScheduleController.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\ScheduleController.cs",
-              "RelativeToolTip": "StudentPortal\\Controllers\\ScheduleController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T15:26:36.426Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StudentController.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\StudentController.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Controllers\\StudentController.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\StudentController.cs",
-              "RelativeToolTip": "StudentPortal\\Controllers\\StudentController.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAAAD8AAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T16:49:44.309Z",
+              "WhenOpened": "2024-11-02T22:22:06.364Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Schedule.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\Schedule.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Models\\Schedule.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\Schedule.cs",
-              "RelativeToolTip": "StudentPortal\\Models\\Schedule.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAAAAYAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T13:04:45.598Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SchedulewithSubjectModel.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\SchedulewithSubjectModel.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Models\\SchedulewithSubjectModel.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\SchedulewithSubjectModel.cs",
-              "RelativeToolTip": "StudentPortal\\Models\\SchedulewithSubjectModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T15:24:12.702Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "PreRequisite.cs",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\PreRequisite.cs",
               "RelativeDocumentMoniker": "StudentPortal\\Models\\PreRequisite.cs",
@@ -313,292 +275,136 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "SubjectController.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\SubjectController.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Controllers\\SubjectController.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\SubjectController.cs",
-              "RelativeToolTip": "StudentPortal\\Controllers\\SubjectController.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAE4AAAAMAAAA",
+              "Title": "Schedule.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\Schedule.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Models\\Schedule.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\Schedule.cs",
+              "RelativeToolTip": "StudentPortal\\Models\\Schedule.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAAAYAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T10:12:28.909Z",
+              "WhenOpened": "2024-10-23T13:04:45.598Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "20241031210310_NewMigration.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031210310_NewMigration.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031210310_NewMigration.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031210310_NewMigration.cs",
-              "RelativeToolTip": "StudentPortal\\Migrations\\20241031210310_NewMigration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T21:03:10.416Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AddSchedule.cshtml",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Schedule\\AddSchedule.cshtml",
-              "RelativeDocumentMoniker": "StudentPortal\\Views\\Schedule\\AddSchedule.cshtml",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Schedule\\AddSchedule.cshtml",
-              "RelativeToolTip": "StudentPortal\\Views\\Schedule\\AddSchedule.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-31T13:54:12.562Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Subject.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\Subject.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Models\\Subject.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\Subject.cs",
-              "RelativeToolTip": "StudentPortal\\Models\\Subject.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAAABwAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T12:22:11.66Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "StudentPortal\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T13:51:26.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "20241031202050_TryandCatch.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031202050_TryandCatch.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031202050_TryandCatch.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031202050_TryandCatch.cs",
-              "RelativeToolTip": "StudentPortal\\Migrations\\20241031202050_TryandCatch.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T20:20:51.018Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\appsettings.json",
-              "RelativeDocumentMoniker": "StudentPortal\\appsettings.json",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\appsettings.json",
-              "RelativeToolTip": "StudentPortal\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-08T22:29:34.579Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AddStudent.cshtml",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\AddStudent.cshtml",
-              "RelativeDocumentMoniker": "StudentPortal\\Views\\Student\\AddStudent.cshtml",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\AddStudent.cshtml",
-              "RelativeToolTip": "StudentPortal\\Views\\Student\\AddStudent.cshtml",
-              "ViewState": "AQIAABcAAAAAAAAAAIAwwCYAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-07T13:54:03.828Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "DeleteSubject.cshtml",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\DeleteSubject.cshtml",
-              "RelativeDocumentMoniker": "StudentPortal\\Views\\Subject\\DeleteSubject.cshtml",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\DeleteSubject.cshtml",
-              "RelativeToolTip": "StudentPortal\\Views\\Subject\\DeleteSubject.cshtml",
-              "ViewState": "AQIAACwAAAAAAAAAAIAwwEAAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-08T18:52:03.925Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Student.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\Student.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Models\\Student.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\Student.cs",
-              "RelativeToolTip": "StudentPortal\\Models\\Student.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAAAB0AAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T16:45:45.224Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 2,
               "Title": "PreReqAdd.cshtml",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\PreReq\\PreReqAdd.cshtml",
               "RelativeDocumentMoniker": "StudentPortal\\Views\\PreReq\\PreReqAdd.cshtml",
               "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\PreReq\\PreReqAdd.cshtml",
               "RelativeToolTip": "StudentPortal\\Views\\PreReq\\PreReqAdd.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABFAAAA",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAqwB4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-07T10:15:48.044Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "EditStudent.cshtml",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\EditStudent.cshtml",
-              "RelativeDocumentMoniker": "StudentPortal\\Views\\Student\\EditStudent.cshtml",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\EditStudent.cshtml",
-              "RelativeToolTip": "StudentPortal\\Views\\Student\\EditStudent.cshtml",
-              "ViewState": "AQIAAC8AAAAAAAAAAIAwwFcAAAAOAAAA",
+              "DocumentIndex": 1,
+              "Title": "AddStudent.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\AddStudent.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Student\\AddStudent.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\AddStudent.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Student\\AddStudent.cshtml",
+              "ViewState": "AQIAAHwAAAAAAAAAAAAqwCYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-07T17:44:19.784Z",
+              "WhenOpened": "2024-10-07T13:54:03.828Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Privacy.cshtml",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Home\\Privacy.cshtml",
-              "RelativeDocumentMoniker": "StudentPortal\\Views\\Home\\Privacy.cshtml",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Home\\Privacy.cshtml",
-              "RelativeToolTip": "StudentPortal\\Views\\Home\\Privacy.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-31T20:09:27.388Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "StudentPortal\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "StudentPortal\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAEgAAAAAAAAAAIAwwAEAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-07T11:20:39.485Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "PreReqController.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\PreReqController.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Controllers\\PreReqController.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\PreReqController.cs",
-              "RelativeToolTip": "StudentPortal\\Controllers\\PreReqController.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAAAAoAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T10:12:00.092Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "20241031181913_LetThisBeFinal.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031181913_LetThisBeFinal.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031181913_LetThisBeFinal.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031181913_LetThisBeFinal.cs",
-              "RelativeToolTip": "StudentPortal\\Migrations\\20241031181913_LetThisBeFinal.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T18:19:14.247Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 0,
               "Title": "EditSubject.cshtml",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\EditSubject.cshtml",
               "RelativeDocumentMoniker": "StudentPortal\\Views\\Subject\\EditSubject.cshtml",
               "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\EditSubject.cshtml",
               "RelativeToolTip": "StudentPortal\\Views\\Subject\\EditSubject.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAIAwwCwAAAAMAAAA",
+              "ViewState": "AQIAADoAAAAAAAAAAAAqwFcAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-07T18:13:32.78Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "20241031181219_UpdateFixed.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031181219_UpdateFixed.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031181219_UpdateFixed.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031181219_UpdateFixed.cs",
-              "RelativeToolTip": "StudentPortal\\Migrations\\20241031181219_UpdateFixed.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 7,
+              "Title": "SubjectController.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\SubjectController.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Controllers\\SubjectController.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\SubjectController.cs",
+              "RelativeToolTip": "StudentPortal\\Controllers\\SubjectController.cs",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAAAI0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T18:12:19.872Z",
+              "WhenOpened": "2024-10-07T10:12:28.909Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "20241031180352_LastUpdateDB.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031180352_LastUpdateDB.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031180352_LastUpdateDB.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031180352_LastUpdateDB.cs",
-              "RelativeToolTip": "StudentPortal\\Migrations\\20241031180352_LastUpdateDB.cs",
-              "ViewState": "AQIAAFYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 9,
+              "Title": "StudentEntryDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Data\\StudentEntryDbContext.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Data\\StudentEntryDbContext.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Data\\StudentEntryDbContext.cs",
+              "RelativeToolTip": "StudentPortal\\Data\\StudentEntryDbContext.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAACgAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T18:03:53.033Z",
+              "WhenOpened": "2024-10-23T14:37:22.957Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "ScheduleList.cshtml",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Schedule\\ScheduleList.cshtml",
-              "RelativeDocumentMoniker": "StudentPortal\\Views\\Schedule\\ScheduleList.cshtml",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Schedule\\ScheduleList.cshtml",
-              "RelativeToolTip": "StudentPortal\\Views\\Schedule\\ScheduleList.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAIAwwAgAAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-23T15:33:13.667Z",
+              "DocumentIndex": 8,
+              "Title": "ScheduleController.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\ScheduleController.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Controllers\\ScheduleController.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\ScheduleController.cs",
+              "RelativeToolTip": "StudentPortal\\Controllers\\ScheduleController.cs",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAAAFwAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T15:26:36.426Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 10,
               "Title": "AddSubject.cshtml",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\AddSubject.cshtml",
               "RelativeDocumentMoniker": "StudentPortal\\Views\\Subject\\AddSubject.cshtml",
               "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\AddSubject.cshtml",
               "RelativeToolTip": "StudentPortal\\Views\\Subject\\AddSubject.cshtml",
-              "ViewState": "AQIAAAEAAAAAAAAAAIAwwDQAAAAAAAAA",
+              "ViewState": "AQIAACYAAAAAAAAAAAAqwDoAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-07T17:36:37.252Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "CoReq.cshtml",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\CoReq.cshtml",
-              "RelativeDocumentMoniker": "StudentPortal\\Views\\Subject\\CoReq.cshtml",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\CoReq.cshtml",
-              "RelativeToolTip": "StudentPortal\\Views\\Subject\\CoReq.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-31T16:51:10.423Z",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\appsettings.json",
+              "RelativeDocumentMoniker": "StudentPortal\\appsettings.json",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\appsettings.json",
+              "RelativeToolTip": "StudentPortal\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-08T22:29:34.579Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 11,
+              "Title": "SubjectSummary.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\SubjectSummary.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Subject\\SubjectSummary.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\SubjectSummary.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Subject\\SubjectSummary.cshtml",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAqwAwAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-07T12:21:22.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "SubjectList.cshtml",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\SubjectList.cshtml",
               "RelativeDocumentMoniker": "StudentPortal\\Views\\Subject\\SubjectList.cshtml",
@@ -611,85 +417,137 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "SubjectSummary.cshtml",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\SubjectSummary.cshtml",
-              "RelativeDocumentMoniker": "StudentPortal\\Views\\Subject\\SubjectSummary.cshtml",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\SubjectSummary.cshtml",
-              "RelativeToolTip": "StudentPortal\\Views\\Subject\\SubjectSummary.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAkAAAA",
+              "DocumentIndex": 14,
+              "Title": "CoReq.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\CoReq.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Subject\\CoReq.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\CoReq.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Subject\\CoReq.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-07T12:21:22.271Z",
+              "WhenOpened": "2024-10-31T16:51:10.423Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "ErrorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\ErrorViewModel.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Models\\ErrorViewModel.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\ErrorViewModel.cs",
-              "RelativeToolTip": "StudentPortal\\Models\\ErrorViewModel.cs",
+              "DocumentIndex": 15,
+              "Title": "Subject.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\Subject.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Models\\Subject.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\Subject.cs",
+              "RelativeToolTip": "StudentPortal\\Models\\Subject.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB8AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T12:22:11.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "20241102211217_ReflectChangedValues.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241102211217_ReflectChangedValues.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241102211217_ReflectChangedValues.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241102211217_ReflectChangedValues.cs",
+              "RelativeToolTip": "StudentPortal\\Migrations\\20241102211217_ReflectChangedValues.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T21:12:18.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-07T10:41:29.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "PreReqController.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\PreReqController.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Controllers\\PreReqController.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\PreReqController.cs",
+              "RelativeToolTip": "StudentPortal\\Controllers\\PreReqController.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAAAAoAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T10:12:00.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "StudentPortal\\Controllers\\HomeController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T17:39:04.042Z",
+              "WhenOpened": "2024-10-31T13:51:26.067Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "20241031172952_FuckKapoy.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031172952_FuckKapoy.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031172952_FuckKapoy.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031172952_FuckKapoy.cs",
-              "RelativeToolTip": "StudentPortal\\Migrations\\20241031172952_FuckKapoy.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T17:29:52.507Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "20241031171804_UpdateFixedAdd.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031171804_UpdateFixedAdd.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031171804_UpdateFixedAdd.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031171804_UpdateFixedAdd.cs",
-              "RelativeToolTip": "StudentPortal\\Migrations\\20241031171804_UpdateFixedAdd.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAAAEoAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T17:18:05.289Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "20241031165808_NewNanaman.cs",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031165808_NewNanaman.cs",
-              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031165808_NewNanaman.cs",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031165808_NewNanaman.cs",
-              "RelativeToolTip": "StudentPortal\\Migrations\\20241031165808_NewNanaman.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T16:58:09.394Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "DeleteStudent.cshtml",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\DeleteStudent.cshtml",
-              "RelativeDocumentMoniker": "StudentPortal\\Views\\Student\\DeleteStudent.cshtml",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\DeleteStudent.cshtml",
-              "RelativeToolTip": "StudentPortal\\Views\\Student\\DeleteStudent.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFgAAAABAAAA",
+              "DocumentIndex": 19,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-08T18:50:57.943Z",
+              "WhenOpened": "2024-10-07T11:20:39.485Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 20,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-31T20:09:27.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Models\\Student.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\Student.cs",
+              "RelativeToolTip": "StudentPortal\\Models\\Student.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAAB0AAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T16:45:45.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "SchedulewithSubjectModel.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\SchedulewithSubjectModel.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Models\\SchedulewithSubjectModel.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\SchedulewithSubjectModel.cs",
+              "RelativeToolTip": "StudentPortal\\Models\\SchedulewithSubjectModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T15:24:12.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "SubjectWithPreRequisitesViewModel.cs",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\SubjectWithPreRequisitesViewModel.cs",
               "RelativeDocumentMoniker": "StudentPortal\\Models\\SubjectWithPreRequisitesViewModel.cs",
@@ -702,7 +560,231 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "StudentPortal\\Controllers\\StudentController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAAAD8AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T16:49:44.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AddSchedule.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Schedule\\AddSchedule.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Schedule\\AddSchedule.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Schedule\\AddSchedule.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Schedule\\AddSchedule.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-31T13:54:12.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "StudentList.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\StudentList.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Student\\StudentList.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\StudentList.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Student\\StudentList.cshtml",
+              "ViewState": "AQIAABYAAAAAAAAAAAAqwB8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-07T10:29:41.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "EditSchedule.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Schedule\\EditSchedule.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Schedule\\EditSchedule.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Schedule\\EditSchedule.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Schedule\\EditSchedule.cshtml",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAqwBoAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-02T15:50:02.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "20241102174027_FixedTry.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241102174027_FixedTry.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241102174027_FixedTry.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241102174027_FixedTry.cs",
+              "RelativeToolTip": "StudentPortal\\Migrations\\20241102174027_FixedTry.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAAAAAMAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T17:40:28.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "DeleteStudent.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\DeleteStudent.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Student\\DeleteStudent.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\DeleteStudent.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Student\\DeleteStudent.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-08T18:50:57.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ResourceInvoker.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\AppData\\Local\\Temp\\.vsdbgsrc\\de3c475d5d8ddfef73a8b47138c6692ac88195c0c2d9ee08c7dab15e957ac8b7\\ResourceInvoker.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\de3c475d5d8ddfef73a8b47138c6692ac88195c0c2d9ee08c7dab15e957ac8b7\\ResourceInvoker.cs",
+              "ToolTip": "C:\\Users\\mis\\AppData\\Local\\Temp\\.vsdbgsrc\\de3c475d5d8ddfef73a8b47138c6692ac88195c0c2d9ee08c7dab15e957ac8b7\\ResourceInvoker.cs [Read Only]",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\de3c475d5d8ddfef73a8b47138c6692ac88195c0c2d9ee08c7dab15e957ac8b7\\ResourceInvoker.cs [Read Only]",
+              "ViewState": "AQIAANkDAAAAAAAAAAAuwOsDAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T17:29:09.668Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ControllerActionInvoker.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\AppData\\Local\\Temp\\.vsdbgsrc\\89212dcd2f3257a3e3eec5938d09a0833888ece5c501afa26d6bce46396c248c\\ControllerActionInvoker.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\89212dcd2f3257a3e3eec5938d09a0833888ece5c501afa26d6bce46396c248c\\ControllerActionInvoker.cs",
+              "ToolTip": "C:\\Users\\mis\\AppData\\Local\\Temp\\.vsdbgsrc\\89212dcd2f3257a3e3eec5938d09a0833888ece5c501afa26d6bce46396c248c\\ControllerActionInvoker.cs [Read Only]",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\89212dcd2f3257a3e3eec5938d09a0833888ece5c501afa26d6bce46396c248c\\ControllerActionInvoker.cs [Read Only]",
+              "ViewState": "AQIAAOIBAAAAAAAAAAAuwPQBAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T17:29:00.557Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "DeleteSubject.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\DeleteSubject.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Subject\\DeleteSubject.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Subject\\DeleteSubject.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Subject\\DeleteSubject.cshtml",
+              "ViewState": "AQIAACwAAAAAAAAAAIAwwEAAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-08T18:52:03.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "EditStudent.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\EditStudent.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Student\\EditStudent.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\EditStudent.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Student\\EditStudent.cshtml",
+              "ViewState": "AQIAAC8AAAAAAAAAAIAwwFcAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-07T17:44:19.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "20241031181913_LetThisBeFinal.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031181913_LetThisBeFinal.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031181913_LetThisBeFinal.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031181913_LetThisBeFinal.cs",
+              "RelativeToolTip": "StudentPortal\\Migrations\\20241031181913_LetThisBeFinal.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T18:19:14.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "20241031181219_UpdateFixed.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031181219_UpdateFixed.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031181219_UpdateFixed.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031181219_UpdateFixed.cs",
+              "RelativeToolTip": "StudentPortal\\Migrations\\20241031181219_UpdateFixed.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T18:12:19.872Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 36,
+              "Title": "20241031180352_LastUpdateDB.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031180352_LastUpdateDB.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031180352_LastUpdateDB.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031180352_LastUpdateDB.cs",
+              "RelativeToolTip": "StudentPortal\\Migrations\\20241031180352_LastUpdateDB.cs",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T18:03:53.033Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ScheduleList.cshtml",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Schedule\\ScheduleList.cshtml",
+              "RelativeDocumentMoniker": "StudentPortal\\Views\\Schedule\\ScheduleList.cshtml",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Schedule\\ScheduleList.cshtml",
+              "RelativeToolTip": "StudentPortal\\Views\\Schedule\\ScheduleList.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAIAwwAgAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-23T15:33:13.667Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "StudentPortal\\Models\\ErrorViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T17:39:04.042Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "20241031172952_FuckKapoy.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031172952_FuckKapoy.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031172952_FuckKapoy.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031172952_FuckKapoy.cs",
+              "RelativeToolTip": "StudentPortal\\Migrations\\20241031172952_FuckKapoy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T17:29:52.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "20241031171804_UpdateFixedAdd.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031171804_UpdateFixedAdd.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031171804_UpdateFixedAdd.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031171804_UpdateFixedAdd.cs",
+              "RelativeToolTip": "StudentPortal\\Migrations\\20241031171804_UpdateFixedAdd.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAAAAEoAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T17:18:05.289Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "20241031165808_NewNanaman.cs",
+              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031165808_NewNanaman.cs",
+              "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031165808_NewNanaman.cs",
+              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031165808_NewNanaman.cs",
+              "RelativeToolTip": "StudentPortal\\Migrations\\20241031165808_NewNanaman.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T16:58:09.394Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
               "Title": "20241031143941_NewMotherShit.cs",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241031143941_NewMotherShit.cs",
               "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241031143941_NewMotherShit.cs",
@@ -710,12 +792,11 @@
               "RelativeToolTip": "StudentPortal\\Migrations\\20241031143941_NewMotherShit.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T14:39:42.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T14:39:42.276Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 43,
               "Title": "newtransharv.png -  [English (United Kingdom)] - PNG [460x160, 32 bit, PNG]",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Images\\newtransharv.png",
               "RelativeDocumentMoniker": "StudentPortal\\Images\\newtransharv.png",
@@ -727,20 +808,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "StudentList.cshtml",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\StudentList.cshtml",
-              "RelativeDocumentMoniker": "StudentPortal\\Views\\Student\\StudentList.cshtml",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Student\\StudentList.cshtml",
-              "RelativeToolTip": "StudentPortal\\Views\\Student\\StudentList.cshtml",
-              "ViewState": "AQIAADQAAAAAAAAAAIAwwBAAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-07T10:29:41.053Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 44,
               "Title": "20241023155817_UpdateChanged.cs",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241023155817_UpdateChanged.cs",
               "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241023155817_UpdateChanged.cs",
@@ -752,19 +820,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "StudentPortal\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "StudentPortal\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAACoAAAAAAAAAAIAwwEMAAACWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-07T10:41:29.228Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 45,
               "Title": "PreReqList.cshtml",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Views\\PreReq\\PreReqList.cshtml",
               "RelativeDocumentMoniker": "StudentPortal\\Views\\PreReq\\PreReqList.cshtml",
@@ -776,7 +832,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 46,
               "Title": "20241023152418_FixedMigration.cs",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241023152418_FixedMigration.cs",
               "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241023152418_FixedMigration.cs",
@@ -788,7 +844,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 47,
               "Title": "20241023151301_NewMigrationFixed.cs",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241023151301_NewMigrationFixed.cs",
               "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241023151301_NewMigrationFixed.cs",
@@ -800,7 +856,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 48,
               "Title": "20241023151044_FixedMigration.cs",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241023151044_FixedMigration.cs",
               "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241023151044_FixedMigration.cs",
@@ -812,7 +868,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 49,
               "Title": "20241023150233_NewUpdateScheduleFix.cs",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241023150233_NewUpdateScheduleFix.cs",
               "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241023150233_NewUpdateScheduleFix.cs",
@@ -824,7 +880,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 50,
               "Title": "20241023145808_UpdateSchedule.cs",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241023145808_UpdateSchedule.cs",
               "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241023145808_UpdateSchedule.cs",
@@ -836,7 +892,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 51,
               "Title": "20241023145634_NewModelSchedule.cs",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Migrations\\20241023145634_NewModelSchedule.cs",
               "RelativeDocumentMoniker": "StudentPortal\\Migrations\\20241023145634_NewModelSchedule.cs",
@@ -848,7 +904,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 52,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\appsettings.Development.json",
               "RelativeDocumentMoniker": "StudentPortal\\appsettings.Development.json",
@@ -860,7 +916,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 53,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\Program.cs",
               "RelativeDocumentMoniker": "StudentPortal\\Program.cs",
@@ -872,7 +928,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 54,
               "Title": "StudentPortal.csproj",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\StudentPortal.csproj",
               "RelativeDocumentMoniker": "StudentPortal\\StudentPortal.csproj",
@@ -884,7 +940,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 55,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "StudentPortal\\wwwroot\\css\\site.css",
@@ -896,7 +952,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 56,
               "Title": "bootstrap-reboot.css",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
               "RelativeDocumentMoniker": "StudentPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
@@ -908,7 +964,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 57,
               "Title": "bootstrap-grid.css",
               "DocumentMoniker": "C:\\Users\\mis\\Documents\\GitHub\\FinalMVCGit\\StudentPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
               "RelativeDocumentMoniker": "StudentPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",

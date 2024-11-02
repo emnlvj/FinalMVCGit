@@ -80,6 +80,12 @@
             <input asp-for="CurrYear" type="text" class="form-control" required>
             <span asp-validation-for="CurrYear" class="text-danger"></span>
         </div>
+
+        <div class="col-md-4">
+            <label asp-for="PreCode" class="form-label">PreCode</label>
+            <input asp-for="PreCode" type="text" class="form-control" placeholder="(If there's any)')">
+            <span asp-validation-for="PreCode" class="text-danger"></span>
+        </div>
         <div class="col-12">
             <button type="submit" class="btn" style="background-color: #8B0000;color: white; border: none; border-radius: 0; font-size:10px" onmouseover="this.style.backgroundColor='#FF0000';"
                     onmouseout="this.style.backgroundColor='#8B4513';">

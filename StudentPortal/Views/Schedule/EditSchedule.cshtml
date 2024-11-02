@@ -1,0 +1,96 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Schedule
+<form method="get" asp-action="EditSchedule">
+    <div class="form-group">
+        <label for="edpCode">Enter EDPCode</label>
+        <input type="text" id="edpCode" name="edpCode" class="form-control" placeholder="Enter EDPCode" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+@if (Model != null)
+{
+    <!-- Display retrieved information and allow input of other fields -->
+    <form method="post" asp-action="EditSchedule">
+        <div><h2 class="text-black">Edit Schedule</h2></div>
+        <hr class="text-black">
+
+        <div class="col-md-4">
+            <label asp-for="SubEdpCode" class="form-label">EDPCode</label>
+            <input asp-for="SubEdpCode" type="text" class="form-control" required />
+            <span asp-validation-for="SubEdpCode" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="SubjCode" class="form-label">Subject Code</label>
+            <input asp-for="SubjCode" type="text" disabled class="form-control" required />
+            <span asp-validation-for="SubjCode" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-8">
+            <label asp-for="description" class="form-label">Description</label>
+            <input asp-for="description" type="text" disabled class="form-control" required />
+            <span asp-validation-for="description" class="text-danger"></span>
+        </div>
+
+        <!-- Editable fields -->
+        <div class="col-md-3">
+            <label asp-for="starttime" class="form-label">Start Time</label>
+            <input asp-for="starttime" type="time" class="form-control" required />
+            <span asp-validation-for="starttime" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-5">
+            <label asp-for="endtime" class="form-label">End Time</label>
+            <input asp-for="endtime" type="time" class="form-control" required />
+            <span asp-validation-for="endtime" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="section" class="form-label">Section</label>
+            <input asp-for="section" type="text" class="form-control" required />
+            <span asp-validation-for="section" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label asp-for="roomnum" class="form-label">Room</label>
+            <input asp-for="roomnum" type="number" class="form-control" required />
+            <span asp-validation-for="roomnum" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label asp-for="curryear" class="form-label">Curriculum</label>
+            <input asp-for="curryear" type="text" class="form-control" required />
+            <span asp-validation-for="curryear" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label asp-for="AMPM" class="form-label">AM/PM</label>
+            <select asp-for="AMPM" class="form-select text-black-50">
+                <option selected>...</option>
+                <option>AM</option>
+                <option>PM</option>
+            </select>
+            <span asp-validation-for="AMPM" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label asp-for="days" class="form-label">Class Days</label>
+            <input asp-for="days" type="text" class="form-control" required />
+            <span asp-validation-for="days" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-save">Save</button>
+        </div>
+    </form>
+}
