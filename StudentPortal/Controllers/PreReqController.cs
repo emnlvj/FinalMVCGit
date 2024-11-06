@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using StudentPortal.Data;
 using StudentPortal.Models;
 using System.Diagnostics;
+using System.Reflection.Emit;
 
 namespace StudentPortal.Controllers
 {
@@ -25,49 +26,46 @@ namespace StudentPortal.Controllers
 
         }
 
-        public IActionResult PreReqAdd()
+        public IActionResult PreReqAdd(string presubjcode)
         {
+            if (presubjcode == null)
+            {
+                return View(); // Initial view to enter EDPCode.
+            }
+
+            var subjcodefind= _studb.SubjectInfo
+            .Include(s => s.PreRequisite)
+                .FirstOrDefault(s => s.SubjCode == presubjcode);
+
+            if (subjcodefind == null)
+            {
+                ViewBag.ErrorMessage = "No prerequisite found for the given code.";
+                return View();
+            }
+            if (subjcodefind != null)
+            {
+                var prereq = _studb.PreSubjectInfo
+               .Include(s => s.Subject).Select(s => new PreRequisite
+               {
+                   
+                  
+                   SubjCode = subjcodefind.SubjCode
+               }).FirstOrDefault();
+
+
+                PreRequisite? addpre = prereq;
+                return View(addpre);
+            }
             return View();
         }
 
         [HttpPost]
         public IActionResult PreReqAdd(PreRequisite prerequisite)
         {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-
-                    if (!_studb.SubjectInfo.Any(s => s.SubjCode == prerequisite.SubjCode))
-                    {
-                        ModelState.AddModelError("SubjCode", "The Subject Code does not exist.");
-                        return View(prerequisite);
-                    }
-                    _studb.PreSubjectInfo.Add(prerequisite);
-                    _studb.SaveChanges();
-
-                    return RedirectToAction("PreReqList"); // Redirect to list
-                }
-                catch (IOException ex)
-                {
-                    ModelState.AddModelError("", "An error occurred while processing your request. Please try again.");
-                    return View(prerequisite);
-                }
-            }
-            if (!ModelState.IsValid) {
-                if (!_studb.SubjectInfo.Any(s => s.SubjCode == prerequisite.SubjCode))
-                {
-                    ModelState.AddModelError("SubjCode", "The Subject Code does not exist.");
-                    return View(prerequisite);
-                }
-
-                
                 _studb.PreSubjectInfo.Add(prerequisite);
                 _studb.SaveChanges();
-
                 return RedirectToAction("PreReqList");
-            }
-            return View();       
+            
         }
     }
 }

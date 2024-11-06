@@ -32,13 +32,13 @@
 
         <div class="col-md-4">
             <label asp-for="SubjCode" class="form-label">Subject Code</label>
-            <input asp-for="SubjCode" type="text" disabled class="form-control" required />
+            <input asp-for="SubjCode" type="text" readonly class="form-control" required />
             <span asp-validation-for="SubjCode" class="text-danger"></span>
         </div>
 
         <div class="col-md-8">
             <label asp-for="description" class="form-label">Description</label>
-            <input asp-for="description" type="text" disabled class="form-control" required />
+            <input asp-for="description" type="text" readonly class="form-control" required />
             <span asp-validation-for="description" class="text-danger"></span>
         </div>
 
@@ -73,19 +73,27 @@
             <span asp-validation-for="curryear" class="text-danger"></span>
         </div>
 
-        <div class="col-md-3">
-            <label asp-for="AMPM" class="form-label">AM/PM</label>
-            <select asp-for="AMPM" class="form-select text-black-50">
-                <option selected>...</option>
-                <option>AM</option>
-                <option>PM</option>
-            </select>
-            <span asp-validation-for="AMPM" class="text-danger"></span>
-        </div>
+        <input type="hidden" asp-for="AMPM"/>
 
         <div class="col-md-3">
             <label asp-for="days" class="form-label">Class Days</label>
-            <input asp-for="days" type="text" class="form-control" required />
+            <select asp-for="days" class="form-select text-black-50">
+                <option selected>...</option>
+                <option>MWF</option>
+                <option>TTHS</option>
+                <option>MW</option>
+                <option>MF</option>
+                <option>WF</option>
+                <option>TTH</option>
+                <option>TS</option>
+                <option>THS</option>
+                <option>M</option>
+                <option>T</option>
+                <option>W</option>
+                <option>TH</option>
+                <option>F</option>
+                <option>S</option>
+            </select>
             <span asp-validation-for="days" class="text-danger"></span>
         </div>
 

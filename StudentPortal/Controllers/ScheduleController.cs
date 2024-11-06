@@ -10,10 +10,11 @@ namespace StudentPortal.Controllers
     public class ScheduleController : Controller
     {
         private readonly StudentEntryDbContext _studb;
-
+        private readonly ScheduleConflictChecker _conflictChecker;
         public ScheduleController(StudentEntryDbContext studdb)
         {
             _studb = studdb;
+            _conflictChecker = new ScheduleConflictChecker();
         }
         public IActionResult ScheduleList()
         {
@@ -26,7 +27,7 @@ namespace StudentPortal.Controllers
 
         // GET method to retrieve the subject details by EDPCode
         [HttpGet]
-        public IActionResult AddSchedule(int? edpCode)
+        public IActionResult AddSchedule(string edpCode)
         {
             if (edpCode == null)
             {
@@ -35,7 +36,7 @@ namespace StudentPortal.Controllers
 
             var edpfind = _studb.SubjectInfo
                 .Include(s => s.Schedule)
-                .FirstOrDefault(s => s.EdpCode == edpCode);
+                .FirstOrDefault(s => s.SubjCode == edpCode);
 
             if (edpfind == null)
             {
@@ -47,7 +48,7 @@ namespace StudentPortal.Controllers
             if (edpfind != null)
             {
                 TimeOnly startTime = new TimeOnly(06, 30);  // 08:30
-                TimeOnly endTime = new TimeOnly(06, 30);    // 10:00
+                TimeOnly endTime = new TimeOnly(08, 30);    // 10:00
 
                 // Format as HH:mm
                 ViewBag.StartTimeFormatted = startTime.ToString("HH:mm");
@@ -56,10 +57,7 @@ namespace StudentPortal.Controllers
                 var schedfind = _studb.ScheduleInfo
             .Include(s => s.Subject).Select(s => new Schedule
             {
-
-
-
-                SubEdpCode = edpfind.EdpCode,
+              
                 SubjCode = edpfind.SubjCode,
                 description = edpfind.Descript,
                 starttime = startTime,
@@ -83,11 +81,19 @@ namespace StudentPortal.Controllers
 
         public IActionResult AddSchedule(Schedule sched)
         {
+            var existingSchedules = _studb.ScheduleInfo.ToList();
+            
+            if (_conflictChecker.HasConflict(sched, existingSchedules))
+            {
+                ViewBag.Meessage = "The schedule conflicts with an existing schedule.";
+                return View(sched);
+            }
+
+            sched.AMPM = GetTimeOfDay(sched.starttime, sched.endtime);
+
             using (var transaction = _studb.Database.BeginTransaction())
             {
-
                 _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo ON");
-
                 _studb.ScheduleInfo.Add(sched);
                 _studb.SaveChanges();
                 _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo OFF");
@@ -120,51 +126,106 @@ namespace StudentPortal.Controllers
         {
             if (schedule == null || schedule.SubEdpCode == 0)
             {
-                ViewBag.Message = "Invalid schedule data";
-                return View(schedule); // Return the view with the original object
+                ViewBag.Message = "Subject not found";
+                return View(schedule);  // Return the view with the original object
             }
 
-            // Retrieve the original schedule from the database
-            var originalSchedule = _studb.ScheduleInfo.Find(schedule.SubEdpCode);
+            schedule.AMPM = GetTimeOfDay(schedule.starttime, schedule.endtime);
 
-            if (originalSchedule != null)
-            {
-                // Remove the original schedule
-                _studb.ScheduleInfo.Remove(originalSchedule);
+            var scheduleToUpdate = _studb.ScheduleInfo
+                .Include(s => s.Subject)
+                .Where(s => s.SubEdpCode == schedule.SubEdpCode).FirstOrDefault();
+
+            var scheduleToUpdateNotEqual = _studb.ScheduleInfo
+                .Include(s => s.Subject)
+                .Where(s => s.SubEdpCode != schedule.SubEdpCode).FirstOrDefault();
+
+            var existingSchedules = _studb.ScheduleInfo
+                .Where(s => s.SubEdpCode == schedule.SubEdpCode)
+                .ToList();
+
+            var existingSchedulesNot = _studb.ScheduleInfo
+                .Where(s => s.SubEdpCode != schedule.SubEdpCode)
+                .ToList();
+
+            if (scheduleToUpdate != null) {
+                if (_conflictChecker.HasConflict(schedule, existingSchedules))
+                {
+                    ViewBag.Meessage = "The updated schedule conflicts with an existing schedule.";
+                    return View(schedule);
+                }
+                _studb.ScheduleInfo.Remove(scheduleToUpdate);
                 _studb.SaveChanges();
 
-                // Create a new schedule with the updated data (including a new SubEdpCode)
-                var updatedSchedule = new Schedule
+                var newSched = new Schedule
                 {
-                    SubEdpCode = schedule.SubEdpCode,  // Set the new primary key value
+                    SubEdpCode = schedule.SubEdpCode,
+                    description = schedule.description,
                     starttime = schedule.starttime,
                     endtime = schedule.endtime,
                     section = schedule.section,
                     roomnum = schedule.roomnum,
-                    curryear = schedule.curryear,
-                    description = schedule.description,
                     AMPM = schedule.AMPM,
+                    curryear = schedule.curryear,
                     days = schedule.days,
-                    
+                    SubjCode = schedule.SubjCode
                 };
-
-                // Use a transaction and enable IDENTITY_INSERT for the primary key update
                 using (var transaction = _studb.Database.BeginTransaction())
                 {
                     _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo ON");
-                    _studb.ScheduleInfo.Add(updatedSchedule);
+                    _studb.ScheduleInfo.Add(newSched);
                     _studb.SaveChanges();
                     _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo OFF");
                     transaction.Commit();
+                    return RedirectToAction("ScheduleList");
                 }
+            }
 
-                return RedirectToAction("ScheduleList");
-            }
-            else
+            if (scheduleToUpdateNotEqual != null)
             {
-                ViewBag.Message = "Schedule not found in the database.";
-                return View(schedule);
+                if (_conflictChecker.HasConflict(schedule, existingSchedulesNot))
+                {
+                    ViewBag.Meessage = "The updated schedule conflicts with an existing schedule.";
+                    return View(schedule);
+                }
+                _studb.ScheduleInfo.Remove(scheduleToUpdateNotEqual);
+                _studb.SaveChanges();
+
+                var newSched = new Schedule
+                {
+                    SubEdpCode = schedule.SubEdpCode,
+                    description = schedule.description,
+                    starttime = schedule.starttime,
+                    endtime = schedule.endtime,
+                    section = schedule.section,
+                    roomnum = schedule.roomnum,
+                    AMPM = schedule.AMPM,
+                    curryear = schedule.curryear,
+                    days = schedule.days,
+                    SubjCode = schedule.SubjCode
+                };
+                using (var transaction = _studb.Database.BeginTransaction())
+                {
+                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo ON");
+                    _studb.ScheduleInfo.Add(newSched);
+                    _studb.SaveChanges();
+                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo OFF");
+                    transaction.Commit();
+                    return RedirectToAction("ScheduleList");
+                }
+             }
+
+            return View(schedule);
+        }
+
+        private string GetTimeOfDay(TimeOnly startTime, TimeOnly endTime)
+        {
+            // If either start time or end time is after 12:00 PM
+            if (startTime.Hour >= 12 || endTime.Hour >= 12)
+            {
+                return "PM";
             }
+            return "AM";
         }
 
 

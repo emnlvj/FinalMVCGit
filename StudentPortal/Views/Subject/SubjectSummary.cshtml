@@ -1,9 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model List<Subject>
+﻿@model List<StudentPortal.Models.Subject>
 
 <table class="table table-hover table-bordered">
     <thead>
@@ -13,34 +8,61 @@
             <th scope="col">Units</th>
             <th scope="col">Offering</th>
             <th scope="col">Course</th>
-            <th scope="col">EDPCode</th>
-            <th scope="col">Pre-Requsite</th>
+            <th scope="col">EDP Code</th>
+            <th scope="col">Pre-Requisite</th>
             <th scope="col">Curriculum</th>
         </tr>
     </thead>
-    <tbody class="table-danger @(Model.Count == 0 ? "table-light" : "")">
-        @if (Model.Count == 0)
+    <tbody class="@(Model.Count == 0 ? "table-light" : "table-danger")">
+        @if (!Model.Any())
         {
             <tr>
-                <td colspan="12" class="text-start text-danger">No Student Listed.</td>
+                <td colspan="8" class="text-start text-danger">No Subject Listed.</td>
             </tr>
         }
         else
         {
-            foreach (var obj in Model)
+            @foreach (var subject in Model)
             {
                 <tr>
-                    <td>@obj.SubjCode</td>
-                    <td>@obj.Descript</td>
-                    <td>@obj.Units</td>
-                    <td>@obj.Offering</td>
-                    <td>@obj.CatCourse</td>
-                    <td>@obj.EdpCode</td>
-                    <td>@obj.PreCode</td>
-                    <td>@obj.CurrYear</td>
+                    <td>@subject.SubjCode</td>
+                    <td>@subject.Descript</td>
+                    <td>@subject.Units</td>
+                    <td>@subject.Offering</td>
+                    <td>@subject.CatCourse</td>
+                    <td>
+                        @if (subject.Schedule?.Any() == true)
+                        {
+                            <ul class="list-unstyled mb-0">
+                                @foreach (var sched in subject.Schedule)
+                                {
+                                    <li>@sched.SubEdpCode</li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <span>N/A</span>
+                        }
+                    </td>
+                    <td>
+                        @if (subject.PreRequisite?.Any() == true)
+                        {
+                            <ul class="list-unstyled mb-0">
+                                @foreach (var pre in subject.PreRequisite)
+                                {
+                                    <li>@pre.PreSubjCode</li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <span>N/A</span>
+                        }
+                    </td>
+                    <td>@subject.CurrYear</td>
                 </tr>
             }
-
         }
     </tbody>
 </table>

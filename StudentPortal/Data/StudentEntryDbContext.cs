@@ -20,8 +20,8 @@ namespace StudentPortal.Data
             // Configure relationships first
             modelBuilder.Entity<Schedule>()
                 .HasOne(s => s.Subject)
-                .WithOne(sch => sch.Schedule)
-                .HasForeignKey<Schedule>(s => s.SubjCode);
+                .WithMany(sch => sch.Schedule)
+                .HasForeignKey(s => s.SubjCode);
 
             modelBuilder.Entity<PreRequisite>()
                 .HasOne(pr => pr.Subject)
@@ -37,8 +37,8 @@ namespace StudentPortal.Data
                     Units = 3,
                     Offering = "Summer",
                     CatCourse = "BSIT",
-                    EdpCode = 99876, // Note: Must match EDPCode in future Schedule
-                    PreCode = "IMDBSYS3",
+                     // Note: Must match EDPCode in future Schedule
+                    
                     CurrYear = "2024-2025"
                 },
                 new Subject
@@ -48,8 +48,8 @@ namespace StudentPortal.Data
                     Units = 2,
                     Offering = "First Semester",
                     CatCourse = "BSIT",
-                    EdpCode = 99910, // Note: Must match EDPCode in future Schedule
-                    PreCode = "IT_FREKYI3",
+                     // Note: Must match EDPCode in future Schedule
+                    
                     CurrYear = "2024-2025"
                 }
             );

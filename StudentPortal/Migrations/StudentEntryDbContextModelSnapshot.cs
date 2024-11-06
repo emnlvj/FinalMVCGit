@@ -106,8 +106,7 @@ namespace StudentPortal.Migrations
 
                     b.HasKey("SubEdpCode");
 
-                    b.HasIndex("SubjCode")
-                        .IsUnique();
+                    b.HasIndex("SubjCode");
 
                     b.ToTable("ScheduleInfo");
 
@@ -230,17 +229,10 @@ namespace StudentPortal.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("EdpCode")
-                        .HasColumnType("int");
-
                     b.Property<string>("Offering")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("PreCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Units")
                         .HasColumnType("int");
@@ -256,9 +248,7 @@ namespace StudentPortal.Migrations
                             CatCourse = "BSIT",
                             CurrYear = "2024-2025",
                             Descript = "Information Management Database System",
-                            EdpCode = 99876,
                             Offering = "Summer",
-                            PreCode = "IMDBSYS3",
                             Units = 3
                         },
                         new
@@ -267,9 +257,7 @@ namespace StudentPortal.Migrations
                             CatCourse = "BSIT",
                             CurrYear = "2024-2025",
                             Descript = "FREE ELECTIVE KNOW YOUR INDUSTRY 1",
-                            EdpCode = 99910,
                             Offering = "First Semester",
-                            PreCode = "IT_FREKYI3",
                             Units = 2
                         });
                 });
@@ -288,8 +276,8 @@ namespace StudentPortal.Migrations
             modelBuilder.Entity("StudentPortal.Models.Schedule", b =>
                 {
                     b.HasOne("StudentPortal.Models.Subject", "Subject")
-                        .WithOne("Schedule")
-                        .HasForeignKey("StudentPortal.Models.Schedule", "SubjCode")
+                        .WithMany("Schedule")
+                        .HasForeignKey("SubjCode")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -300,8 +288,7 @@ namespace StudentPortal.Migrations
                 {
                     b.Navigation("PreRequisite");
 
-                    b.Navigation("Schedule")
-                        .IsRequired();
+                    b.Navigation("Schedule");
                 });
 #pragma warning restore 612, 618
         }

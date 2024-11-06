@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace StudentPortal.Migrations
 {
     /// <inheritdoc />
-    public partial class SucessReflect : Migration
+    public partial class ScheduleConflictTry : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -42,9 +42,7 @@ namespace StudentPortal.Migrations
                     Units = table.Column<int>(type: "int", nullable: false),
                     Offering = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     CatCourse = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    CurrYear = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
-                    EdpCode = table.Column<int>(type: "int", nullable: false),
-                    PreCode = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    CurrYear = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -109,11 +107,11 @@ namespace StudentPortal.Migrations
 
             migrationBuilder.InsertData(
                 table: "SubjectInfo",
-                columns: new[] { "SubjCode", "CatCourse", "CurrYear", "Descript", "EdpCode", "Offering", "PreCode", "Units" },
+                columns: new[] { "SubjCode", "CatCourse", "CurrYear", "Descript", "Offering", "Units" },
                 values: new object[,]
                 {
-                    { "IMDBSYS31", "BSIT", "2024-2025", "Information Management Database System", 99876, "Summer", "IMDBSYS3", 3 },
-                    { "IT-FREKYI1", "BSIT", "2024-2025", "FREE ELECTIVE KNOW YOUR INDUSTRY 1", 99910, "First Semester", "IT_FREKYI3", 2 }
+                    { "IMDBSYS31", "BSIT", "2024-2025", "Information Management Database System", "Summer", 3 },
+                    { "IT-FREKYI1", "BSIT", "2024-2025", "FREE ELECTIVE KNOW YOUR INDUSTRY 1", "First Semester", 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -142,8 +140,7 @@ namespace StudentPortal.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ScheduleInfo_SubjCode",
                 table: "ScheduleInfo",
-                column: "SubjCode",
-                unique: true);
+                column: "SubjCode");
         }
 
         /// <inheritdoc />

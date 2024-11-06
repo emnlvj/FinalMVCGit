@@ -30,7 +30,31 @@ namespace StudentPortal.Models
 
         public string SubjCode { get; set; }
         public Subject Subject { get; set; }
-        
+
+        public HashSet<string> GetDaysAsSet()
+        {
+            var daysSet = new HashSet<string>();
+            int i = 0;
+
+            while (i < days.Length)
+            {
+                // Check for two-character day "TH"
+                if (i < days.Length - 1 && days.Substring(i, 2) == "TH")
+                {
+                    daysSet.Add("TH");
+                    i += 2; // Move by 2 characters
+                }
+                else
+                {
+                    // Single-character days: M, T, W, F, S
+                    daysSet.Add(days[i].ToString());
+                    i += 1; // Move by 1 character
+                }
+            }
+
+            return daysSet;
+        }
+
 
 
     }

@@ -44,33 +44,39 @@ namespace StudentPortal.Controllers
         }
         public IActionResult SubjectSummary()
         {
-            var subject = _studb.SubjectInfo
-                .Include(pr => pr.PreRequisite)
-                .ToList();
+            var subjects = _studb.SubjectInfo
+            .Include(s => s.Schedule)
+            .Include(s => s.PreRequisite)
+            .ToList();
 
-            return View(subject);
+            return View(subjects);
+            
             
         }
 
-            public IActionResult AddSubject()
+        public IActionResult AddSubject()
         {
+            // Retrieve the PreSubjCode values from all PreRequisites to display in the dropdown
+            
 
+            // Pass an empty Subject object to the view for form binding
             return View();
         }
+
         [HttpPost]
         public IActionResult AddSubject(Subject studsub)
         {
             
-                  
-              
-
-            _studb.SubjectInfo.Add(studsub);
+                _studb.SubjectInfo.Add(studsub);
                 _studb.SaveChanges();
                 return RedirectToAction("SubjectSummary");
             
-            
+
+           
         }
 
+
+        [HttpGet]
         public IActionResult EditSubject(string? subjcode)
         {
             if (subjcode == null)
@@ -78,12 +84,15 @@ namespace StudentPortal.Controllers
 
                 return View();
             }
-            Subject? subfind = _studb.SubjectInfo.Find(subjcode);
-            if (subfind == null)
+            var subjcodefind = _studb.SubjectInfo
+            .Include(s => s.PreRequisite)
+                .FirstOrDefault(s => s.SubjCode == subjcode);
+            if (subjcodefind == null)
             {
                 return View();
             }
-            return View(subfind);
+            
+            return View(subjcodefind);
         }
 
 
@@ -96,67 +105,169 @@ namespace StudentPortal.Controllers
                 return View(subjectobj);  // Return the view with the original object
             }
 
+            // Retrieve existing subject
+            var subjectToUpdate = _studb.SubjectInfo
+                .Include(s => s.PreRequisite)
+                .Include(s => s.Schedule)
+                .Where(s => s.SubjCode == subjectobj.SubjCode).FirstOrDefault();
 
-            // Retrieve the subject from the database
-            
-                // Retrieve the subject from the database
-                var subjectToUpdate = _studb.SubjectInfo
-                    .Include(s => s.PreRequisite) // Include prerequisites to update them
-                    .FirstOrDefault(s => s.SubjCode == subjectobj.SubjCode);
+            var subjectToUpNotEqual = _studb.SubjectInfo
+                .Include(s => s.PreRequisite)
+                .Include(s => s.Schedule)
+                .Where(s => s.SubjCode != subjectobj.SubjCode).FirstOrDefault();
 
-                if (subjectToUpdate != null)
+            var prereqlist = _studb.PreSubjectInfo
+                  .Include(s => s.Subject)
+                  .Where(s => s.SubjCode == subjectobj.SubjCode).AsTracking().ToList();
+
+            var prereqlistnot = _studb.PreSubjectInfo
+                  .Include(s => s.Subject)
+                  .Where(s => s.SubjCode != subjectobj.SubjCode).AsTracking().ToList();
+
+            var schedlist = _studb.ScheduleInfo
+                  .Include(s => s.Subject)
+                  .Where(s => s.SubjCode == subjectobj.SubjCode).AsTracking().ToList();
+
+            var schedlistnot = _studb.ScheduleInfo
+                  .Include(s => s.Subject)
+                  .Where(s => s.SubjCode != subjectobj.SubjCode).AsTracking().ToList();
+
+
+            if (subjectToUpdate != null)
+            {
+                _studb.ScheduleInfo.RemoveRange(schedlist);
+                _studb.PreSubjectInfo.RemoveRange(prereqlist);
+                _studb.SubjectInfo.Remove(subjectToUpdate);
+                _studb.SaveChanges();
+                var newSubject = new Subject
                 {
-                    // Update the fields
-                    subjectToUpdate.Descript = subjectobj.Descript;
-                    subjectToUpdate.Units = subjectobj.Units;
-                    subjectToUpdate.Offering = subjectobj.Offering;
-                    subjectToUpdate.CatCourse = subjectobj.CatCourse;
-                    subjectToUpdate.EdpCode = subjectobj.EdpCode;
-                    subjectToUpdate.CurrYear = subjectobj.CurrYear;
-                    subjectToUpdate.PreCode = subjectobj.PreCode;
-                    // Update the prerequisite subjects
-                    var prerequisites = _studb.PreSubjectInfo.Where(e => e.SubjCode == subjectToUpdate.SubjCode).ToList();
+                    SubjCode = subjectobj.SubjCode,
+                    Descript = subjectobj.Descript,
+                    Units = subjectobj.Units,
+                    Offering = subjectobj.Offering,
+                    CatCourse = subjectobj.CatCourse,
+                    CurrYear = subjectobj.CurrYear
                     
-                    foreach (var updatepre in prerequisites)
+                };
+                _studb.SubjectInfo.Add(newSubject);
+                _studb.SaveChanges();
+                
+                    foreach (var preq in prereqlist)
                     {
-                        // Optionally create a new prerequisite if you're changing PreSubjCode
-                        // Remove the old prerequisite
-                        _studb.PreSubjectInfo.Remove(updatepre);
+                        var newPreReq = new PreRequisite
+                        {
+                            PreSubjCode = preq.PreSubjCode,
+                            PreDescript = preq.PreDescript,
+                            PreUnits = preq.PreUnits,
+                            SubjCode = subjectobj.SubjCode
+                        };
+                        _studb.PreSubjectInfo.Add(newPreReq);
                         _studb.SaveChanges();
-                    }
+                }
 
-                // Save changes to delete the old prerequisites
-                    foreach (var updatepre in prerequisites)
+                foreach (var sched in schedlist)
+                {
+                    var newSched = new Schedule
                     {
-                    var newPrerequisite = new PreRequisite
-                    {
-                        PreSubjCode = subjectobj.PreCode,
-                        PreDescript = updatepre.PreDescript,
-                        PreUnits = updatepre.PreUnits,
+                        SubEdpCode = sched.SubEdpCode,
+                        description = sched.description,
+                        starttime = sched.starttime,
+                        endtime = sched.endtime,
+                        section = sched.section,
+                        roomnum = sched.roomnum,
+                        AMPM = sched.AMPM,
+                        curryear = sched.curryear,
+                        days = sched.days,
                         SubjCode = subjectobj.SubjCode
                     };
-                    _studb.PreSubjectInfo.Add(newPrerequisite); // Add the new prerequisite
+                    using (var transaction = _studb.Database.BeginTransaction())
+                    {
+                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo ON");
+                        _studb.ScheduleInfo.Add(newSched);
+                        _studb.SaveChanges();
+                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo OFF");
+                        transaction.Commit();
+                        
+                    }
+                    
+                }
+                return RedirectToAction("SubjectSummary");
+
+            }
+
+            if(subjectToUpNotEqual != null)
+            {
+
+
+
+                _studb.ScheduleInfo.RemoveRange(schedlistnot);
+                _studb.PreSubjectInfo.RemoveRange(prereqlistnot);
+                _studb.SubjectInfo.Remove(subjectToUpNotEqual);
+                _studb.SaveChanges();
+                // Add the new subject with updated SubjCode
+                var newSubject = new Subject
+                    {
+                    SubjCode = subjectobj.SubjCode,
+                    Descript = subjectobj.Descript,
+                    Units = subjectobj.Units,
+                    Offering = subjectobj.Offering,
+                    CatCourse = subjectobj.CatCourse,
+                   
+                    CurrYear = subjectobj.CurrYear,
+                    
+                    };
+
+                    _studb.SubjectInfo.Add(newSubject);
+                    _studb.SaveChanges(); // Save new subject
+
+                foreach (var preq in prereqlistnot)
+                { 
+                    var newPreReq = new PreRequisite
+                    {
+                        PreSubjCode = preq.PreSubjCode,
+                        PreDescript = preq.PreDescript,
+                        PreUnits = preq.PreUnits,
+                        SubjCode = subjectobj.SubjCode
+                    };
+                    _studb.PreSubjectInfo.Add(newPreReq);
                     _studb.SaveChanges();
                 }
-                
 
-                    _studb.SubjectInfo.Update(subjectToUpdate);
-
-                    // Save all changes to the database
-                    _studb.SaveChanges();
-
-                    return RedirectToAction("SubjectSummary");
-                }
-                else
+                foreach (var sched in schedlistnot)
                 {
-                    ViewBag.Message = "Subject not found in the database.";
+                    var newSched = new Schedule
+                    {
+                        SubEdpCode = sched.SubEdpCode,
+                        description = sched.description,
+                        starttime = sched.starttime,
+                        endtime = sched.endtime,
+                        section = sched.section,
+                        roomnum = sched.roomnum,
+                        AMPM = sched.AMPM,
+                        curryear = sched.curryear,
+                        days = sched.days,
+                        SubjCode = subjectobj.SubjCode
+                    };
+                    
+                    using (var transaction = _studb.Database.BeginTransaction())
+                    {
+                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo ON");
+                        _studb.ScheduleInfo.Add(newSched);
+                        _studb.SaveChanges();
+                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo OFF");
+                        transaction.Commit();
+
+                    }
                 }
+                return RedirectToAction("SubjectSummary");
+
+            }
+
             
-
-
-
             return View(subjectobj);
         }
+
+
 
         public IActionResult DeleteSubject(string? subjcode)
         {

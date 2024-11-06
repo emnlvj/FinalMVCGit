@@ -6,7 +6,7 @@
 <form method="get" asp-action="AddSchedule">
     <div class="form-group">
         <label for="edpCode">Enter EDPCode</label>
-        <input type="text" id="edpCode" name="edpCode" class="form-control" placeholder="Enter EDPCode" required />
+        <input type="text" id="edpCode" name="edpCode" class="form-control" placeholder="Enter SubjCode" required />
     </div>
     <button type="submit" class="btn btn-primary">Search</button>
 </form>
@@ -19,7 +19,7 @@
 @if (Model != null)
 {
     <!-- Display retrieved information and allow input of other fields -->
-    <form method="post" asp-action="AddSchedule">
+    <form method="post">
         <div><h2 class="text-black">Add Subject</h2></div>
         <hr class="text-black">
 
@@ -72,21 +72,30 @@
             <span asp-validation-for="curryear" class="text-danger"></span>
         </div>
 
-        <div class="col-md-3">
-            <label asp-for="AMPM" class="form-label">AM/PM</label>
-            <select asp-for="AMPM" class="form-select text-black-50">
-                <option selected>...</option>
-                <option>AM</option>
-                <option>PM</option>
-            </select>
-            <span asp-validation-for="AMPM" class="text-danger"></span>
-        </div>
+        <input type="hidden" asp-for="AMPM"/>
 
         <div class="col-md-3">
             <label asp-for="days" class="form-label">Class Days</label>
-            <input asp-for="days" type="text" class="form-control" required />
+            <select asp-for="days" class="form-select text-black-50">
+                <option selected>...</option>
+                <option>MWF</option>
+                <option>TTHS</option>
+                <option>MW</option>
+                <option>MF</option>
+                <option>WF</option>
+                <option>TTH</option>
+                <option>TS</option>
+                <option>THS</option>
+                <option>M</option>
+                <option>T</option>
+                <option>W</option>
+                <option>TH</option>
+                <option>F</option>
+                <option>S</option>
+            </select>
             <span asp-validation-for="days" class="text-danger"></span>
         </div>
+
 
         <div class="col-12">
             <button type="submit" class="btn btn-save">Save</button>

@@ -27,10 +27,9 @@ namespace StudentPortal.Models
         
         [StringLength(9, ErrorMessage = "Subject Code cannot be longer than 9 characters.")]
         public string CurrYear { get; set; }
-        public int EdpCode { get; set; }
+       
 
-        public string PreCode { get; set; }
-        public Schedule Schedule { get; set; }
+        public ICollection<Schedule> Schedule { get; set; } = new List<Schedule>();
         public ICollection<PreRequisite> PreRequisite { get; set; } = new List<PreRequisite>();
     }
 }
