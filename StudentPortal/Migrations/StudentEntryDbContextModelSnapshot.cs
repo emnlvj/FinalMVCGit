@@ -36,7 +36,6 @@ namespace StudentPortal.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SubjCode")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
@@ -45,22 +44,6 @@ namespace StudentPortal.Migrations
                     b.HasIndex("SubjCode");
 
                     b.ToTable("PreSubjectInfo");
-
-                    b.HasData(
-                        new
-                        {
-                            PreSubjCode = "IMDBYS32",
-                            PreDescript = "Information Management Database System 2",
-                            PreUnits = 3,
-                            SubjCode = "IMDBSYS31"
-                        },
-                        new
-                        {
-                            PreSubjCode = "IT-FREKYI2",
-                            PreDescript = "FREE ELECTIVE KNOW YOUR INDUSTRY 2",
-                            PreUnits = 2,
-                            SubjCode = "IT-FREKYI1"
-                        });
                 });
 
             modelBuilder.Entity("StudentPortal.Models.Schedule", b =>
@@ -76,7 +59,6 @@ namespace StudentPortal.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SubjCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("curryear")
@@ -104,39 +86,15 @@ namespace StudentPortal.Migrations
                     b.Property<TimeOnly>("starttime")
                         .HasColumnType("time");
 
+                    b.Property<string>("status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("SubEdpCode");
 
                     b.HasIndex("SubjCode");
 
                     b.ToTable("ScheduleInfo");
-
-                    b.HasData(
-                        new
-                        {
-                            SubEdpCode = 99876,
-                            AMPM = "AM",
-                            SubjCode = "IMDBSYS31",
-                            curryear = "2023-2024",
-                            days = "MWF",
-                            description = "Information Management Database System",
-                            endtime = new TimeOnly(12, 30, 0),
-                            roomnum = 206,
-                            section = "3F",
-                            starttime = new TimeOnly(11, 30, 0)
-                        },
-                        new
-                        {
-                            SubEdpCode = 99910,
-                            AMPM = "PM",
-                            SubjCode = "IT-FREKYI1",
-                            curryear = "2023-2024",
-                            days = "TTH",
-                            description = "FREE ELECTIVE KNOW YOUR INDUSTRY",
-                            endtime = new TimeOnly(2, 30, 0),
-                            roomnum = 206,
-                            section = "3F",
-                            starttime = new TimeOnly(1, 30, 0)
-                        });
                 });
 
             modelBuilder.Entity("StudentPortal.Models.Student", b =>
@@ -180,32 +138,6 @@ namespace StudentPortal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("StudentInfo");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 23217714,
-                            Course = "BSIT",
-                            FName = "Victor",
-                            LName = "Jacaba",
-                            MName = "Edisan",
-                            Remarks = "OLD STUDENT",
-                            Status = "Active",
-                            Year = 3,
-                            count = 1
-                        },
-                        new
-                        {
-                            Id = 2321123,
-                            Course = "BSN",
-                            FName = "Sheena",
-                            LName = "Jacaba",
-                            MName = "Torreta",
-                            Remarks = "NEW STUDENT",
-                            Status = "Inactive",
-                            Year = 3,
-                            count = 2
-                        });
                 });
 
             modelBuilder.Entity("StudentPortal.Models.Subject", b =>
@@ -240,26 +172,6 @@ namespace StudentPortal.Migrations
                     b.HasKey("SubjCode");
 
                     b.ToTable("SubjectInfo");
-
-                    b.HasData(
-                        new
-                        {
-                            SubjCode = "IMDBSYS31",
-                            CatCourse = "BSIT",
-                            CurrYear = "2024-2025",
-                            Descript = "Information Management Database System",
-                            Offering = "Summer",
-                            Units = 3
-                        },
-                        new
-                        {
-                            SubjCode = "IT-FREKYI1",
-                            CatCourse = "BSIT",
-                            CurrYear = "2024-2025",
-                            Descript = "FREE ELECTIVE KNOW YOUR INDUSTRY 1",
-                            Offering = "First Semester",
-                            Units = 2
-                        });
                 });
 
             modelBuilder.Entity("StudentPortal.Models.PreRequisite", b =>
@@ -267,8 +179,7 @@ namespace StudentPortal.Migrations
                     b.HasOne("StudentPortal.Models.Subject", "Subject")
                         .WithMany("PreRequisite")
                         .HasForeignKey("SubjCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Subject");
                 });
@@ -278,8 +189,7 @@ namespace StudentPortal.Migrations
                     b.HasOne("StudentPortal.Models.Subject", "Subject")
                         .WithMany("Schedule")
                         .HasForeignKey("SubjCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Subject");
                 });

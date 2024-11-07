@@ -22,6 +22,14 @@ namespace StudentPortal.Controllers
                 .Include(pr => pr.Subject)
                 .ToList();
 
+            foreach (var schedule in sched)
+            {
+                schedule.status = schedule.SubjCode != null ? "Active" : "InActive";
+                schedule.description = schedule.SubjCode != null ? schedule.description: "To be edited";
+                schedule.SubjCode = schedule.SubjCode != null ? schedule.SubjCode : "To be edited";
+
+            }
+
             return View(sched);
         }
 
@@ -54,20 +62,16 @@ namespace StudentPortal.Controllers
                 ViewBag.StartTimeFormatted = startTime.ToString("HH:mm");
                 ViewBag.EndTimeFormatted = endTime.ToString("HH:mm");
 
-                var schedfind = _studb.ScheduleInfo
-            .Include(s => s.Subject).Select(s => new Schedule
-            {
-              
-                SubjCode = edpfind.SubjCode,
-                description = edpfind.Descript,
-                starttime = startTime,
-                endtime = endTime
-            }).FirstOrDefault();
+                var schedule = new Schedule
+                {
+                    SubjCode = edpfind.SubjCode,
+                    description = edpfind.Descript,
+                    starttime = startTime,
+                    endtime = endTime  // Set the SubjCode for the PreRequisite
+                };
 
-                if (schedfind == null) {
-                    return View();
-                }
-                Schedule? schedule = schedfind;
+                schedule.status = schedule.SubjCode != null ? "Active" : "InActive";
+
                 return View(schedule);
             }
 
@@ -90,6 +94,9 @@ namespace StudentPortal.Controllers
             }
 
             sched.AMPM = GetTimeOfDay(sched.starttime, sched.endtime);
+
+            sched.status = sched.SubjCode != null ? "Active" : "InActive";
+
 
             using (var transaction = _studb.Database.BeginTransaction())
             {
@@ -116,7 +123,7 @@ namespace StudentPortal.Controllers
                 ViewBag.Message = "Schedule not found";
                 return View();
             }
-
+            schedfind.status = schedfind.SubjCode != null ? "Active" : "InActive";
             // Return the view with the found schedule
             return View(schedfind);
         }
@@ -131,6 +138,8 @@ namespace StudentPortal.Controllers
             }
 
             schedule.AMPM = GetTimeOfDay(schedule.starttime, schedule.endtime);
+
+            schedule.status = schedule.SubjCode != null ? "Active" : "InActive";
 
             var scheduleToUpdate = _studb.ScheduleInfo
                 .Include(s => s.Subject)
@@ -168,6 +177,7 @@ namespace StudentPortal.Controllers
                     AMPM = schedule.AMPM,
                     curryear = schedule.curryear,
                     days = schedule.days,
+                    status = schedule.status,
                     SubjCode = schedule.SubjCode
                 };
                 using (var transaction = _studb.Database.BeginTransaction())
@@ -202,6 +212,7 @@ namespace StudentPortal.Controllers
                     AMPM = schedule.AMPM,
                     curryear = schedule.curryear,
                     days = schedule.days,
+                    status = schedule.status,
                     SubjCode = schedule.SubjCode
                 };
                 using (var transaction = _studb.Database.BeginTransaction())

@@ -25,10 +25,11 @@ namespace StudentPortal.Models
         public string AMPM { get; set; }
         [Required]
         public string days { get; set; }
-        [Required]
+        public string status { get; set; }
+        
         [ForeignKey("Subject")]
 
-        public string SubjCode { get; set; }
+        public string? SubjCode { get; set; }
         public Subject Subject { get; set; }
 
         public HashSet<string> GetDaysAsSet()

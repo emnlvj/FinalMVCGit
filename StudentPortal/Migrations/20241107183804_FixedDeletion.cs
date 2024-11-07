@@ -3,12 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace StudentPortal.Migrations
 {
     /// <inheritdoc />
-    public partial class ScheduleConflictTry : Migration
+    public partial class FixedDeletion : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -56,7 +54,7 @@ namespace StudentPortal.Migrations
                     PreSubjCode = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     PreDescript = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     PreUnits = table.Column<int>(type: "int", nullable: false),
-                    SubjCode = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                    SubjCode = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -66,7 +64,7 @@ namespace StudentPortal.Migrations
                         column: x => x.SubjCode,
                         principalTable: "SubjectInfo",
                         principalColumn: "SubjCode",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -83,7 +81,8 @@ namespace StudentPortal.Migrations
                     description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AMPM = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     days = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SubjCode = table.Column<string>(type: "nvarchar(20)", nullable: false)
+                    status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SubjCode = table.Column<string>(type: "nvarchar(20)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -93,43 +92,7 @@ namespace StudentPortal.Migrations
                         column: x => x.SubjCode,
                         principalTable: "SubjectInfo",
                         principalColumn: "SubjCode",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.InsertData(
-                table: "StudentInfo",
-                columns: new[] { "Id", "Course", "FName", "LName", "MName", "Remarks", "Status", "Year", "count" },
-                values: new object[,]
-                {
-                    { 2321123, "BSN", "Sheena", "Jacaba", "Torreta", "NEW STUDENT", "Inactive", 3, 2 },
-                    { 23217714, "BSIT", "Victor", "Jacaba", "Edisan", "OLD STUDENT", "Active", 3, 1 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "SubjectInfo",
-                columns: new[] { "SubjCode", "CatCourse", "CurrYear", "Descript", "Offering", "Units" },
-                values: new object[,]
-                {
-                    { "IMDBSYS31", "BSIT", "2024-2025", "Information Management Database System", "Summer", 3 },
-                    { "IT-FREKYI1", "BSIT", "2024-2025", "FREE ELECTIVE KNOW YOUR INDUSTRY 1", "First Semester", 2 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "PreSubjectInfo",
-                columns: new[] { "PreSubjCode", "PreDescript", "PreUnits", "SubjCode" },
-                values: new object[,]
-                {
-                    { "IMDBYS32", "Information Management Database System 2", 3, "IMDBSYS31" },
-                    { "IT-FREKYI2", "FREE ELECTIVE KNOW YOUR INDUSTRY 2", 2, "IT-FREKYI1" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "ScheduleInfo",
-                columns: new[] { "SubEdpCode", "AMPM", "SubjCode", "curryear", "days", "description", "endtime", "roomnum", "section", "starttime" },
-                values: new object[,]
-                {
-                    { 99876, "AM", "IMDBSYS31", "2023-2024", "MWF", "Information Management Database System", new TimeOnly(12, 30, 0), 206, "3F", new TimeOnly(11, 30, 0) },
-                    { 99910, "PM", "IT-FREKYI1", "2023-2024", "TTH", "FREE ELECTIVE KNOW YOUR INDUSTRY", new TimeOnly(2, 30, 0), 206, "3F", new TimeOnly(1, 30, 0) }
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateIndex(

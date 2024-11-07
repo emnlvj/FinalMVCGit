@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using StudentPortal.Data;
 using StudentPortal.Models;
+using System.Data;
 
 namespace StudentPortal.Controllers
 {
@@ -178,6 +179,7 @@ namespace StudentPortal.Controllers
                         AMPM = sched.AMPM,
                         curryear = sched.curryear,
                         days = sched.days,
+                        status = sched.status,
                         SubjCode = subjectobj.SubjCode
                     };
                     using (var transaction = _studb.Database.BeginTransaction())
@@ -246,6 +248,7 @@ namespace StudentPortal.Controllers
                         AMPM = sched.AMPM,
                         curryear = sched.curryear,
                         days = sched.days,
+                        status = sched.status,
                         SubjCode = subjectobj.SubjCode
                     };
                     
@@ -258,6 +261,7 @@ namespace StudentPortal.Controllers
                         transaction.Commit();
 
                     }
+                    _studb.ChangeTracker.Clear();
                 }
                 return RedirectToAction("SubjectSummary");
 
@@ -287,19 +291,29 @@ namespace StudentPortal.Controllers
         [HttpPost,ActionName("DeleteSubject")]
         public IActionResult DeleteSubjectPOST(string? subjcode)
         {
-            Subject? subobj = _studb.SubjectInfo.Find(subjcode);
-            if (subobj == null)
+            var subject = _studb.SubjectInfo.Find(subjcode);
+
+            if (subject == null)
             {
-                ViewBag.Message = "Student not found";
-                return RedirectToAction("Index");
+                ViewBag.Message = "No subject found";
+                return View();
             }
-
-
-            _studb.SubjectInfo.Remove(subobj);
-            _studb.SaveChanges();
-            return RedirectToAction("SubjectSummary");
-
             
+                _studb.SubjectInfo.Remove(subject);
+                try
+                {
+                     _studb.SaveChanges();
+                }
+                catch (DbUpdateException ex)
+                {
+                    // Handle cases where constraints are not met, like a dangling foreign key.
+                    // You may log the exception or handle it in a user-friendly way.
+                    ViewBag.Message =  "Unable to delete subject. It may have related data.";
+                    return View(subject); // Or redirect with an error message
+                }
+
+
+                return RedirectToAction("SubjectSummary");
         }
 
 

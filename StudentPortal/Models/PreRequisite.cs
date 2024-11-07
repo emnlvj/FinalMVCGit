@@ -20,7 +20,7 @@ namespace StudentPortal.Models
         [StringLength(20, ErrorMessage = "Subject Code cannot be longer than 20 characters.")]
         [ForeignKey("Subject")]
 
-        public string SubjCode { get; set; }
+        public string? SubjCode { get; set; }
         public Subject Subject { get; set; }
 
     }

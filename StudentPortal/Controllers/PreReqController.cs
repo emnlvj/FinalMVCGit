@@ -28,40 +28,39 @@ namespace StudentPortal.Controllers
 
         public IActionResult PreReqAdd(string presubjcode)
         {
-            if (presubjcode == null)
+            // Check if presubjcode is null and return the view to enter the subject code.
+            if (string.IsNullOrEmpty(presubjcode))
             {
-                return View(); // Initial view to enter EDPCode.
+                return View(); // Show the view to enter the Subject Code
             }
 
-            var subjcodefind= _studb.SubjectInfo
-            .Include(s => s.PreRequisite)
+            // Find the Subject by the given subjCode (presubjcode)
+            var subjcodefind = _studb.SubjectInfo
+                .Include(s => s.PreRequisite)  // Include the related PreRequisite information
                 .FirstOrDefault(s => s.SubjCode == presubjcode);
 
+            // If the Subject is not found, show an error message
             if (subjcodefind == null)
             {
                 ViewBag.ErrorMessage = "No prerequisite found for the given code.";
                 return View();
             }
-            if (subjcodefind != null)
+
+            var schedule = new PreRequisite
             {
-                var prereq = _studb.PreSubjectInfo
-               .Include(s => s.Subject).Select(s => new PreRequisite
-               {
-                   
-                  
-                   SubjCode = subjcodefind.SubjCode
-               }).FirstOrDefault();
+                SubjCode = subjcodefind.SubjCode
+            };
+            // If Subject is found, create a new PreRequisite object and pass it to the view
+            
 
-
-                PreRequisite? addpre = prereq;
-                return View(addpre);
-            }
-            return View();
+            return View(schedule); // Pass the PreRequisite object to the view
         }
+
 
         [HttpPost]
         public IActionResult PreReqAdd(PreRequisite prerequisite)
         {
+               
                 _studb.PreSubjectInfo.Add(prerequisite);
                 _studb.SaveChanges();
                 return RedirectToAction("PreReqList");
