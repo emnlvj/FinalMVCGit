@@ -166,33 +166,7 @@ namespace StudentPortal.Controllers
                         _studb.SaveChanges();
                 }
 
-                foreach (var sched in schedlist)
-                {
-                    var newSched = new Schedule
-                    {
-                        SubEdpCode = sched.SubEdpCode,
-                        description = sched.description,
-                        starttime = sched.starttime,
-                        endtime = sched.endtime,
-                        section = sched.section,
-                        roomnum = sched.roomnum,
-                        AMPM = sched.AMPM,
-                        curryear = sched.curryear,
-                        days = sched.days,
-                        status = sched.status,
-                        SubjCode = subjectobj.SubjCode
-                    };
-                    using (var transaction = _studb.Database.BeginTransaction())
-                    {
-                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo ON");
-                        _studb.ScheduleInfo.Add(newSched);
-                        _studb.SaveChanges();
-                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo OFF");
-                        transaction.Commit();
-                        
-                    }
-                    
-                }
+               
                 return RedirectToAction("SubjectSummary");
 
             }
@@ -235,34 +209,7 @@ namespace StudentPortal.Controllers
                     _studb.SaveChanges();
                 }
 
-                foreach (var sched in schedlistnot)
-                {
-                    var newSched = new Schedule
-                    {
-                        SubEdpCode = sched.SubEdpCode,
-                        description = sched.description,
-                        starttime = sched.starttime,
-                        endtime = sched.endtime,
-                        section = sched.section,
-                        roomnum = sched.roomnum,
-                        AMPM = sched.AMPM,
-                        curryear = sched.curryear,
-                        days = sched.days,
-                        status = sched.status,
-                        SubjCode = subjectobj.SubjCode
-                    };
-                    
-                    using (var transaction = _studb.Database.BeginTransaction())
-                    {
-                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo ON");
-                        _studb.ScheduleInfo.Add(newSched);
-                        _studb.SaveChanges();
-                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT ScheduleInfo OFF");
-                        transaction.Commit();
-
-                    }
-                    _studb.ChangeTracker.Clear();
-                }
+               
                 return RedirectToAction("SubjectSummary");
 
             }

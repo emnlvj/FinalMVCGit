@@ -36,10 +36,26 @@
                             <ul class="list-unstyled mb-0">
                                 @foreach (var sched in subject.Schedule)
                                 {
-                                    <li>@sched.SubEdpCode</li>
+                                    if (sched.SubjCode== "")
+                                    {
+                                        <span>N/A</span>
+                                    }
+                                    else if (sched.SubjCode == null)
+                                    {
+                                        <span>N/A</span>
+                                    }
+                                    else if (sched.SubjCode == subject.SubjCode && sched.SubjCode != null)
+                                    {
+                                        <li>@sched.SubEdpCode</li>
+                                    }
+                                    else
+                                    {
+                                        <span>N/A</span>
+                                    }
                                 }
                             </ul>
                         }
+
                         else
                         {
                             <span>N/A</span>
