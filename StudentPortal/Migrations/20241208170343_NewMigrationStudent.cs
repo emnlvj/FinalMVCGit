@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace StudentPortal.Migrations
 {
     /// <inheritdoc />
-    public partial class FixedDeletion : Migration
+    public partial class NewMigrationStudent : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,7 +17,6 @@ namespace StudentPortal.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    count = table.Column<int>(type: "int", nullable: false),
                     FName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MName = table.Column<string>(type: "nvarchar(max)", nullable: false),

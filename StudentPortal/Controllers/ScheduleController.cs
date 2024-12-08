@@ -350,7 +350,8 @@ namespace StudentPortal.Controllers
             return "AM";
         }
 
-        [HttpGet]
+        [HttpGet
+            ]
         public IActionResult DeleteSchedule(int? edpCode)
         {
             if (edpCode == null)

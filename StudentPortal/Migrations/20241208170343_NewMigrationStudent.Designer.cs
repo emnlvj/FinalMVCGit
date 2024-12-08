@@ -12,8 +12,8 @@ using StudentPortal.Data;
 namespace StudentPortal.Migrations
 {
     [DbContext(typeof(StudentEntryDbContext))]
-    [Migration("20241107183804_FixedDeletion")]
-    partial class FixedDeletion
+    [Migration("20241208170343_NewMigrationStudent")]
+    partial class NewMigrationStudent
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -133,9 +133,6 @@ namespace StudentPortal.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Year")
-                        .HasColumnType("int");
-
-                    b.Property<int>("count")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

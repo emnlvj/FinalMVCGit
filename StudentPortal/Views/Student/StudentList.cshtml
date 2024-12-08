@@ -18,11 +18,10 @@
     <thead class="table-active">
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">No.</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Middle Name</th>
-            <th scope="col">Age</th>
+            <th scope="col">Status</th>
             <th scope="col">Course</th>
             <th scope="col">Section</th>
             <th scope="col">Year</th>
@@ -36,10 +35,9 @@
             </tr>
         }
         else{
-        @foreach(var obj in Model.OrderBy(u=>u.count)){
+        @foreach(var obj in Model){
             <tr class="student-row">
             <td class="id">@obj.Id</td>
-            <td>@obj.count</td>
             <td class="fname">@obj.FName</td>
             <td class="lname">@obj.LName</td>
             <td class="mname">@obj.MName</td>

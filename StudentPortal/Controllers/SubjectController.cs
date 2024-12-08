@@ -78,29 +78,58 @@ namespace StudentPortal.Controllers
 
 
         [HttpGet]
-        public IActionResult EditSubject(string? subjcode)
+        public IActionResult EditSubject(string? subjcode, string? courseobj)
         {
             if (subjcode == null)
             {
-
+               
+                return View();
+            }
+            if(courseobj  == null)
+            {
+               
                 return View();
             }
             var subjcodefind = _studb.SubjectInfo
             .Include(s => s.PreRequisite)
-                .FirstOrDefault(s => s.SubjCode == subjcode);
+                .FirstOrDefault(s => s.SubjCode == subjcode && s.CatCourse == courseobj);
             if (subjcodefind == null)
             {
+                ViewBag.Message = "Subject not found";
                 return View();
             }
             
             return View(subjcodefind);
         }
 
+        [HttpGet]
+        public JsonResult VerifySubjectCode(string subjcode, string currentSubjCode, Subject subjectobj)
+        {
+            var existingSubject = _studb.SubjectInfo.AsNoTracking().FirstOrDefault(s => s.SubjCode == subjectobj.SubjCode);
+            var existingSubjectNot = _studb.SubjectInfo.AsNoTracking().FirstOrDefault(s => s.SubjCode != subjectobj.SubjCode);
+
+            if (existingSubject != null)
+            {
+                bool exists = _studb.SubjectInfo.Any(s => s.SubjCode == subjcode && s.SubjCode != currentSubjCode);
+
+
+                return Json(new { exists });
+            }
+            if (existingSubjectNot != null)
+            {
+                bool exists = _studb.SubjectInfo.Any(s => s.SubjCode == subjcode && s.SubjCode != currentSubjCode);
+
+                return Json(new { exists });
+
+            }
+            return Json(new { });
+        }
+
 
         [HttpPost]
-        public IActionResult EditSubject(Subject? subjectobj)
+        public IActionResult EditSubject(Subject? subjectobj, Subject? courseobj)
         {
-            if (subjectobj == null || string.IsNullOrEmpty(subjectobj.SubjCode))
+            if (subjectobj == null || string.IsNullOrEmpty(subjectobj.SubjCode) && courseobj == null || string.IsNullOrEmpty(subjectobj.CatCourse))
             {
                 ViewBag.Message = "Subject not found";
                 return View(subjectobj);  // Return the view with the original object
@@ -110,36 +139,17 @@ namespace StudentPortal.Controllers
             var subjectToUpdate = _studb.SubjectInfo
                 .Include(s => s.PreRequisite)
                 .Include(s => s.Schedule)
-                .Where(s => s.SubjCode == subjectobj.SubjCode).FirstOrDefault();
+                .Where(s => s.SubjCode == subjectobj.SubjCode).AsNoTracking().FirstOrDefault();
 
             var subjectToUpNotEqual = _studb.SubjectInfo
                 .Include(s => s.PreRequisite)
                 .Include(s => s.Schedule)
-                .Where(s => s.SubjCode != subjectobj.SubjCode).FirstOrDefault();
-
-            var prereqlist = _studb.PreSubjectInfo
-                  .Include(s => s.Subject)
-                  .Where(s => s.SubjCode == subjectobj.SubjCode).AsTracking().ToList();
-
-            var prereqlistnot = _studb.PreSubjectInfo
-                  .Include(s => s.Subject)
-                  .Where(s => s.SubjCode != subjectobj.SubjCode).AsTracking().ToList();
-
-            var schedlist = _studb.ScheduleInfo
-                  .Include(s => s.Subject)
-                  .Where(s => s.SubjCode == subjectobj.SubjCode).AsTracking().ToList();
-
-            var schedlistnot = _studb.ScheduleInfo
-                  .Include(s => s.Subject)
-                  .Where(s => s.SubjCode != subjectobj.SubjCode).AsTracking().ToList();
-
+                .Where(s => s.SubjCode != subjectobj.SubjCode).AsNoTracking().FirstOrDefault();
 
             if (subjectToUpdate != null)
             {
-                _studb.ScheduleInfo.RemoveRange(schedlist);
-                _studb.PreSubjectInfo.RemoveRange(prereqlist);
-                _studb.SubjectInfo.Remove(subjectToUpdate);
-                _studb.SaveChanges();
+                
+                
                 var newSubject = new Subject
                 {
                     SubjCode = subjectobj.SubjCode,
@@ -150,34 +160,19 @@ namespace StudentPortal.Controllers
                     CurrYear = subjectobj.CurrYear
                     
                 };
-                _studb.SubjectInfo.Add(newSubject);
-                _studb.SaveChanges();
-                
-                    foreach (var preq in prereqlist)
-                    {
-                        var newPreReq = new PreRequisite
-                        {
-                            PreSubjCode = preq.PreSubjCode,
-                            PreDescript = preq.PreDescript,
-                            PreUnits = preq.PreUnits,
-                            SubjCode = subjectobj.SubjCode
-                        };
-                        _studb.PreSubjectInfo.Add(newPreReq);
-                        _studb.SaveChanges();
-                }
-
                
-                return RedirectToAction("SubjectSummary");
+
+                    _studb.SubjectInfo.Update(newSubject);
+                    _studb.SaveChanges();
+                    return RedirectToAction("SubjectSummary");
+                
+
 
             }
 
             if(subjectToUpNotEqual != null)
             {
-
-
-
-                _studb.ScheduleInfo.RemoveRange(schedlistnot);
-                _studb.PreSubjectInfo.RemoveRange(prereqlistnot);
+                
                 _studb.SubjectInfo.Remove(subjectToUpNotEqual);
                 _studb.SaveChanges();
                 // Add the new subject with updated SubjCode
@@ -191,26 +186,16 @@ namespace StudentPortal.Controllers
                    
                     CurrYear = subjectobj.CurrYear,
                     
-                    };
-
-                    _studb.SubjectInfo.Add(newSubject);
-                    _studb.SaveChanges(); // Save new subject
-
-                foreach (var preq in prereqlistnot)
-                { 
-                    var newPreReq = new PreRequisite
-                    {
-                        PreSubjCode = preq.PreSubjCode,
-                        PreDescript = preq.PreDescript,
-                        PreUnits = preq.PreUnits,
-                        SubjCode = subjectobj.SubjCode
-                    };
-                    _studb.PreSubjectInfo.Add(newPreReq);
-                    _studb.SaveChanges();
-                }
+                 };
 
                
-                return RedirectToAction("SubjectSummary");
+                    _studb.SubjectInfo.Add(newSubject);
+                    _studb.SaveChanges();
+
+                    
+                    _studb.ChangeTracker.Clear();
+                    return RedirectToAction("SubjectSummary");
+                
 
             }
 
@@ -220,33 +205,38 @@ namespace StudentPortal.Controllers
 
 
 
-        public IActionResult DeleteSubject(string? subjcode)
+        public IActionResult DeleteSubject(string? subjcode, string? courseobj)
         {
             if (subjcode == null)
             {
 
                 return View();
             }
-            Subject? subfind = _studb.SubjectInfo.Find(subjcode);
-            if (subfind == null)
+            var subjcodefind = _studb.SubjectInfo
+           .Include(s => s.PreRequisite)
+               .FirstOrDefault(s => s.SubjCode == subjcode && s.CatCourse == courseobj);
+            if (subjcodefind == null)
             {
+                ViewBag.Message = "Subject not found";
                 return View();
             }
-            return View(subfind);
+            return View(subjcodefind);
         }
 
         [HttpPost,ActionName("DeleteSubject")]
-        public IActionResult DeleteSubjectPOST(string? subjcode)
+        public IActionResult DeleteSubjectPOST(string? subjcode, string? courseobj)
         {
-            var subject = _studb.SubjectInfo.Find(subjcode);
+            var subjectfind = _studb.SubjectInfo
+          .Include(s => s.PreRequisite)
+              .FirstOrDefault(s => s.SubjCode == subjcode && s.CatCourse == courseobj);
 
-            if (subject == null)
+            if (subjectfind == null)
             {
                 ViewBag.Message = "No subject found";
                 return View();
             }
             
-                _studb.SubjectInfo.Remove(subject);
+                _studb.SubjectInfo.Remove(subjectfind);
                 try
                 {
                      _studb.SaveChanges();
@@ -256,7 +246,7 @@ namespace StudentPortal.Controllers
                     // Handle cases where constraints are not met, like a dangling foreign key.
                     // You may log the exception or handle it in a user-friendly way.
                     ViewBag.Message =  "Unable to delete subject. It may have related data.";
-                    return View(subject); // Or redirect with an error message
+                    return View(subjectfind); // Or redirect with an error message
                 }
 
 

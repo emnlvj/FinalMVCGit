@@ -1,13 +1,12 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Edit Subject";
+
 }
+
 @model Subject
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<h1>Edit Subject</h1>
 
-
-
+<!-- Form to get EDPCode and retrieve schedule information -->
 <form class="row g-3" method="get">
     <div>
         <h2 class="text-black">
@@ -15,10 +14,17 @@
         </h2>
     </div>
     <hr class="text-black">
-    <div class="col-sm-2">
+    <div class="col-sm-3">
         <label for="subjcode" class="form-label">Enter Subject Code:</label>
         <input id="subjcode" name="subjcode" type="text" class="form-control">
+    </div>
 
+    <div class="col-sm-3">
+        <label for="courseobj" class="form-label">Enter Course:</label>
+        <input id="courseobj" name="courseobj" type="text" class="form-control">
+    </div>
+
+    <div class="col-sm-12">
         <button type="submit" value="Search" class="btn btn-brown" style="background-color: #8B4513;color: white; border: none; border-radius: 0; font-size:10px" onmouseover="this.style.backgroundColor='#6F4C3E';"
                 onmouseout="this.style.backgroundColor='#8B4513';">
             <i class="bi bi-search"></i>   Search
@@ -27,61 +33,136 @@
 
 </form>
 
-@if (ViewBag.Message != null)
+@if (ViewBag.ErrorMessage != null)
 {
-    <p style="color:red;">@ViewBag.Message</p>
+    <div class="alert alert-danger">@ViewBag.Message</div>
 }
 
 @if (Model != null)
 {
-    <br>
+    <!-- Display retrieved information and allow input of other fields -->
+    <form method="post">
+        <div><h2 class="text-black">Edit Subject</h2></div>
+        <hr class="text-black">
 
-    <form class=" row g-3" method="post">
-       
-
-        <div class="col-md-6">
+        <div class="col-12">
             <label asp-for="SubjCode" class="form-label">Subject Code</label>
-            <input asp-for="SubjCode" type="text" class="form-control" required>
+            <div class="input-group">
+                <!-- EDP Code input field -->
+                <input asp-for="SubjCode" type="text" id="subjectCodeInput" class="form-control" />
+
+                <!-- Verify button -->
+                <button type="button" class="btn btn-secondary" id="verifySubCodeBtn">Verify</button>
+            </div>
+
+            <!-- Message span for feedback on EDP Code verification status -->
+            <span id="subCodeMessage" class="text-danger"></span>
+
+            <!-- Existing validation message area -->
             <span asp-validation-for="SubjCode" class="text-danger"></span>
         </div>
-        <div class="col-md-4">
+
+        <div class="col-12">
             <label asp-for="Descript" class="form-label">Description</label>
-            <input asp-for="Descript" type="text" class="form-control" required>
+            <input asp-for="Descript" id="description" type="text" readonly class="form-control" required />
             <span asp-validation-for="Descript" class="text-danger"></span>
         </div>
-        <div class="col-md-4">
-            <label asp-for="Units" class="form-label">Units</label>
-            <input asp-for="Units" type="number" class="form-control" required>
-            <span asp-validation-for="Units" class="text-danger"></span>
+
+        <!-- Editable fields -->
+        <div class="row mt-3">
+            <div class="col">
+                <label asp-for="Units" class="form-label">Units</label>
+                <input asp-for="Units" type="number" class="form-control" required />
+                <span asp-validation-for="Units" class="text-danger"></span>
+            </div>
+
+            <div class="col">
+                <label asp-for="Offering" class="form-label">Offering</label>
+                <select asp-for="Offering" class="form-select text-black-50">
+                    <option selected>Choose course...</option>
+                    <option>First Semester</option>
+                    <option>Second Semester</option>
+                    <option>Summer</option>
+                </select>
+                <span asp-validation-for="Offering" class="text-danger"></span>
+            </div>
         </div>
-        <div class="col-md-4">
-            <label asp-for="Offering" class="form-label">Offering</label>
-            <select asp-for="Offering" class="form-select" required>
-                <option selected>Choose offering...</option>
-                <option>First Semester</option>
-                <option>Second Semester</option>
-                <option>Summer</option>
-                
-            </select>
-            <span asp-validation-for="Offering" class="text-danger"></span>
+
+        <div class="row mt-3">
+            <div class="col">
+                <label asp-for="CatCourse" class="form-label">Category</label>
+                <input asp-for="CatCourse" type="text" class="form-control">
+                <span asp-validation-for="CatCourse" class="text-danger"></span>
+            </div>
+
+            <div class="col">
+                <label asp-for="CurrYear" class="form-label">Curriculum</label>
+                <input asp-for="CurrYear" type="text" class="form-control">
+                <span asp-validation-for="CurrYear" class="text-danger"></span>
+            </div>
         </div>
-        <div class="col-md-2">
-            <label asp-for="CatCourse" class="form-label">Course</label>
-            <input asp-for="CatCourse" type="text" class="form-control" required>
-            <span asp-validation-for="CatCourse" class="text-danger"></span>
-        </div>
-        
-        <div class="col-md-3">
-            <label asp-for="CurrYear" class="form-label">Curriculum Year</label>
-            <input asp-for="CurrYear" type="text" class="form-control" required>
-            <span asp-validation-for="CurrYear" class="text-danger"></span>
-        </div>
-        
-        <div class="col-12">
-            <button type="submit" class="btn" style="background-color: #8B0000;color: white; border: none; border-radius: 0; font-size:10px" onmouseover="this.style.backgroundColor='#FF0000';"
-                    onmouseout="this.style.backgroundColor='#8B4513';">
-                <i class="bi bi-arrow-down-right-circle"></i>    Update
-            </button>
+
+        <br />
+        <div class="row mt-3">
+            <div class="col-2">
+                <button type="submit" class="btn btn-save" style="background-color:royalblue; width:100%">Update</button>
+            </div>
+            <div class="col-2">
+                <a href="@Url.Action("Index","Home")" class="btn btn-save" style="background-color:crimson; width:100%">Cancel</a>
+            </div>
         </div>
     </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let isVerified = false;  // Track if SubEdpCode is verified
+
+            
+
+            // Verify SubEdpCode button click event
+            $('#verifySubCodeBtn').on('click', function () {
+                const subjcode = $('#subjectCodeInput').val();
+                const currentSubjCode = '@Model.SubjCode';
+
+                if (subjcode === '0' || subjcode === '') {
+                    $('#subCodeMessage').text('Invalid Subject Code.').removeClass('text-success').addClass('text-danger');
+                    isVerified = false;
+                    return;
+                }
+
+                $.ajax({
+                    url: '@Url.Action("VerifySubjectCode", "Subject")',
+                    type: 'GET',
+                    data: { subjcode: subjcode, currentSubjCode: currentSubjCode },
+                    success: function (result) {
+                        if (result.exists) {
+                            $('#subCodeMessage').text('Subject Code already exists. Encode a new one.').removeClass('text-success').addClass('text-danger');
+                            isVerified = false;
+                        } else {
+                            $('#subCodeMessage').text('Valid Subject Code.').removeClass('text-danger').addClass('text-success');
+                            isVerified = true;
+                        }
+                    },
+                    error: function () {
+                        alert("Error verifying Subject Code.");
+                    }
+                });
+            });
+
+            // Prevent form submission if EDP Code is not verified
+            $('form').on('submit', function (e) {
+                if (!isVerified) {
+                    e.preventDefault();
+                    $('#subCodeMessage').text('Invalid. Verify the Subject Code first.').removeClass('text-success').addClass('text-danger');
+                    $('#subjectCodeInput').focus();
+                }
+            });
+
+            // Clear the verification message if the EDP Code is modified after verification
+            $('#subjectCodeInput').on('input', function () {
+                isVerified = false;
+                $('#subCodeMessage').text('');
+            });
+        });
+    </script>
 }

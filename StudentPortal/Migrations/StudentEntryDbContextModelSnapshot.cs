@@ -132,9 +132,6 @@ namespace StudentPortal.Migrations
                     b.Property<int>("Year")
                         .HasColumnType("int");
 
-                    b.Property<int>("count")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("StudentInfo");

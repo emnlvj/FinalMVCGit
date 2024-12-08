@@ -3,6 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using StudentPortal.Data;
 using StudentPortal.Models;
+using System.Reflection.Emit;
 
 
 
@@ -44,82 +45,149 @@ namespace StudentPortal.Controllers
         [HttpPost]
         public IActionResult AddStudent(Student studobj)
         {
-           
 
-            using (var transaction = _studb.Database.BeginTransaction())
-            {
-                
-                
                 if (ModelState.IsValid)
                 {
-                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo ON");
-                    var maxCount = _studb.StudentInfo.Select(s => s.count).ToList().DefaultIfEmpty(0).Max();
-                    studobj.count = maxCount + 1;
 
-                    _studb.StudentInfo.Add(studobj);
-                    _studb.SaveChanges();
+                    using (var transaction = _studb.Database.BeginTransaction())
+                    {
+                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo ON");
+                        _studb.StudentInfo.Add(studobj);
+                        _studb.SaveChanges();
+                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo OFF");
 
-                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo OFF");
+                        transaction.Commit();
+                        return RedirectToAction("StudentList");
+                    }
 
-                    transaction.Commit();
-                    return RedirectToAction("StudentList");
                 }
                 return View();
-            }
-
         }
-        [HttpGet]
+        [HttpGet("EditStudent/{id:int?}")]
         public IActionResult EditStudent(int? id)
         {
-            if (id == null || id == 0)
+            if (id == null)
             {
                 
                 return View();
             }
-            Student? studfind = _studb.StudentInfo.Find(id);
+            Student? studfind = _studb.StudentInfo  // Include the related Subject to access SubjDesc
+                .FirstOrDefault(s => s.Id== id);
             if (studfind == null)
             {
-                return View();
+                ViewBag.ErrorMessage = "Student not found";
+                return View(studfind);
             }
+
             return View(studfind);
         }
 
-        [HttpPost]
-        
+        [HttpGet]
+        public JsonResult VerifyStudID(int id, int currentID, Student studobj)
+        {
+            var existingStudent = _studb.StudentInfo.AsNoTracking().FirstOrDefault(s => s.Id == studobj.Id);
+            var existingStudentNot = _studb.StudentInfo.AsNoTracking().FirstOrDefault(s => s.Id != studobj.Id);
+
+            if (existingStudent != null)
+            {
+                bool exists = _studb.StudentInfo.Any(s => s.Id == id && s.Id != currentID);
+
+
+                return Json(new { exists });
+            }
+            if (existingStudentNot != null)
+            {
+                bool exists = _studb.StudentInfo.Any(s => s.Id == id && s.Id != currentID);
+
+                return Json(new { exists });
+
+            }
+            return Json(new { });
+        }
+
+        [HttpPost("EditStudent")]
+
         public IActionResult EditStudent(Student? studobj)
         {
-            using (var transaction = _studb.Database.BeginTransaction())
-            {
-              
-                
-                if (ModelState.IsValid)
-                {
+            
                     if (studobj == null)
                     {
                         ViewBag.Message = "Student not found";
                         return View();
                     }
 
-                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo ON");
-                    var originalStudent = _studb.StudentInfo.AsNoTracking().FirstOrDefault(s => s.Id == studobj.Id);
-                    
-                    if (originalStudent == null) {
-                        return View();
+                    if (studobj.Id == 0)
+                    {
+                        ViewBag.ErrorMessage = "Invalid ID.";
+                        return View(studobj);
                     }
-                    
-                    studobj.count = originalStudent.count;
 
-                    _studb.StudentInfo.Update(studobj);
+                    var existingStudent = _studb.StudentInfo.AsNoTracking().FirstOrDefault(s => s.Id == studobj.Id);
+                    var existingStudentNot = _studb.StudentInfo.AsNoTracking().FirstOrDefault(s => s.Id != studobj.Id);
+
+              if (existingStudent != null) {
+
+                    
+                    
+
+                    var newStudent = new Student
+                    {
+                        Id = studobj.Id,
+                        Course = studobj.Course,
+                        Status = studobj.Status,
+                        FName = studobj.FName,
+                        MName = studobj.MName,
+                        LName = studobj.LName,
+                        Remarks = studobj.Remarks,
+                        Year = studobj.Year
+                    };
+
+                    using (var transaction = _studb.Database.BeginTransaction())
+                    {
+                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo ON");
+
+                    _studb.StudentInfo.Update(newStudent);
                     _studb.SaveChanges();
-                   
+
                     _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo OFF");
-        
+
                     transaction.Commit();
                     return RedirectToAction("StudentList");
-                }
-                return View();
-            }
+                    }
+              }
 
+             if (existingStudentNot != null)
+             {
+                    _studb.StudentInfo.Remove(existingStudentNot);
+                    _studb.SaveChanges();
+
+
+                    var newStudent = new Student
+                    {
+                        Id = studobj.Id,
+                        Course = studobj.Course,
+                        Status = studobj.Status,
+                        FName = studobj.FName,
+                        MName = studobj.MName,
+                        LName = studobj.LName,
+                        Remarks = studobj.Remarks,
+                        Year = studobj.Year
+                    };
+
+                    using (var transaction = _studb.Database.BeginTransaction())
+                    {
+                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo ON");
+                    _studb.StudentInfo.Add(newStudent);
+                    _studb.SaveChanges();
+
+                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo OFF");
+                    transaction.Commit();
+                    _studb.ChangeTracker.Clear();
+                    return RedirectToAction("StudentList");
+                    }
+
+            }
+            return View(studobj);
         }
         [HttpGet]
         public IActionResult DeleteStudent(int? id)
@@ -149,49 +217,39 @@ namespace StudentPortal.Controllers
                 return RedirectToAction("Index");
             }
 
-            using (var transaction = _studb.Database.BeginTransaction())
-            {
+            
                 try
                 {
-                    // Store the deleted student's count
-                    int deletedStudentCount = studobj.count;
 
                     // Remove the student object from the database
                     _studb.StudentInfo.Remove(studobj);
                     _studb.SaveChanges();
 
                     // Find all students with a count greater than the deleted student's count
-                    var studentsToUpdate = _studb.StudentInfo.Where(s => s.count > deletedStudentCount).ToList();
+              
 
-                    // Adjust the count for the remaining students
-                    foreach (var student in studentsToUpdate)
-                    {
-                        student.count -= 1;
-                        _studb.StudentInfo.Update(student); // Update the correct student
-                    }
+                    
 
                     // Save changes for updated students
                     _studb.SaveChanges();
 
-                    // Commit the transaction if all operations succeed
-                    transaction.Commit();
                     return RedirectToAction("StudentList");
                 }
                 catch (DbUpdateConcurrencyException ex)
                 {
                     // Handle concurrency conflict
                     ViewBag.Message = "Concurrency conflict detected. The data may have changed or been deleted.";
-                    transaction.Rollback();
+                    
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
                 {
                     // Handle any other errors
                     ViewBag.Message = "An error occurred while deleting the student.";
-                    transaction.Rollback();
+                
                     return RedirectToAction("Index");
                 }
-            }
+            
         }
 
         

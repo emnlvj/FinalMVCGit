@@ -1,219 +1,186 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Edit Schedule";
+
 }
+
 @model Student
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<h1>Edit Student</h1>
 
-
-
-<form class="row g-3" method="get">
-    <div><h2 class="text-black">Edit Student
-    </h2></div>
-    <hr class="text-black">
-    <div class="col-sm-2">
-        <label asp-for="Id" class="form-label">Enter Student Id:</label>
-        <input asp-for="Id" type="text" class="form-control">
-
-        <button type="submit" value="Search" class="btn btn-brown" style="background-color: #8B4513;color: white; border: none; border-radius: 0; font-size:10px" onmouseover="this.style.backgroundColor='#6F4C3E';"
-                onmouseout="this.style.backgroundColor='#8B4513';">
-            <i class="bi bi-search"></i>   Search
-        </button>
+<!-- Form to get EDPCode and retrieve schedule information -->
+<form method="get" asp-action="EditStudent">
+    <div class="form-group">
+        <label for="id">Enter EDP Code</label>
+        <input type="text" id="id" name="id" class="form-control" placeholder="Enter ID" required />
     </div>
-    
+    <button type="submit" class="btn btn-primary">Search</button>
 </form>
 
 @if (ViewBag.Message != null)
 {
-    <p style="color:red;">@ViewBag.Message</p>
+    <div class="alert alert-danger">@ViewBag.Message</div>
 }
 
 @if (Model != null)
 {
-    <br>
-    
-    <form class="row g-3" method="post">
-        
-        <div class="col-md-6">
-            <label asp-for="Id" class="form-label">Student ID</label>
-            <input asp-for="Id" disabled class="form-control">
+    <!-- Display retrieved information and allow input of other fields -->
+    <form method="post">
+        <div><h2 class="text-black">Edit Student</h2></div>
+        <hr class="text-black">
+
+        <div class="col-12">
+            <label asp-for="Id" class="form-label">EDP Code</label>
+            <div class="input-group">
+                <!-- EDP Code input field -->
+                <input asp-for="Id" type="text" id="idInput" class="form-control" />
+
+                <!-- Verify button -->
+                <button type="button" class="btn btn-secondary" id="verifyIDBtn">Verify</button>
+            </div>
+
+            <!-- Message span for feedback on EDP Code verification status -->
+            <span id="idMessage" class="text-danger"></span>
+
+            <!-- Existing validation message area -->
             <span asp-validation-for="Id" class="text-danger"></span>
         </div>
-        <div class="col-md-4">
-            <label asp-for="FName" class="form-label">First Name</label>
-            <input asp-for="FName" type="text" class="form-control" placeholder="First Name">
-            <span asp-validation-for="FName" class="text-danger"></span>
+
+
+        <!-- Editable fields -->
+        <div class="row mt-3">
+            <div class="col">
+                <label asp-for="FName" class="form-label">First Name</label>
+                <input asp-for="FName" id="subjCodeInput" type="text" class="form-control" />
+                <span asp-validation-for="FName" class="text-danger"></span>
+
+            </div>
+
+            <div class="col">
+                <label asp-for="LName" class="form-label">Last Name</label>
+                <input asp-for="LName" type="text" readonly class="form-control" required />
+                <span asp-validation-for="LName" class="text-danger"></span>
+            </div>
+
+            <div class="col">
+                <label asp-for="MName" class="form-label">Middle Name</label>
+                <input asp-for="MName" type="text" class="form-control" />
+                <span asp-validation-for="MName" class="text-danger"></span>
+
+            </div>
+
         </div>
-        <div class="col-md-4">
-            <label asp-for="LName" class="form-label">Last Name</label>
-            <input asp-for="LName" class="form-control" placeholder="Last Name">
-            <span asp-validation-for="LName" class="text-danger"></span>
-        </div>
-        <div class="col-md-4">
-            <label asp-for="MName" class="form-label">Middle Name</label>
-            <input asp-for="MName" type="text" class="form-control" placeholder="Middle Name">
-            <span asp-validation-for="MName" class="text-danger"></span>
-        </div>
-        <div class="col-md-2">
-            <label asp-for="Status" class="form-label">Status</label>
-            <select asp-for="Status" class="form-select">
+
+        <div class="row mt-3">
+            <div class="col">
+                <label asp-for="Status" class="form-label">Status</label>
+                <select asp-for="Status" class="form-select">
                 <option selected>Choose status...</option>
-                <option>Active</option>
+                 <option>Active</option>
                 <option>Inactive</option>
+               </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
 
-            </select>
-            <span asp-validation-for="Status" class="text-danger"></span>
+            <div class="col">
+               
+                    <label asp-for="Course" class="form-label">Course</label>
+                    <select asp-for="Course" class="form-select">
+                        <option selected>Choose course...</option>
+                        <option>BSIT</option>
+                        <option>BSCE</option>
+                        <option>BSA</option>
+                        <option>BSN</option>
+                    </select>
+                    <span asp-validation-for="Course" class="text-danger"></span>
+                
+            </div>
         </div>
-        <div class="col-md-4">
-            <label asp-for="Course" class="form-label">Course</label>
-            <select asp-for="Course" class="form-select">
-                <option selected>Choose course...</option>
-                <option>BSIT</option>
-                <option>BSCE</option>
-                <option>BSA</option>
-                <option>BSN</option>
-            </select>
-            <span asp-validation-for="Course" class="text-danger"></span>
-        </div>
-        <div class="col-md-3">
-            <label asp-for="Remarks" class="form-label">Remarks</label>
-            <select asp-for="Remarks" class="form-select text-black-50">
-                <option selected>Choose course...</option>
-                <option>OLD STUDENT</option>
-                <option>NEW STUDENT</option>
-                <option>SHIFTEE</option>
-                <option>TRANSFEREE</option>
-                <option>RETURNEE</option>
-                <option>CROSS-ENROLLEE</option>
-                <option>SHIFTEE</option>
 
-            </select>
-            <span asp-validation-for="Remarks" class="text-danger"></span>
+        <div class="row mt-3">
+            <div class="col">
+                <label asp-for="Remarks" class="form-label">Remarks</label>
+                <select asp-for="Remarks" class="form-select text-black-50">
+                    <option selected>Choose remarks...</option>
+                    <option>OLD STUDENT</option>
+                    <option>NEW STUDENT</option>
+                    <option>SHIFTEE</option>
+                    <option>TRANSFEREE</option>
+                    <option>RETURNEE</option>
+                    <option>CROSS-ENROLLEE</option>
+                    <option>SHIFTEE</option>
+
+                </select>
+                <span asp-validation-for="Remarks" class="text-danger"></span>
+            </div>
+
+            <div class="col">
+                <label asp-for="Year" class="form-label">Year Level</label>
+                <input asp-for="Year" type="text" class="form-control" id="year" maxlength="1" />
+                <span asp-validation-for="Year" class="text-danger" id="yearError"></span>
+            </div>
+
+         
         </div>
-        <div class="col-md-3">
-            <label asp-for="Year" class="form-label">Year Level</label>
-            <input asp-for="Year" type="text" class="form-control">
-            <span asp-validation-for="Year" class="text-danger"></span>
-        </div>
-        <div class="col-12">
-            <button type="submit" class="btn" style="background-color: #8B0000;color: white; border: none; border-radius: 0; font-size:10px" onmouseover="this.style.backgroundColor='#FF0000';"
-                    onmouseout="this.style.backgroundColor='#8B4513';">
-                <i class="bi bi-arrow-down-right-circle"></i>    Update
-            </button>
+        <br />
+        <div class="row mt-3">
+            <div class="col-2">
+                <button type="submit" class="btn btn-save" style="background-color:royalblue; width:100%">Update</button>
+            </div>
+            <div class="col-2">
+                <a href="@Url.Action("Index","Home")" class="btn btn-save" style="background-color:crimson; width:100%">Cancel</a>
+            </div>
         </div>
     </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let isVerified = false;  // Track if SubEdpCode is verified
+
+           
+
+            // Verify SubEdpCode button click event
+            $('#verifyIDBtn').on('click', function () {
+                const id= $('#idInput').val();
+                const currentID = '@Model.Id';
+
+                if (id === '0' || id === '') {
+                    $('#idMessage').text('Invalid ID input.').removeClass('text-success').addClass('text-danger');
+                    isVerified = false;
+                    return;
+                }
+
+                $.ajax({
+                    url: '@Url.Action("VerifyStudID", "Student")',
+                    type: 'GET',
+                    data: { id: id, currentID: currentID },
+                    success: function (result) {
+                        if (result.exists) {
+                            $('#idMessage').text('ID already exists. Encode a new one.').removeClass('text-success').addClass('text-danger');
+                            isVerified = false;
+                        } else {
+                            $('#idMessage').text('Valid ID.').removeClass('text-danger').addClass('text-success');
+                            isVerified = true;
+                        }
+                    },
+                    error: function () {
+                        alert("Error verifying ID.");
+                    }
+                });
+            });
+
+            // Prevent form submission if EDP Code is not verified
+            $('form').on('submit', function (e) {
+                if (!isVerified) {
+                    e.preventDefault();
+                    $('#idMessage').text('Invalid. Verify the ID first.').removeClass('text-success').addClass('text-danger');
+                    $('#idInput').focus();
+                }
+            });
+
+            // Clear the verification message if the EDP Code is modified after verification
+            $('#idInput').on('input', function () {
+                isVerified = false;
+                $('#idMessage').text('');
+            });
+        });
+    </script>
 }
-
-<script>
-    // Function to display error messages and icons
-    function displayError(element, message, isValid) {
-        const errorElement = document.getElementById(element);
-        const iconElement = document.getElementById(element + 'Icon');
-
-        errorElement.textContent = message;
-        if (isValid) {
-            iconElement.innerHTML = '<span style="color: green;">&#10004;</span>'; // Check icon
-        } else {
-            iconElement.innerHTML = '<span style="color: red;">&#10006;</span>'; // Cross icon
-        }
-    }
-
-    // Clear error messages
-    function clearErrors() {
-        const errorElements = ['idError', 'fNameError', 'lNameError', 'mNameError',  'courseError',  'yearError'];
-        errorElements.forEach(el => displayError(el, '', false));
-        const iconElements = ['idIcon', 'fNameIcon', 'lNameIcon', 'mNameIcon',  'courseIcon', 'yearIcon'];
-        iconElements.forEach(el => document.getElementById(el).innerHTML = '');
-    }
-
-    document.getElementById('studentId').addEventListener('input', function (e) {
-        const value = e.target.value;
-        // Allow only valid Student ID input
-        const isValid = /^(0|[1-9]\d{0,14})?$/.test(value);
-        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
-        displayError('idError', isValid ? '' : 'Enter a valid number.', isValid);
-    });
-
-    document.getElementById('firstName').addEventListener('input', function (e) {
-        const value = e.target.value.toUpperCase();
-        // Allow only uppercase letters
-        const isValid = /^[A-Z ]*$/.test(value);
-        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
-        displayError('fNameError', isValid ? '' : 'Invalid input. Letters only.', isValid);
-    });
-
-    document.getElementById('lastName').addEventListener('input', function (e) {
-        const value = e.target.value.toUpperCase();
-        // Allow only uppercase letters
-        const isValid = /^[A-Z ]*$/.test(value);
-        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
-        displayError('lNameError', isValid ? '' : 'Invalid input. Letters only.', isValid);
-    });
-
-    document.getElementById('middleName').addEventListener('input', function (e) {
-        const value = e.target.value.toUpperCase();
-        // Allow only uppercase letters
-        const isValid = /^[A-Z ]*$/.test(value);
-        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
-        displayError('mNameError', isValid ? '' : 'Invalid input. Letters only.', isValid);
-    });
-
-    document.getElementById('course').addEventListener('input', function (e) {
-        const value = e.target.value.toUpperCase();
-        // Allow only uppercase letters and limit to 8 characters
-        const isValid = /^[A-Z]*$/.test(value) && value.length <= 8;
-        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
-        displayError('courseError', isValid ? '' : 'Invalid input. Letters only, max 8.', isValid);
-    });
-
-    
-
-    
-
-    document.getElementById('year').addEventListener('input', function (e) {
-        const value = e.target.value;
-        // Allow only numbers between 1 and 5
-        const isValid = /^[1-5]$/.test(value);
-        e.target.value = isValid ? value : value.slice(0, -1); // Prevent invalid character
-        displayError('yearError', isValid ? '' : 'Please input a valid year level (1-5).', isValid);
-    });
-
-    // Handle form submission
-    document.getElementById('addStudentForm').addEventListener('submit', function (e) {
-        clearErrors(); // Clear previous errors
-
-        let isValid = true;
-
-        // Validate Age
-        
-
-        // Validate Year Level
-        const yearValue = document.getElementById('year').value;
-        if (!/^[1-5]$/.test(yearValue)) {
-            isValid = false;
-            displayError('yearError', 'Please input a valid year level (1-5).', false);
-        } else {
-            displayError('yearError', '', true);
-        }
-
-        // Prevent form submission if any validation fails
-        if (!isValid) {
-            e.preventDefault();
-        }
-    });
-
-    // Clear button functionality
-    document.getElementById('clearBtn').addEventListener('click', function () {
-        document.getElementById('studentId').value = '';
-        document.getElementById('firstName').value = '';
-        document.getElementById('lastName').value = '';
-        document.getElementById('middleName').value = '';
-        
-        document.getElementById('course').value = '';
-        
-        document.getElementById('year').value = '';
-
-        clearErrors(); // Clear all error messages
-    });
-</script>
