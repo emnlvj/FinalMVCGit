@@ -21,6 +21,8 @@ namespace StudentPortal.Models
         [Range(1, 5)]
         public int Year { get; set; }
 
-       
+        public ICollection<StudentEnrollment> StudentEnrollment { get; set; }
+
+
     }
 }

@@ -137,6 +137,21 @@ namespace StudentPortal.Migrations
                     b.ToTable("StudentInfo");
                 });
 
+            modelBuilder.Entity("StudentPortal.Models.StudentEnrollment", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SubEdpCode")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id", "SubEdpCode");
+
+                    b.HasIndex("SubEdpCode");
+
+                    b.ToTable("StudentEnrollment");
+                });
+
             modelBuilder.Entity("StudentPortal.Models.Subject", b =>
                 {
                     b.Property<string>("SubjCode")
@@ -189,6 +204,35 @@ namespace StudentPortal.Migrations
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Subject");
+                });
+
+            modelBuilder.Entity("StudentPortal.Models.StudentEnrollment", b =>
+                {
+                    b.HasOne("StudentPortal.Models.Student", "Student")
+                        .WithMany("StudentEnrollment")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("StudentPortal.Models.Schedule", "Schedule")
+                        .WithMany("StudentEnrollment")
+                        .HasForeignKey("SubEdpCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Schedule");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("StudentPortal.Models.Schedule", b =>
+                {
+                    b.Navigation("StudentEnrollment");
+                });
+
+            modelBuilder.Entity("StudentPortal.Models.Student", b =>
+                {
+                    b.Navigation("StudentEnrollment");
                 });
 
             modelBuilder.Entity("StudentPortal.Models.Subject", b =>

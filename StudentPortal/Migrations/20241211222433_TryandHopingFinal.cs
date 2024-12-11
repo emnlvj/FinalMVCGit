@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace StudentPortal.Migrations
 {
     /// <inheritdoc />
-    public partial class NewMigrationStudent : Migration
+    public partial class TryandHopingFinal : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -94,6 +94,30 @@ namespace StudentPortal.Migrations
                         onDelete: ReferentialAction.SetNull);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "StudentEnrollment",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    SubEdpCode = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StudentEnrollment", x => new { x.Id, x.SubEdpCode });
+                    table.ForeignKey(
+                        name: "FK_StudentEnrollment_ScheduleInfo_SubEdpCode",
+                        column: x => x.SubEdpCode,
+                        principalTable: "ScheduleInfo",
+                        principalColumn: "SubEdpCode",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_StudentEnrollment_StudentInfo_Id",
+                        column: x => x.Id,
+                        principalTable: "StudentInfo",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_PreSubjectInfo_SubjCode",
                 table: "PreSubjectInfo",
@@ -103,6 +127,11 @@ namespace StudentPortal.Migrations
                 name: "IX_ScheduleInfo_SubjCode",
                 table: "ScheduleInfo",
                 column: "SubjCode");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StudentEnrollment_SubEdpCode",
+                table: "StudentEnrollment",
+                column: "SubEdpCode");
         }
 
         /// <inheritdoc />
@@ -110,6 +139,9 @@ namespace StudentPortal.Migrations
         {
             migrationBuilder.DropTable(
                 name: "PreSubjectInfo");
+
+            migrationBuilder.DropTable(
+                name: "StudentEnrollment");
 
             migrationBuilder.DropTable(
                 name: "ScheduleInfo");

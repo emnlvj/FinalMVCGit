@@ -32,6 +32,10 @@ namespace StudentPortal.Models
         public string? SubjCode { get; set; }
         public Subject Subject { get; set; }
 
+
+        public ICollection<StudentEnrollment> StudentEnrollment { get; set; }
+
+
         public HashSet<string> GetDaysAsSet()
         {
             var daysSet = new HashSet<string>();

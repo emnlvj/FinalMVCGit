@@ -1,0 +1,110 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model StudentEnrollment
+@{
+    ViewData["Title"] = "Enrollment Review";
+}
+
+<div class="container mt-5">
+    <h3 class="text-center mb-4">Enrollment Review</h3>
+
+    <!-- Student ID Search -->
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="idNumber" class="form-label">Student ID:</label>
+            <div class="input-group">
+                <input type="text" id="idNumber" class="form-control">
+                <button type="button" id="searchStudent" class="btn btn-secondary">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Details -->
+    <div id="studentInfo" style="display: none;">
+        <h5>Student Information</h5>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" id="name" class="form-control" readonly>
+            </div>
+            <div class="col-md-6">
+                <label for="course" class="form-label">Course:</label>
+                <input type="text" id="course" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="year" class="form-label">Year:</label>
+                <input type="text" id="year" class="form-control" readonly>
+            </div>
+        </div>
+
+        <!-- Enrolled Schedules -->
+        <h5 class="mt-4">Schedules</h5>
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>EDP Code</th>
+                    <th>Subject Code</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Days</th>
+                    <th>Room</th>
+                </tr>
+            </thead>
+            <tbody id="scheduleTableBody">
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    document.getElementById("searchStudent").addEventListener("click", function () {
+        const studentId = document.getElementById("idNumber").value;
+
+        if (!studentId) {
+            alert("Please enter a Student ID.");
+            return;
+        }
+
+        fetch(`/Enroll/GetStudentEnrollment?studentId=${studentId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Student not found.");
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                document.getElementById("studentInfo").style.display = "block";
+                document.getElementById("name").value = data.student.name || "";
+                document.getElementById("course").value = data.student.course || "";
+                document.getElementById("year").value = data.student.year || "";
+
+                const tableBody = document.getElementById("scheduleTableBody");
+                tableBody.innerHTML = "";
+
+                data.schedules.forEach(schedule => {
+                    console.log(schedule);
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${schedule.subEdpCode}</td>
+                        <td>${schedule.subjCode}</td>
+                        <td>${schedule.starttime}</td>
+                        <td>${schedule.endtime}</td>
+                        <td>${schedule.days}</td>
+                        <td>${schedule.roomnum}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                alert(error.message);
+                document.getElementById("studentInfo").style.display = "none";
+            });
+    });
+</script>

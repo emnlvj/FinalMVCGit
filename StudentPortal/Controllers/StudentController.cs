@@ -46,8 +46,7 @@ namespace StudentPortal.Controllers
         public IActionResult AddStudent(Student studobj)
         {
 
-                if (ModelState.IsValid)
-                {
+               
 
                     using (var transaction = _studb.Database.BeginTransaction())
                     {
@@ -60,8 +59,8 @@ namespace StudentPortal.Controllers
                         return RedirectToAction("StudentList");
                     }
 
-                }
-                return View();
+                
+               
         }
         [HttpGet("EditStudent/{id:int?}")]
         public IActionResult EditStudent(int? id)
