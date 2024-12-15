@@ -18,88 +18,142 @@
 
 @if (Model != null)
 {
-    <!-- Display retrieved information and allow input of other fields -->
+    <!-- Add Schedule Form -->
     <form method="post">
         <div><h2 class="text-black">Add Subject</h2></div>
         <hr class="text-black">
 
-        <div class="col-md-4">
-            <label asp-for="SubEdpCode" class="form-label">EDPCode</label>
-            <input asp-for="SubEdpCode" type="text" class="form-control" required />
+        <!-- SubEdpCode -->
+        <div class="col-12">
+            <label asp-for="SubEdpCode" class="form-label">EDP Code</label>
+            <input asp-for="SubEdpCode" type="text" id="subEdpCode" class="form-control" required />
             <span asp-validation-for="SubEdpCode" class="text-danger"></span>
         </div>
 
-        <div class="col-md-4">
+        <!-- Subject Code -->
+        <div class="col-12">
             <label asp-for="SubjCode" class="form-label">Subject Code</label>
             <input asp-for="SubjCode" type="text" readonly class="form-control" required />
             <span asp-validation-for="SubjCode" class="text-danger"></span>
         </div>
 
-        <div class="col-md-8">
+        <!-- Description -->
+        <div class="col-12">
             <label asp-for="description" class="form-label">Description</label>
             <input asp-for="description" type="text" readonly class="form-control" required />
             <span asp-validation-for="description" class="text-danger"></span>
         </div>
 
-        <!-- Editable fields -->
-        <div class="col-md-3">
-            <label asp-for="starttime" class="form-label">Start Time</label>
-            <input asp-for="starttime" type="time" class="form-control" required />
-            <span asp-validation-for="starttime" class="text-danger"></span>
+        <!-- Start and End Time -->
+        <div class="row mt-3">
+            <div class="col">
+                <label asp-for="starttime" class="form-label">Start Time</label>
+                <input asp-for="starttime" type="time" class="form-control" required />
+                <span asp-validation-for="starttime" class="text-danger"></span>
+            </div>
+
+            <div class="col">
+                <label asp-for="endtime" class="form-label">End Time</label>
+                <input asp-for="endtime" type="time" class="form-control" required />
+                <span asp-validation-for="endtime" class="text-danger"></span>
+            </div>
         </div>
 
-        <div class="col-md-5">
-            <label asp-for="endtime" class="form-label">End Time</label>
-            <input asp-for="endtime" type="time" class="form-control" required />
-            <span asp-validation-for="endtime" class="text-danger"></span>
+        <!-- Section and Room -->
+        <div class="row mt-3">
+            <div class="col">
+                <label asp-for="section" class="form-label">Section</label>
+                <input asp-for="section" type="text" id="section" class="form-control" required />
+                <span asp-validation-for="section" class="text-danger"></span>
+            </div>
+
+            <div class="col">
+                <label asp-for="roomnum" class="form-label">Room</label>
+                <input asp-for="roomnum" type="number" id="roomnum" class="form-control" required />
+                <span asp-validation-for="roomnum" class="text-danger"></span>
+            </div>
         </div>
 
-        <div class="col-md-4">
-            <label asp-for="section" class="form-label">Section</label>
-            <input asp-for="section" type="text" class="form-control" required />
-            <span asp-validation-for="section" class="text-danger"></span>
+        <!-- Curriculum Year -->
+        <div class="row mt-3">
+            <div class="col">
+                <label asp-for="curryear" class="form-label">Curriculum</label>
+                <input asp-for="curryear" type="text" id="curryear" class="form-control" required />
+                <span asp-validation-for="curryear" class="text-danger"></span>
+            </div>
+
+            <div class="col">
+                <label asp-for="days" class="form-label">Class Days</label>
+                <select asp-for="days" class="form-select text-black-50">
+                    <option selected>...</option>
+                    <option>MWF</option>
+                    <option>TTHS</option>
+                    <option>MW</option>
+                    <option>MF</option>
+                    <option>WF</option>
+                    <option>TTH</option>
+                    <option>TS</option>
+                    <option>THS</option>
+                    <option>M</option>
+                    <option>T</option>
+                    <option>W</option>
+                    <option>TH</option>
+                    <option>F</option>
+                    <option>S</option>
+                </select>
+                <span asp-validation-for="days" class="text-danger"></span>
+            </div>
         </div>
 
-        <div class="col-md-3">
-            <label asp-for="roomnum" class="form-label">Room</label>
-            <input asp-for="roomnum" type="number" class="form-control" required />
-            <span asp-validation-for="roomnum" class="text-danger"></span>
-        </div>
-
-        <div class="col-md-3">
-            <label asp-for="curryear" class="form-label">Curriculum</label>
-            <input asp-for="curryear" type="text" class="form-control" required />
-            <span asp-validation-for="curryear" class="text-danger"></span>
-        </div>
-
-        <input type="hidden" asp-for="AMPM"/>
-
-        <div class="col-md-3">
-            <label asp-for="days" class="form-label">Class Days</label>
-            <select asp-for="days" class="form-select text-black-50">
-                <option selected>...</option>
-                <option>MWF</option>
-                <option>TTHS</option>
-                <option>MW</option>
-                <option>MF</option>
-                <option>WF</option>
-                <option>TTH</option>
-                <option>TS</option>
-                <option>THS</option>
-                <option>M</option>
-                <option>T</option>
-                <option>W</option>
-                <option>TH</option>
-                <option>F</option>
-                <option>S</option>
-            </select>
-            <span asp-validation-for="days" class="text-danger"></span>
-        </div>
-
-        <input type="hidden" asp-for="status" />
-
-        <div class="col-12">
-            <button type="submit" class="btn btn-save">Save</button>
+        <!-- Buttons -->
+        <div class="row mt-3">
+            <div class="col-2">
+                <button type="submit" class="btn btn-save" style="background-color:royalblue; width:100%">Save</button>
+            </div>
+            <div class="col-2">
+                <a href="@Url.Action("Index","Home")" class="btn btn-save" style="background-color:crimson; width:100%">Cancel</a>
+            </div>
         </div>
     </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Real-time uppercase transformation and validation
+
+            // SubEdpCode: Numbers only
+            $('#subEdpCode').on('input', function () {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+
+            // Section: Allow letters and numbers, no symbols; convert to uppercase
+            $('#section').on('input', function () {
+                this.value = this.value.replace(/[^A-Z0-9]/gi, '').toUpperCase();
+            });
+
+            // Room Number: Numbers only
+            $('#roomnum').on('input', function () {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+
+            // Curriculum Year: Format 0000-0000
+            $('#curryear').on('input', function () {
+                this.value = this.value.replace(/[^0-9\-]/g, '');
+            });
+
+            $('form').on('submit', function (e) {
+                const currYear = $('#curryear').val();
+                const currYearPattern = /^\d{4}-\d{4}$/;
+
+                if (!currYearPattern.test(currYear)) {
+                    alert('Curriculum Year must be in the format 0000-0000.');
+                    e.preventDefault();
+                    return;
+                }
+            });
+        });
+    </script>
+
 }
+
+<!-- Real-time Validation Script -->

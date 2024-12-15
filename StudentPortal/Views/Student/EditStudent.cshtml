@@ -28,7 +28,7 @@
         <hr class="text-black">
 
         <div class="col-12">
-            <label asp-for="Id" class="form-label">EDP Code</label>
+            <label asp-for="Id" class="form-label">Student ID</label>
             <div class="input-group">
                 <!-- EDP Code input field -->
                 <input asp-for="Id" type="text" id="idInput" class="form-control" />
@@ -49,14 +49,14 @@
         <div class="row mt-3">
             <div class="col">
                 <label asp-for="FName" class="form-label">First Name</label>
-                <input asp-for="FName" id="subjCodeInput" type="text" class="form-control" />
+                <input asp-for="FName" i type="text" class="form-control" />
                 <span asp-validation-for="FName" class="text-danger"></span>
 
             </div>
 
             <div class="col">
                 <label asp-for="LName" class="form-label">Last Name</label>
-                <input asp-for="LName" type="text" readonly class="form-control" required />
+                <input asp-for="LName" type="text" class="form-control" required />
                 <span asp-validation-for="LName" class="text-danger"></span>
             </div>
 
@@ -118,7 +118,7 @@
                 <span asp-validation-for="Year" class="text-danger" id="yearError"></span>
             </div>
 
-         
+            <input type="hidden" asp-for="StudentEnrollment" />
         </div>
         <br />
         <div class="row mt-3">
@@ -133,13 +133,34 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            let isVerified = false;  // Track if SubEdpCode is verified
+            let isVerified = false; // Track if SubEdpCode is verified
 
-           
+            // Validate inputs in real-time
+            $('#idInput').on('input', function () {
+                const value = $(this).val();
+                if (/[^0-9]/g.test(value)) {
+                    $(this).val(value.replace(/[^0-9]/g, ''));
+                }
+            });
+
+            $('#FName, #LName, #MName').on('input', function () {
+                const value = $(this).val();
+                if (/[^a-zA-Z\s]/g.test(value)) {
+                    $(this).val(value.replace(/[^a-zA-Z\s]/g, ''));
+                }
+                $(this).val($(this).val().toUpperCase());
+            });
+
+            $('#year').on('input', function () {
+                const value = $(this).val();
+                if (/[^1-5]/g.test(value) || value.length > 1) {
+                    $(this).val(value.replace(/[^1-5]/g, '').slice(0, 1));
+                }
+            });
 
             // Verify SubEdpCode button click event
             $('#verifyIDBtn').on('click', function () {
-                const id= $('#idInput').val();
+                const id = $('#idInput').val();
                 const currentID = '@Model.Id';
 
                 if (id === '0' || id === '') {
@@ -167,12 +188,20 @@
                 });
             });
 
-            // Prevent form submission if EDP Code is not verified
+            // Prevent form submission if any input field is invalid or empty
             $('form').on('submit', function (e) {
+                let isValid = true;
+
+
                 if (!isVerified) {
-                    e.preventDefault();
+                    isValid = false;
                     $('#idMessage').text('Invalid. Verify the ID first.').removeClass('text-success').addClass('text-danger');
                     $('#idInput').focus();
+                }
+
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Please correct the errors before submitting the form.');
                 }
             });
 
@@ -183,4 +212,5 @@
             });
         });
     </script>
+
 }

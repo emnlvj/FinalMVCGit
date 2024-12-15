@@ -35,7 +35,7 @@
 
 @if (ViewBag.ErrorMessage != null)
 {
-    <div class="alert alert-danger">@ViewBag.Message</div>
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
 }
 
 @if (Model != null)
@@ -64,7 +64,7 @@
 
         <div class="col-12">
             <label asp-for="Descript" class="form-label">Description</label>
-            <input asp-for="Descript" id="description" type="text" readonly class="form-control" required />
+            <input asp-for="Descript" id="description" type="text" class="form-control" required />
             <span asp-validation-for="Descript" class="text-danger"></span>
         </div>
 
@@ -79,7 +79,7 @@
             <div class="col">
                 <label asp-for="Offering" class="form-label">Offering</label>
                 <select asp-for="Offering" class="form-select text-black-50">
-                    <option selected>Choose course...</option>
+                    <option selected>Choose offering...</option>
                     <option>First Semester</option>
                     <option>Second Semester</option>
                     <option>Summer</option>
@@ -91,16 +91,19 @@
         <div class="row mt-3">
             <div class="col">
                 <label asp-for="CatCourse" class="form-label">Category</label>
-                <input asp-for="CatCourse" type="text" class="form-control">
+                <input asp-for="CatCourse" type="text" class="form-control" required>
                 <span asp-validation-for="CatCourse" class="text-danger"></span>
             </div>
 
             <div class="col">
                 <label asp-for="CurrYear" class="form-label">Curriculum</label>
-                <input asp-for="CurrYear" type="text" class="form-control">
+                <input asp-for="CurrYear" type="text" class="form-control" required>
                 <span asp-validation-for="CurrYear" class="text-danger"></span>
             </div>
         </div>
+
+        <input type="hidden" asp-for="Schedule"></input>
+        <input type="hidden" asp-for="PreRequisite"></input>
 
         <br />
         <div class="row mt-3">
@@ -115,17 +118,36 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            let isVerified = false;  // Track if SubEdpCode is verified
+            let isVerified = false;  // Track if SubjCode is verified
 
-            
+            // Real-time validation for SubjCode (no symbols, all uppercase)
+            $('#subjectCodeInput').on('input', function () {
+                const value = $(this).val();
+                const cleanValue = value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase(); // Allow only letters/numbers, capitalize
+                $(this).val(cleanValue);
+            });
 
-            // Verify SubEdpCode button click event
+            // Real-time validation for Descript (no symbols, all uppercase)
+            $('#description').on('input', function () {
+                const value = $(this).val();
+                const cleanValue = value.replace(/[^a-zA-Z0-9\s]/g, '').toUpperCase(); // Allow letters, numbers, spaces, capitalize
+                $(this).val(cleanValue);
+            });
+
+            // Real-time validation for CatCourse (letters only, all uppercase)
+            $('#CatCourse').on('input', function () {
+                const value = $(this).val();
+                const cleanValue = value.replace(/[^a-zA-Z\s]/g, '').toUpperCase(); // Allow letters, spaces, capitalize
+                $(this).val(cleanValue);
+            });
+
+            // Verify SubjCode button click event
             $('#verifySubCodeBtn').on('click', function () {
                 const subjcode = $('#subjectCodeInput').val();
                 const currentSubjCode = '@Model.SubjCode';
 
                 if (subjcode === '0' || subjcode === '') {
-                    $('#subCodeMessage').text('Invalid Subject Code.').removeClass('text-success').addClass('text-danger');
+                    alert('Invalid Subject Code.');
                     isVerified = false;
                     return;
                 }
@@ -136,10 +158,10 @@
                     data: { subjcode: subjcode, currentSubjCode: currentSubjCode },
                     success: function (result) {
                         if (result.exists) {
-                            $('#subCodeMessage').text('Subject Code already exists. Encode a new one.').removeClass('text-success').addClass('text-danger');
+                            alert('Subject Code already exists. Encode a new one.');
                             isVerified = false;
                         } else {
-                            $('#subCodeMessage').text('Valid Subject Code.').removeClass('text-danger').addClass('text-success');
+                            alert('Valid Subject Code.');
                             isVerified = true;
                         }
                     },
@@ -149,20 +171,53 @@
                 });
             });
 
-            // Prevent form submission if EDP Code is not verified
+            // Validate CurrYear format (0000-0000)
+            function validateCurrYear() {
+                const currYear = $('#CurrYear').val();
+                const yearFormat = /^\d{4}-\d{4}$/; // Format: 0000-0000
+                if (!yearFormat.test(currYear)) {
+                    alert('Curriculum Year format is invalid. Use 0000-0000.');
+                    return false;
+                }
+                return true;
+            }
+
+            // Prevent form submission if validations fail
             $('form').on('submit', function (e) {
+                let isValid = true;
+
+                // Check if SubjCode is verified
                 if (!isVerified) {
-                    e.preventDefault();
-                    $('#subCodeMessage').text('Invalid. Verify the Subject Code first.').removeClass('text-success').addClass('text-danger');
+                    alert('Invalid. Verify the Subject Code first.');
+                    isValid = false;
                     $('#subjectCodeInput').focus();
+                }
+
+                // Validate Units (must be 0-3)
+                const units = $('#Units').val();
+                if (units < 0 || units > 3 || units === '') {
+                    alert('Units must be between 0 and 3.');
+                    isValid = false;
+                    $('#Units').focus();
+                }
+
+                // Validate CurrYear
+                if (!validateCurrYear()) {
+                    isValid = false;
+                    $('#CurrYear').focus();
+                }
+
+                if (!isValid) {
+                    e.preventDefault(); // Prevent form submission if invalid
                 }
             });
 
-            // Clear the verification message if the EDP Code is modified after verification
+            // Clear the verification flag if SubjCode changes
             $('#subjectCodeInput').on('input', function () {
                 isVerified = false;
-                $('#subCodeMessage').text('');
             });
         });
     </script>
+
+
 }

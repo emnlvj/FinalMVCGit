@@ -7,7 +7,7 @@ namespace StudentPortal.Models
 	{
 		[Key]
 		public int Id { get; set; }
-        [Required]
+      
         
 		public string FName { get; set; }
 
@@ -18,7 +18,7 @@ namespace StudentPortal.Models
 		public string Course { get; set; }
 		public string Remarks { get; set; }
 
-        [Range(1, 5)]
+        
         public int Year { get; set; }
 
         public ICollection<StudentEnrollment> StudentEnrollment { get; set; }

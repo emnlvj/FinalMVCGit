@@ -46,19 +46,37 @@ namespace StudentPortal.Controllers
         public IActionResult AddStudent(Student studobj)
         {
 
-               
+            var student = _studb.StudentInfo.FirstOrDefault(s => s.Id == studobj.Id);
 
-                    using (var transaction = _studb.Database.BeginTransaction())
-                    {
-                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo ON");
-                        _studb.StudentInfo.Add(studobj);
-                        _studb.SaveChanges();
-                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo OFF");
+            if(student != null)
+            {
+                ViewBag.ErrorMessage = "Id already exists.";
+                return View(studobj);
 
-                        transaction.Commit();
-                        return RedirectToAction("StudentList");
-                    }
+            }
 
+            if (studobj.Status == "Choose status..." || studobj.Course == "Choose course..." || studobj.Remarks == "Choose remarks...")
+            {
+                ViewBag.ErrorMessage = "Choose an option";
+                return View(studobj);
+
+            }
+
+            if (ModelState.IsValid)
+            {
+                using (var transaction = _studb.Database.BeginTransaction())
+                {
+                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo ON");
+                    _studb.StudentInfo.Add(studobj);
+                    _studb.SaveChanges();
+                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo OFF");
+
+                    transaction.Commit();
+                    return RedirectToAction("StudentList");
+                }
+            }
+            ViewBag.ErrorMessage = "All fields cannot be left empty and fill all necessary details.";
+            return View(studobj);
                 
                
         }
@@ -141,18 +159,23 @@ namespace StudentPortal.Controllers
                         Year = studobj.Year
                     };
 
+                if (ModelState.IsValid)
+                {
                     using (var transaction = _studb.Database.BeginTransaction())
                     {
-                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo ON");
+                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo ON");
 
-                    _studb.StudentInfo.Update(newStudent);
-                    _studb.SaveChanges();
+                        _studb.StudentInfo.Update(newStudent);
+                        _studb.SaveChanges();
 
-                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo OFF");
+                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo OFF");
 
-                    transaction.Commit();
-                    return RedirectToAction("StudentList");
+                        transaction.Commit();
+                        return RedirectToAction("StudentList");
                     }
+                }
+                ViewBag.ErrorMessage = "All fields cannot be left empty and fill all necessary details.";
+                return View(studobj);
               }
 
              if (existingStudentNot != null)
@@ -173,17 +196,24 @@ namespace StudentPortal.Controllers
                         Year = studobj.Year
                     };
 
+                if (ModelState.IsValid)
+                {
+
                     using (var transaction = _studb.Database.BeginTransaction())
                     {
-                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo ON");
-                    _studb.StudentInfo.Add(newStudent);
-                    _studb.SaveChanges();
+                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo ON");
+                        _studb.StudentInfo.Add(newStudent);
+                        _studb.SaveChanges();
 
-                    _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo OFF");
-                    transaction.Commit();
-                    _studb.ChangeTracker.Clear();
-                    return RedirectToAction("StudentList");
+                        _studb.Database.ExecuteSqlRaw("SET IDENTITY_INSERT StudentInfo OFF");
+                        transaction.Commit();
+                        _studb.ChangeTracker.Clear();
+                        return RedirectToAction("StudentList");
                     }
+                }
+
+                ViewBag.ErrorMessage ="All fields cannot be left empty and fill all necessary details.";
+                return View(studobj);
 
             }
             return View(studobj);

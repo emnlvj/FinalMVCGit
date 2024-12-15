@@ -1,6 +1,11 @@
 ﻿
 
+@if (ViewBag.ErrorMessage != null)
+{
 
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+
+}
 
 @model Student
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -77,6 +82,8 @@
         <span asp-validation-for="Year" class="text-danger" id="yearError"></span>
         <span class="validation-icon" id="yearIcon"></span>
     </div>
+
+    <input type="hidden" asp-for="StudentEnrollment" />
 
     <div class="col-12">
         <button type="submit" class="btn" style="background-color: #8B0000;color: white; border: none; border-radius: 0; font-size:10px; width:10%" onmouseover="this.style.backgroundColor='#FF0000';"
@@ -166,6 +173,53 @@
         let isValid = true;
 
         // Validate Year Level
+        const idValue = document.getElementById('studentId').value;
+        if (!idValue.trim()) {
+            isValid = false;
+            displayError('idError', 'Student ID is required.', false);
+        }
+
+        // Validate First Name
+        const fNameValue = document.getElementById('firstName').value;
+        if (!fNameValue.trim()) {
+            isValid = false;
+            displayError('fNameError', 'First Name is required.', false);
+        }
+
+        // Validate Last Name
+        const lNameValue = document.getElementById('lastName').value;
+        if (!lNameValue.trim()) {
+            isValid = false;
+            displayError('lNameError', 'Last Name is required.', false);
+        }
+
+        // Validate Middle Name
+        const mNameValue = document.getElementById('middleName').value;
+        if (!mNameValue.trim()) {
+            isValid = false;
+            displayError('mNameError', 'Middle Name is required.', false);
+        }
+
+        // Validate Status
+        const statusValue = document.querySelector('[name="Status"]').value;
+        if (statusValue === 'Choose status...') {
+            isValid = false;
+            displayError('statusError', 'Please select a valid status.', false);
+        }
+
+        const courseValue = document.querySelector('[name="Course"]').value;
+        if (courseValue === 'Choose course...') {
+            isValid = false;
+            displayError('courseError', 'Please select a valid course.', false);
+        }
+
+        // Validate Remarks
+        const remarksValue = document.querySelector('[name="Remarks"]').value;
+        if (remarksValue === 'Choose remarks...') {
+            isValid = false;
+            displayError('remarksError', 'Please select valid remarks.', false);
+        }
+
         const yearValue = document.getElementById('year').value;
         if (!/^[1-5]$/.test(yearValue)) {
             isValid = false;

@@ -52,6 +52,8 @@ namespace StudentPortal.Controllers
                 return View();
             }
 
+            
+
 
             if (edpfind != null)
             {
@@ -89,7 +91,7 @@ namespace StudentPortal.Controllers
 
             if (_conflictChecker.HasConflict(sched, existingSchedules))
             {
-                ViewBag.Meessage = "The schedule conflicts with an existing schedule.";
+                ViewBag.ErrorMessage = "The schedule conflicts with an existing schedule.";
                 return View(sched);
             }
 

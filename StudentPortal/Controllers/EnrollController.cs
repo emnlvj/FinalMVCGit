@@ -31,6 +31,20 @@ namespace StudentPortal.Controllers
                 return Json(new { success = false, message = "Invalid form data" });
             }
 
+            var studenroll = _studb.StudentEnrollment.FirstOrDefault(s=> s.Id == formData.Id);
+
+            if(studenroll != null)
+            {
+
+                return Json(new { success = false, message = "This student already enrolled." });
+            }
+
+            if(formData.Id == 0)
+            {
+                return Json(new { success = false, message = "Invalid ID" });
+
+            }
+
             try
             {
                 foreach (var schedule in formData.Schedules)
@@ -50,7 +64,7 @@ namespace StudentPortal.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new { success = false, message = ex.Message });
+                return Json(new { success = false, message = "This student does not exist. Create first." });
             }
         }
         public IActionResult EnrollmentReview()

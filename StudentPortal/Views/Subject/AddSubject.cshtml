@@ -1,29 +1,34 @@
-﻿@model Subject
+﻿@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+@model Subject
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-<form class="row g-3" method="post">
+<form class="row g-3" method="post" id="subjectForm">
     <div><h2 class="text-black">Add Subject</h2></div>
     <hr class="text-black">
 
     <!-- Subject Code -->
     <div class="col-md-4">
         <label asp-for="SubjCode" class="form-label">Subject Code</label>
-        <input asp-for="SubjCode" type="text" class="form-control">
+        <input asp-for="SubjCode" id="SubjCode" type="text" class="form-control" required>
         <span asp-validation-for="SubjCode" class="text-danger"></span>
     </div>
 
     <!-- Description -->
     <div class="col-md-8">
         <label asp-for="Descript" class="form-label">Description</label>
-        <input asp-for="Descript" type="text" class="form-control" placeholder="Subject Description">
+        <input asp-for="Descript" id="Descript" type="text" class="form-control" placeholder="Subject Description" required>
         <span asp-validation-for="Descript" class="text-danger"></span>
     </div>
 
     <!-- Units -->
     <div class="col-md-3">
         <label asp-for="Units" class="form-label">Units</label>
-        <input asp-for="Units" class="form-control" placeholder="Units">
+        <input asp-for="Units" id="Units" class="form-control" placeholder="Units" required>
         <span asp-validation-for="Units" class="text-danger"></span>
     </div>
 
@@ -31,7 +36,7 @@
     <div class="col-md-5">
         <label asp-for="Offering" class="form-label">Offering</label>
         <select asp-for="Offering" class="form-select text-black-50">
-            <option selected>Choose course...</option>
+            <option selected>Choose offering...</option>
             <option>First Semester</option>
             <option>Second Semester</option>
             <option>Summer</option>
@@ -39,27 +44,68 @@
         <span asp-validation-for="Offering" class="text-danger"></span>
     </div>
 
-    <!-- Other Fields -->
+    <!-- Category -->
     <div class="col-md-4">
         <label asp-for="CatCourse" class="form-label">Category</label>
-        <input asp-for="CatCourse" type="text" class="form-control">
+        <input asp-for="CatCourse" id="CatCourse" type="text" class="form-control" required>
         <span asp-validation-for="CatCourse" class="text-danger"></span>
     </div>
 
+    <!-- Curriculum Year -->
     <div class="col-md-3">
         <label asp-for="CurrYear" class="form-label">Curriculum</label>
-        <input asp-for="CurrYear" type="text" class="form-control">
+        <input asp-for="CurrYear" id="CurrYear" type="text" class="form-control" placeholder="0000-0000" required>
         <span asp-validation-for="CurrYear" class="text-danger"></span>
     </div>
-    <!-- PreCode Dropdown with N/A Option -->
-    
 
     <!-- Submit Button -->
     <div class="col-12">
         <button type="submit" style="background-color: #8B0000; color: white; border: none; border-radius: 0; font-size:10px"
                 onmouseover="this.style.backgroundColor='#FF0000';"
-                onmouseout="this.style.backgroundColor='#8B4513';">
+                onmouseout="this.style.backgroundColor='#8B0000';">
             <i class="bi bi-arrow-down-right-circle"></i> Save
         </button>
     </div>
 </form>
+
+<!-- jQuery for Real-Time Validation and Submit Validation -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        // Real-time Uppercase and Symbol Validation
+        $('#SubjCode, #Descript').on('input', function () {
+            const inputValue = $(this).val().replace(/[^A-Z0-9]/gi, '').toUpperCase();
+            $(this).val(inputValue);
+        });
+
+        $('#CatCourse').on('input', function () {
+            const inputValue = $(this).val().replace(/[^A-Z]/gi, '').toUpperCase();
+            $(this).val(inputValue);
+        });
+
+        // Submit-time Validation
+        $('#subjectForm').on('submit', function (e) {
+            let isValid = true;
+
+            // Units Validation (0-3)
+            const units = parseInt($('#Units').val());
+            if (isNaN(units) || units < 0 || units > 3) {
+                alert('Units must be between 0 and 3.');
+                $('#Units').focus();
+                isValid = false;
+            }
+
+            // Curriculum Year Validation (0000-0000)
+            const currYearPattern = /^\d{4}-\d{4}$/;
+            const currYear = $('#CurrYear').val();
+            if (!currYearPattern.test(currYear)) {
+                alert('Curriculum Year must follow the format 0000-0000.');
+                $('#CurrYear').focus();
+                isValid = false;
+            }
+
+            if (!isValid) e.preventDefault(); // Prevent form submission if invalid
+        });
+    });
+</script>

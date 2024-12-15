@@ -67,12 +67,28 @@ namespace StudentPortal.Controllers
         [HttpPost]
         public IActionResult AddSubject(Subject studsub)
         {
-            
+            var subject = _studb.SubjectInfo.FirstOrDefault(s => s.SubjCode == studsub.SubjCode);
+
+            if(subject != null)
+            {
+
+                ViewBag.ErrorMessage = "Subject code already exists.";
+                return View(studsub);
+            }
+            if ( studsub.Offering == "Choose offering...")
+            {
+                ViewBag.ErrorMessage = "Choose an option";
+                return View(studsub);
+
+            }
+            if (ModelState.IsValid)
+            {
                 _studb.SubjectInfo.Add(studsub);
                 _studb.SaveChanges();
                 return RedirectToAction("SubjectSummary");
-            
-
+            }
+            ViewBag.ErrorMessage = "All fields cannot be left empty and fill all necessary details.";
+            return View(studsub);
            
         }
 
@@ -95,7 +111,7 @@ namespace StudentPortal.Controllers
                 .FirstOrDefault(s => s.SubjCode == subjcode && s.CatCourse == courseobj);
             if (subjcodefind == null)
             {
-                ViewBag.Message = "Subject not found";
+                ViewBag.ErrorMessage = "Subject not found";
                 return View();
             }
             
@@ -131,7 +147,7 @@ namespace StudentPortal.Controllers
         {
             if (subjectobj == null || string.IsNullOrEmpty(subjectobj.SubjCode) && courseobj == null || string.IsNullOrEmpty(subjectobj.CatCourse))
             {
-                ViewBag.Message = "Subject not found";
+                ViewBag.ErrorMessage = "Subject not found";
                 return View(subjectobj);  // Return the view with the original object
             }
 
@@ -160,11 +176,18 @@ namespace StudentPortal.Controllers
                     CurrYear = subjectobj.CurrYear
                     
                 };
-               
+                if (subjectobj.Offering == "Choose offering...")
+                {
+                    ViewBag.ErrorMessage = "Choose an option";
+                    return View(subjectobj);
 
+                }
+
+                
                     _studb.SubjectInfo.Update(newSubject);
                     _studb.SaveChanges();
                     return RedirectToAction("SubjectSummary");
+                
                 
 
 
@@ -188,15 +211,21 @@ namespace StudentPortal.Controllers
                     
                  };
 
-               
+                if (subjectobj.Offering == "Choose offering...")
+                {
+                    ViewBag.ErrorMessage = "Choose an option";
+                    return View(subjectobj);
+
+                }
+                
                     _studb.SubjectInfo.Add(newSubject);
                     _studb.SaveChanges();
 
-                    
-                    _studb.ChangeTracker.Clear();
-                    return RedirectToAction("SubjectSummary");
-                
 
+                    
+                    return RedirectToAction("SubjectSummary");
+               
+                
             }
 
             
@@ -217,7 +246,7 @@ namespace StudentPortal.Controllers
                .FirstOrDefault(s => s.SubjCode == subjcode && s.CatCourse == courseobj);
             if (subjcodefind == null)
             {
-                ViewBag.Message = "Subject not found";
+                ViewBag.ErrorMessage = "Subject not found";
                 return View();
             }
             return View(subjcodefind);
@@ -232,7 +261,7 @@ namespace StudentPortal.Controllers
 
             if (subjectfind == null)
             {
-                ViewBag.Message = "No subject found";
+                ViewBag.ErrorMessage = "No subject found";
                 return View();
             }
             

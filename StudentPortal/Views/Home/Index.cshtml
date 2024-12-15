@@ -1,11 +1,20 @@
 ﻿@{
     var urlList = Url.Action("StudentList", "Student");
-    var urlPriv = Url.Action("Privacy", "Home");
+    
     var urlAdd = Url.Action("AddStudent", "Student");
     var urlEdit = Url.Action("EditStudent", "Student");
     var urlDel = Url.Action("DeleteStudent", "Student");
-    var urlListSub = Url.Action("SubjectList", "Subject");
+    var urlListSub = Url.Action("SubjectSummary", "Subject");
+    var urlSumSub = Url.Action("SubjectList", "Subject");
     var urlAddSub = Url.Action("AddSubject", "Subject");
+    var urlDelSub = Url.Action("DeleteSubject", "Subject");
+    var urlEditSub = Url.Action("EditSubject", "Subject");
+    var urlListSched = Url.Action("ScheduleList", "Schedule");
+    var urlAddSched = Url.Action("AddSchedule", "Schedule");
+    var urlEditSched = Url.Action("EditSchedule", "Schedule");
+    var urlDelSched = Url.Action("DeleteSchedule", "Schedule");
+    var urlEnroll = Url.Action("EnrollmentForm", "Enroll");
+
 }
 
 <style>
@@ -80,22 +89,29 @@
                 <div class="dropdown-menu">
                     <a href="@urlListSub" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Subject List</a>
                     <a href="@urlAddSub" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Add Subject</a>
-                    <a href="@urlEdit" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Edit Subject</a>
-                    <a href="@urlDel" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Delete Subject</a>
+                    <a href="@urlEditSub" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Edit Subject</a>
+                    <a href="@urlDelSub" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Delete Subject</a>
+                    <a href="@urlSumSub" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Subject Overview</a>
                 </div>
             </div>
             <div class="col-md-4">
-                <a href="@urlPriv" class="btn" style="background-color:#8B0000; color: white; border: none; width: 100%; border-radius: 0;"
-                        onmouseover="this.style.backgroundColor='#FF0000';"
-                        onmouseout="this.style.backgroundColor='#8B0000';">
-                    Privacy
-                </a>
+                <a role="button" class="btn dropdown-toggle" style="background-color:#8B0000; color: white; border: none; width: 100%; border-radius: 0;"
+                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                   onmouseover="this.style.backgroundColor='#FF0000';"
+                   onmouseout="this.style.backgroundColor='#8B0000';">Schedule</a>
+                <div class="dropdown-menu">
+                    <a href="@urlListSched" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Schedule List</a>
+                    <a href="@urlAddSched" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Add Schedule</a>
+                    <a href="@urlEditSched" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Edit Schedule</a>
+                    <a href="@urlDelSched" class="dropdown-item" style="background-color:#8B0000;width: 100%;">Delete Schedule</a>
+                </div>
             </div>
             <div class="col-md-6">
-                <button type="submit" class="btn btn-brown" style="background-color: #8B4513;color: white; border: none; border-radius: 0; font-size:10px" onmouseover="this.style.backgroundColor='#6F4C3E';"
+                <a href="@urlEnroll"  type="submit" class="btn btn-brown" style="background-color: #8B4513;color: white; border: none; border-radius: 0; font-size:10px" onmouseover="this.style.backgroundColor='#6F4C3E';"
                         onmouseout="this.style.backgroundColor='#8B4513';">
                     Enroll Now
-                </button>
+                </a>
+                
             </div>
         </form>
 
